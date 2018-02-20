@@ -1,4 +1,5 @@
 # Project Name #
+UrbanTails
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -18,15 +19,20 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+UrbanTails - boarding for pets anywhere!
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+worry free pet boarding for pet owners who travel.  
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  
 
 ## Problem ##
   > Describe the problem your product solves.
+  do you ever vacation and cant find place for your pet to stay?
+  
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
