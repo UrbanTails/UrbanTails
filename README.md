@@ -1,6 +1,6 @@
 # UrbanTails
 
-> Pithy project description
+>
 
 ## Team
 
