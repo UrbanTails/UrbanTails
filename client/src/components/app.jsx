@@ -10,7 +10,7 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Route path='*' component={Landing} />
+        <Route exact path='/' component={Landing} />
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
       </div>
