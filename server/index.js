@@ -1,22 +1,42 @@
 const express = require('express');
+const router = express.Router();
 const path = require('path');
+const bodyParser = require('body-parser');
 const db = require('../database/index');
 let app = express();
 
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.route('/login')
+  .post((req, res) => {
+    // TODO: fetch user from db
+    res.send('login POST');
+  });
 
-app.post('/login', function(req, res) {
-  res.send();
-});
+app.route('/users')
+  .get((req, res) => {
+    res.send('user GET');
+  })
+  .post((req, res) => {
+    res.send('user POST');
+  });
 
-app.post('/signup', function(req, res) {
+app.route('/signup')
+  .post((req, res) => {
+  db.saveUser(req.body, (err, res) => {
+      if (err) { console.log('error saving to db:', err); }
+      else {
+        console.log('saved to the db:', res);
+      }
+    });
  res.send();
 });
 
-app.post('user', function(req, res) {
-  res.send();
+app.route('/messages', (req, res) => {
+
 });
 
 let PORT = process.env.PORT || 3000;
