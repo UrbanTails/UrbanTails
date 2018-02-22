@@ -10,10 +10,23 @@ mongoose.connect(uristring, (err, res) => {
 });
 
 let PetOwnerSchema = mongoose.Schema({
-  name: String,
+  username: String,
   email: String,
   password: String
 });
 
 let PetOwner = mongoose.model('PetOwner', PetOwnerSchema);
 
+let saveUser = (data, callback) => {
+  let petOwner = new PetOwner ({
+    username: data.username,
+    email: data.email,
+    password: data.password
+  });
+
+  petOwner.save((err, petOwner) => {
+    callback(err, petOwner);
+  });
+}
+
+module.exports.saveUser = saveUser;
