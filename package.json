@@ -4,7 +4,7 @@
   "description": "  UrbanTails gives pet owners the opportunity to travel with their pets, stress-free, knowing there is a welcoming host for pets wherever they wish to travel.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect server/index.js",
+    "start": "node server/index.js",
     "test": "test"
   },
   "repository": {
