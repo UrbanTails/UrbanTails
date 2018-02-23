@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+
 const bodyParser = require('body-parser');
 const db = require('../database/index');
 let app = express();
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.route('/login')
   .post((req, res) => {
     // TODO: fetch user from db
+    console.log(req.body)
     res.send('login POST');
   });
 
@@ -26,6 +28,7 @@ app.route('/users')
 
 app.route('/signup')
   .post((req, res) => {
+  console.log('posting new user to db:', req.body);
   db.saveUser(req.body, (err, res) => {
       if (err) { console.log('error saving to db:', err); }
       else {
