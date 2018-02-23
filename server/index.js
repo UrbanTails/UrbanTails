@@ -19,7 +19,7 @@ app.route('/login')
     // TODO: fetch user from db
     console.log(req.body)
     res.send('login POST');
-  });
+});
 
 app.route('/users')
   .get((req, res) => {
@@ -27,7 +27,7 @@ app.route('/users')
   })
   .post((req, res) => {
     res.send('user POST');
-  });
+});
 
 app.route('/signup')
   .post((req, res) => {
@@ -38,12 +38,9 @@ app.route('/signup')
     else {
       console.log('saved to the db:', result);
       // send to profile page
-
       res.send(result);
     }
-
   });
-
 });
 
 app.route('/messages', (req, res) => {

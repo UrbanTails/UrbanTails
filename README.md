@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: Queenie
-  - __Scrum Master__: Michael
-  - __Development Team Members__: Annah, Yufan
+  - __Product Owner__: Queenie Smith
+  - __Scrum Master__: Michael Shin
+  - __Development Team Members__: Annah Patterson, Yufan Wang
 
 ## Table of Contents
 
