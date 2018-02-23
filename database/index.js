@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-let uristring = process.env.MONGOLAB_URI || 'mongodb://localhost/users'
+const bcrypt = require('bcrypt');
+let uristring = process.env.MONGOLAB_URI || 'mongodb://localhost/users';
+
 
 mongoose.connect(uristring, (err, res) => {
   if (err) {
@@ -11,7 +13,6 @@ mongoose.connect(uristring, (err, res) => {
 
 let PetOwnerSchema = mongoose.Schema({
   username: String,
-  email: String,
   password: String
 });
 
@@ -20,7 +21,6 @@ let PetOwner = mongoose.model('PetOwner', PetOwnerSchema);
 let saveUser = (data, callback) => {
   let petOwner = new PetOwner ({
     username: data.username,
-    email: data.email,
     password: data.password
   });
 
