@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const morgan = require('morgan');
 
 const mongoose = require('mongoose');
 let uristring = process.env.MONGODB_URI || 'mongodb://localhost:27017/users';
@@ -12,7 +11,6 @@ let app = express();
 
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
-app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
