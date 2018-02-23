@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 
 class Signup extends React.Component {
@@ -15,18 +16,23 @@ class Signup extends React.Component {
   onChangeUserName (e) {
     this.setState ({
       username: e.target.value
-    })
+    });
   }
 
   onChangePassword (e) {
     this.setState ({
       password: e.target.value
-    })
+    });
   }
 
   handleClick (e) {
-    console.log('login submitted', e.target.value);
     e.preventDefault();
+
+    this.setState({
+      username: '',
+      password: ''
+    });
+
     $.ajax({
       type: 'POST',
       url: '/signup',
@@ -40,9 +46,7 @@ class Signup extends React.Component {
       error: (data) => {
         console.log('error posting data', data);
       }
-
     });
-
   }
 
   render () {
@@ -59,7 +63,8 @@ class Signup extends React.Component {
             Password:
             <input className='password' value={this.state.password} onChange={this.onChangePassword.bind(this)} />
           </label>
-            <input type='submit' value='Sign Up' className='submit' />
+            <input type='submit' value='Sign Up' className='submit' /><br />
+          <Link to='/login'>Already have an account?</Link>
         </form>
       </div>
     )

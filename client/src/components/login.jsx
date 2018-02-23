@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 
 class Login extends React.Component {
@@ -59,6 +60,8 @@ class Login extends React.Component {
               <input className='password' value={this.state.password} onChange={this.onChangePassword.bind(this)}/>
             </label>
             <input type='submit' value='Log In' className='submit' />
+            <br />
+          <Link to='/signup'>Don't have an account?</Link>
         </form>
       </div>
     )
