@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-let uristring = process.env.MONGOLAB_URI || 'mongodb://localhost/users';
+let uristring = process.env.MONGODB_URI || 'mongodb://localhost/users';
 
 
 mongoose.connect(uristring, (err, res) => {
