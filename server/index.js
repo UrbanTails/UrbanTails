@@ -2,12 +2,15 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+
+
 const bodyParser = require('body-parser');
 const db = require('../database/index');
 let app = express();
 
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,6 +47,8 @@ app.route('/messages', (req, res) => {
 
 let PORT = process.env.PORT || 3000;
 
+
 app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
 });
+

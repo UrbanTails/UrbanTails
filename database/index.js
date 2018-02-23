@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
+let uristring = process.env.MONGODB_URI || 'mongodb://localhost:27017/users';
+
 const bcrypt = require('bcrypt');
-let uristring = process.env.MONGOLAB_URI || 'mongodb://localhost/users';
 
-
-mongoose.connect(uristring, (err, res) => {
-  if (err) {
-    console.log('Failed to connect to: ' + uristring + '.' + err);
-  } else {
-    console.log('Connected to: ' + uristring);
+mongoose.connect(uristring, (err) => {
+  if (err) { console.log('mongodb not connected', err); }
+  else {
+    console.log('connected to database');
   }
 });
 
@@ -27,6 +26,6 @@ let saveUser = (data, callback) => {
   petOwner.save((err, petOwner) => {
     callback(err, petOwner);
   });
-}
+};
 
 module.exports.saveUser = saveUser;
