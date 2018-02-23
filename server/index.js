@@ -32,13 +32,18 @@ app.route('/users')
 app.route('/signup')
   .post((req, res) => {
   console.log('posting new user to db:', req.body);
-  db.saveUser(req.body, (err, res) => {
-      if (err) { console.log('error saving to db:', err); }
-      else {
-        console.log('saved to the db:', res);
-      }
-    });
- res.send();
+
+  db.saveUser(req.body, (err, result) => {
+    if (err) { console.log('error saving to db:', err); }
+    else {
+      console.log('saved to the db:', result);
+      // send to profile page
+
+      res.send(result);
+    }
+
+  });
+
 });
 
 app.route('/messages', (req, res) => {
