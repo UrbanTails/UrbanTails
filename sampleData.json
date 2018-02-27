@@ -23,18 +23,6 @@ let samplePetOwners = [
     "location": "New York",
     "description":"Gentle, loving pup who is great with children and loves to be held. Favorite games include indoor fetch and ball chasing."
   },
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-];
-
-let sampleHosts = [];
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   {
     "name":"Sadie",
     "profileUrl":"https://i.imgur.com/BPs11lG.jpg",
@@ -137,13 +125,4 @@ let sampleHosts = [
     "location": "Los Angeles",
     "description":"Super clean, smoke-free home. We have 2 playful shitzus that love having guests."
   }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-];
->>>>>>> Stashed changes
-=======
-];
->>>>>>> Stashed changes
-=======
-];
->>>>>>> Stashed changes
+]
