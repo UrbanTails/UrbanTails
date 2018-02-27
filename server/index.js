@@ -16,9 +16,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.route('/login')
   .post((req, res) => {
-    // TODO: fetch user from db
-    console.log(req.body)
-    res.send('login POST');
+    console.log('getting user from database:', req.body);
+
+    if(req.body.type === 'petOwner') {
+      db.getUser(req.body, (err, result) => {
+        if (err) { console.log('error getting petOwner data from db:', err); }
+        else {
+          console.log('got petOwner data from the db:', result);
+          // send to profile page
+          res.send(result);
+        }
+      });
+    }
+
+    if(req.body.type === 'host') {
+      db.getHost(req.body, (err, result) => {
+        if (err) { console.log('error getting host data from db::', err); }
+        else {
+          console.log('got host data from the db:', result);
+          // send to profile page
+          res.send(result);
+        }
+      });
+    }
 });
 
 app.route('/users')
@@ -33,7 +53,7 @@ app.route('/signup')
   .post((req, res) => {
   console.log('posting new user to db:', req.body);
 
-  if(req.body.type === 'petOwner') {  //need to confirm type
+  if(req.body.type === 'petOwner') {
     db.saveUser(req.body, (err, result) => {
       if (err) { console.log('error saving petOwner data to db:', err); }
       else {
@@ -44,7 +64,7 @@ app.route('/signup')
     });
   }
 
-  if(req.body.type === 'host') { //need to confirm type
+  if(req.body.type === 'host') {
     db.saveHost(req.body, (err, result) => {
       if (err) { console.log('error saving host data to db:', err); }
       else {
@@ -56,6 +76,8 @@ app.route('/signup')
   }
 
 });
+
+
 
 app.route('/messages', (req, res) => {
 
