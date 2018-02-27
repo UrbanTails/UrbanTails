@@ -4,6 +4,7 @@ let sampleHosts = require('./sampleHosts.json');
 
 db.dropDatabase();
 
+
 samplePetOwners.forEach((obj, err) => {
   db.saveUser(obj, (err, data) => {
     if (err) { console.log('error saving pet owner to database', err); }
