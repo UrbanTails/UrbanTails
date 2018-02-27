@@ -1,6 +1,7 @@
 [
   {
     "username": "Charlie",
+    "password": "birdman",
     "profileUrl": "https://i.imgur.com/MU2dD8E.jpg",
     "type": "petOwner",
     "location": "Los Angeles",
@@ -8,6 +9,7 @@
   },
   {
     "username":"Jasper",
+    "password": "limelight",
     "profileUrl":"https://i.imgur.com/AEXmzIM.jpg",
     "type": "petOwner",
     "location": "Los Angeles",
@@ -15,6 +17,7 @@
   },
   {
     "username":"Lucy",
+    "password": "starsplash",
     "profileUrl":"https://i.imgur.com/StzL6S3.jpg",
     "type": "petOwner",
     "location": "New York",
@@ -22,6 +25,7 @@
   },
   {
     "username":"Millie",
+    "password": "gamesforever",
     "profileUrl":"https://i.imgur.com/uW27yjz.jpg",
     "type": "petOwner",
     "location": "New York",
@@ -29,6 +33,7 @@
   },
   {
     "username":"Sadie",
+    "password": "waterbaby",
     "profileUrl":"https://i.imgur.com/BPs11lG.jpg",
     "type": "petOwner",
     "location": "New York",
@@ -36,6 +41,7 @@
   },
   {
     "username":"Roger",
+    "password": "hiphop",
     "profileUrl":"https://i.imgur.com/H9b1Mcv.jpg",
     "type": "petOwner",
     "location": "Los Angeles",
@@ -43,6 +49,7 @@
   },
   {
     "username":"Norman",
+    "password": "naptime",
     "profileUrl":"https://i.imgur.com/WBbD3Fm.jpg",
     "type": "petOwner",
     "location": "Los Angeles",
@@ -50,6 +57,7 @@
   },
   {
     "username":"Lulu",
+    "password": "booklover",
     "profileUrl":"https://i.imgur.com/AEUVYtM.jpg",
     "type": "petOwner",
     "location": "Los Angeles",
@@ -57,6 +65,7 @@
   },
   {
     "username":"Max",
+    "password": "supersecret",
     "profileUrl":"https://i.imgur.com/vyIOsUO.jpg",
     "type": "petOwner",
     "location": "New York",
