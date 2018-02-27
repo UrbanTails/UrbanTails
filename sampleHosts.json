@@ -1,6 +1,7 @@
 [
   {
     "username": "Maria",
+    "password": "secret",
     "profileUrl": "https://i.imgur.com/MU2dD8E.jpg",
     "type": "host",
     "location": "Los Angeles",
@@ -8,6 +9,7 @@
   },
   {
     "username":"Jon",
+    "password": "coolbeans",
     "profileUrl":"https://i.imgur.com/AEXmzIM.jpg",
     "type": "host",
     "location": "Los Angeles",
@@ -15,6 +17,7 @@
   },
   {
     "username":"Mira",
+    "password": "superflash",
     "profileUrl":"https://i.imgur.com/StzL6S3.jpg",
     "type": "host",
     "location": "New York",
@@ -22,6 +25,7 @@
   },
   {
     "username":"Greg",
+    "password": "moonshine",
     "profileUrl":"https://i.imgur.com/uW27yjz.jpg",
     "type": "host",
     "location": "New York",
@@ -29,6 +33,7 @@
   },
   {
     "username":"Fernando",
+    "password": "loveactually",
     "profileUrl":"https://i.imgur.com/BPs11lG.jpg",
     "type": "host",
     "location": "New York",
@@ -36,6 +41,7 @@
   },
   {
     "username":"The Gates Family",
+    "password": "billions",
     "profileUrl":"https://i.imgur.com/H9b1Mcv.jpg",
     "type": "host",
     "location": "Los Angeles",
@@ -43,6 +49,7 @@
   },
   {
     "username":"Amanda",
+    "password": "hollywood",
     "profileUrl":"https://i.imgur.com/WBbD3Fm.jpg",
     "type": "host",
     "location": "Los Angeles",
@@ -50,6 +57,7 @@
   },
   {
     "username":"Bob",
+    "password": "jazzfan",
     "profileUrl":"https://i.imgur.com/AEUVYtM.jpg",
     "type": "host",
     "location": "New York",
@@ -57,6 +65,7 @@
   },
   {
     "username":"Lillian",
+    "password": "flowerpatch",
     "profileUrl":"https://i.imgur.com/vyIOsUO.jpg",
     "type": "host",
     "location": "Los Angeles",
@@ -65,6 +74,7 @@
 
   {
     "username":"Cora & Bill",
+    "password": "yorkiesforlife",
     "profileUrl":"https://i.imgur.com/6vM0UID.jpg",
     "type": "host",
     "location": "Los Angeles",
