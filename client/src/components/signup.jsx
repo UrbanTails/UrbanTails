@@ -9,7 +9,8 @@ class Signup extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      type: 'host'
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -29,24 +30,30 @@ class Signup extends React.Component {
   handleClick (e) {
     e.preventDefault();
 
-    this.setState({
-      username: '',
-      password: ''
-    });
-
     $.ajax({
       type: 'POST',
       url: '/signup',
       data: {
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
+        type: this.state.type
       },
       success: (data) => {
         console.log('ajax posting data', data);
+        this.setState({
+          username: '',
+          password: ''
+        });
       },
       error: (data) => {
         console.log('error posting data', data);
       }
+    });
+  }
+
+  handleTypeChange (e) {
+    this.setState({
+      type: e.target.value
     });
   }
 
@@ -61,17 +68,34 @@ class Signup extends React.Component {
           <div className="col-sm-7">
             <form onSubmit={this.handleClick}>
               <h2 className="form-signin-heading">Signup</h2>
-              <input type="email" placeholder="Email address" required="" autoFocus="" />
- <label>
+              <label>
+                Email:
+                <input type="email" placeholder="Email address" required="" autoFocus="" />
+              </label>
+              <label>
                 Username:
-                <input className='username' value={this.state.username} onChange={this.onChangeUserName.bind(this)} />
+                <input className="username" placeholder="Username" value={this.state.username} onChange={this.onChangeUserName.bind(this)} />
               </label>
               <label>
                 Password:
-                <input className='password' value={this.state.password} onChange={this.onChangePassword.bind(this)} />
+                <input className="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword.bind(this)} />
               </label>
-              <input type='submit' value='Sign Up' className='submit' /><br />
-              <Link to='/login'>Already have an account?</Link>
+              <input type="submit" value="Sign Up" className="submit" /><br />
+              <div className="radio">
+                <label>
+                  <input type="radio" value = "host"
+                  onChange={this.handleTypeChange.bind(this)}
+                  checked={this.state.type === "host"}/>
+                  Host
+                </label>
+                <label>
+                  <input type="radio" value = "petOwner"
+                  onChange={this.handleTypeChange.bind(this)}
+                  checked={this.state.type === "petOwner"}/>
+                  Pet Owner
+                </label>
+              </div>
+              <Link to="/login">Already have an account?</Link>
             </form>
           </div>
         </div>
