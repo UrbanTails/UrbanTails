@@ -33,14 +33,28 @@ app.route('/signup')
   .post((req, res) => {
   console.log('posting new user to db:', req.body);
 
-  db.saveUser(req.body, (err, result) => {
-    if (err) { console.log('error saving to db:', err); }
-    else {
-      console.log('saved to the db:', result);
-      // send to profile page
-      res.send(result);
-    }
-  });
+  if(req.body.type === 'petOwner') {  //need to confirm type
+    db.saveUser(req.body, (err, result) => {
+      if (err) { console.log('error saving petOwner data to db:', err); }
+      else {
+        console.log('saved petOwner data to the db:', result);
+        // send to profile page
+        res.send(result);
+      }
+    });
+  }
+
+  if(req.body.type === 'host') { //need to confirm type
+    db.saveHost(req.body, (err, result) => {
+      if (err) { console.log('error saving host data to db:', err); }
+      else {
+        console.log('saved host data to the db:', result);
+        // send to profile page
+        res.send(result);
+      }
+    });
+  }
+
 });
 
 app.route('/messages', (req, res) => {
@@ -53,4 +67,3 @@ let PORT = process.env.PORT || 3000;
 app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
 });
-
