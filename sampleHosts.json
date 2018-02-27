@@ -1,0 +1,73 @@
+[
+  {
+    "username": "Maria",
+    "profileUrl": "https://i.imgur.com/MU2dD8E.jpg",
+    "type": "host",
+    "location": "Los Angeles",
+    "description":"I've got a wonderful patio and serve meals outside when the weather is nice."
+  },
+  {
+    "username":"Jon",
+    "profileUrl":"https://i.imgur.com/AEXmzIM.jpg",
+    "type": "host",
+    "location": "Los Angeles",
+    "description":"Located in the heart of Santa Monica, your pet will love the social scene with tons of people and pets to meet."
+  },
+  {
+    "username":"Mira",
+    "profileUrl":"https://i.imgur.com/StzL6S3.jpg",
+    "type": "host",
+    "location": "New York",
+    "description":"Best spot in the West Village, just steps from the dog park."
+  },
+  {
+    "username":"Greg",
+    "profileUrl":"https://i.imgur.com/uW27yjz.jpg",
+    "type": "host",
+    "location": "New York",
+    "description":"Make Brooklyn your pet's home during vacation where the sidewalks are clean and our backyard beckons happy pets."
+  },
+  {
+    "username":"Fernando",
+    "profileUrl":"https://i.imgur.com/BPs11lG.jpg",
+    "type": "host",
+    "location": "New York",
+    "description":"Your pet won't want to leave! I pamper my guests with organic meals and filtered water. Luxury bath and bedding products included."
+  },
+  {
+    "username":"The Gates Family",
+    "profileUrl":"https://i.imgur.com/H9b1Mcv.jpg",
+    "type": "host",
+    "location": "Los Angeles",
+    "description":"Our family will welcome your pet as our own. We have 2 children who are ultra kind and patient with pets. Your pet will have a blast!"
+  },
+  {
+    "username":"Amanda",
+    "profileUrl":"https://i.imgur.com/WBbD3Fm.jpg",
+    "type": "host",
+    "location": "Los Angeles",
+    "description":"Nested in the Hollywood Hills, our home is the perfect spot for your pet on vacation. We have an enclosed garden with tons of pet toys."
+  },
+  {
+    "username":"Bob",
+    "profileUrl":"https://i.imgur.com/AEUVYtM.jpg",
+    "type": "host",
+    "location": "New York",
+    "description":"You'll love our apartment right next to Central Park where your dog can play and socialize. Cats will love birdwatching from our windows."
+  },
+  {
+    "username":"Lillian",
+    "profileUrl":"https://i.imgur.com/vyIOsUO.jpg",
+    "type": "host",
+    "location": "Los Angeles",
+    "description":"Beach living at its finest. Your pet will love our bay windows overlooking the ocean. We take dogs on daily walks down the beach."
+  },
+
+  {
+    "username":"Cora & Bill",
+    "profileUrl":"https://i.imgur.com/6vM0UID.jpg",
+    "type": "host",
+    "location": "Los Angeles",
+    "description":"Super clean, smoke-free home. We have 2 playful shitzus that love having guests."
+  }
+]

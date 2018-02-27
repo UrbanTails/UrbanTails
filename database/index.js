@@ -46,6 +46,10 @@ module.exports = {
 
     host.save((err, host) => {
       callback(err, host);
-    })
+    });
+  },
+  dropDatabase: () => {
+    mongoose.connection.dropDatabase();
   }
+
 };
