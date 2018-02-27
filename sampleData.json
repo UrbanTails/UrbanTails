@@ -26,10 +26,13 @@ let samplePetOwners = [
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ];
 
 let sampleHosts = [];
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   {
@@ -135,6 +138,10 @@ let sampleHosts = [
     "description":"Super clean, smoke-free home. We have 2 playful shitzus that love having guests."
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+];
+>>>>>>> Stashed changes
+=======
 ];
 >>>>>>> Stashed changes
 =======
