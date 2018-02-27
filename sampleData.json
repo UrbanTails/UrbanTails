@@ -25,10 +25,13 @@ let samplePetOwners = [
   },
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ];
 
 let sampleHosts = [];
 =======
+=======
+>>>>>>> Stashed changes
   {
     "name":"Sadie",
     "profileUrl":"https://i.imgur.com/BPs11lG.jpg",
@@ -131,5 +134,9 @@ let sampleHosts = [
     "location": "Los Angeles",
     "description":"Super clean, smoke-free home. We have 2 playful shitzus that love having guests."
   }
+<<<<<<< Updated upstream
+];
+>>>>>>> Stashed changes
+=======
 ];
 >>>>>>> Stashed changes
