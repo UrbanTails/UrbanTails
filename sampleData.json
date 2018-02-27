@@ -1,0 +1,29 @@
+let samplePetOwners = [
+  {
+    "name":"Charlie",
+    "profileUrl":"https://i.imgur.com/MU2dD8E.jpg",
+    "location": "Los Angeles",
+    "description":"Just looking for a few open-minded birds to hang out, play dead and snuggle."
+  },
+  {
+    "name":"Jasper",
+    "profileUrl":"https://i.imgur.com/AEXmzIM.jpg",
+    "location": "Los Angeles",
+    "description":"I'm hypoallergenic and love to lounge in the sun. You'll often find me napping in your windowsill or on the patio."
+  },
+  {
+    "name":"Lucy",
+    "profileUrl":"https://i.imgur.com/StzL6S3.jpg",
+    "location": "New York",
+    "description":"I'm a super intelligent social gal who loves to play at the dog park with new friends. Very obedient and well-behaved."
+  },
+  {
+    "name":"Millie",
+    "profileUrl":"https://i.imgur.com/uW27yjz.jpg",
+    "location": "New York",
+    "description":"Gentle, loving pup who is great with children and loves to be held. Favorite games include indoor fetch and ball chasing."
+  },
+
+];
+
+let sampleHosts = [];
