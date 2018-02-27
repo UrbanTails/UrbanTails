@@ -54,7 +54,7 @@ class Login extends React.Component {
   render () {
     const redirectToProfile = this.state.redirectToProfile;
     if (redirectToProfile) {
-      return (<Redirect to='/pet-profile'/>)
+      return (<Redirect to='/listings'/>)
     }
     return (
       <div>
