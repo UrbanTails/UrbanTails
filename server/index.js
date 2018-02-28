@@ -22,9 +22,6 @@ app.use(session({
 }));
 
 app.route('/login')
-  .get((req,res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-  })
   .post((req, res) => {
     console.log('getting user from database:', req.body);
 
@@ -46,9 +43,6 @@ app.route('/users')
 });
 
 app.route('/signup')
-  .get((req,res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-  })
   .post((req, res) => {
   console.log('posting new user to db:', req.body);
 
