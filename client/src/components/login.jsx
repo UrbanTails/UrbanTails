@@ -10,22 +10,23 @@ class Login extends React.Component {
       username: '',
       password: '',
       redirectToProfile: false,
-      user: {
-        "username":"Jasper",
-        "profileUrl":"https://i.imgur.com/AEXmzIM.jpg",
-        "type": "pet-owner",
-        "location": "Los Angeles",
-        "description":"I'm hypoallergenic and love to lounge in the sun. You'll often find me napping in your windowsill or on the patio."
-      }
+      user: {}
     };
     this.handleClick = this.handleClick.bind(this);
     this.onChange = this.onChange.bind(this);
   }
-
+  componentDidMount() {
+    if (this.props.location.state) {
+      this.setState({
+        redirectToProfile: true,
+        user: this.props.location.state.user
+      })
+    }
+  }
   login(userData) {
     this.setState({
       redirectToProfile: true,
-      // user: userData
+      user: userData
     });
   }
 
@@ -48,7 +49,7 @@ class Login extends React.Component {
       },
       success: (data) => {
         console.log('ajax posting data', data);
-        this.login(data);
+        this.login(data[0]);
       },
       error: (data) => {
         console.log('error posting data', data);
