@@ -6,7 +6,8 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       link: this.props.link,
-      linkurl: this.props.linkurl
+      linkurl: this.props.linkurl,
+      user: this.props.user
     }
   }
 
@@ -19,7 +20,7 @@ class Navbar extends React.Component {
               <a className="navbar-brand" href="/">Urban Tails</a>
             </div>
             <ul className="nav navbar-nav navbar-right">
-              <li><Link to={this.state.linkurl}>{this.state.link}</Link></li>
+              <li><Link to={{ pathname: this.state.linkurl, state: this.state.user }}>{this.state.link}</Link></li>
             </ul>
           </div>
         </nav>

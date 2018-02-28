@@ -5,10 +5,10 @@ class HostProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'Charlie',
-      imageUrl: 'https://i.imgur.com/BSBVtHJ.jpg',
-      location: 'Los Angeles',
-      description: 'Comfortable 2 bedroom apartment with pet bedroom. Amenities include: leashes, food & water bowls, poop bags and toys.  Big bay window for pets to enjoy the view.'
+      username: this.props.location.state.username,
+      imageUrl: this.props.location.state.profileUrl,
+      location: this.props.location.state.location,
+      description: this.props.location.state.description
     };
   }
 

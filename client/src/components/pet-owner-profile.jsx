@@ -6,10 +6,10 @@ class PetProfile extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      username: 'Sparky',
-      profileUrl: 'https://source.unsplash.com/ngqyo2AYYnE',
-      description: 'I like long walks on the beach',
-      location: 'Los Angeles'
+      username: this.props.location.state.username,
+      profileUrl: this.props.location.state.profileUrl,
+      description: this.props.location.state.description,
+      location: this.props.location.state.location
     }
   }
   render() {
