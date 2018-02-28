@@ -75,6 +75,7 @@
   {
     "username":"Buddy",
     "profileUrl":"https://i.imgur.com/6vM0UID.jpg",
+    "password": "baseball",
     "type": "petOwner",
     "location": "Los Angeles",
     "description":"The best traveling pup you'll ever meet. I love making new friends everywhere."

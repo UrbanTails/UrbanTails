@@ -67,7 +67,7 @@ app.route('/signup')
   .post((req, res) => {
   console.log('posting new user to db:', req.body);
 
-  if(req.body.type === 'petOwner') {
+  // if(req.body.type === 'petOwner') {
     db.saveUser(req.body, (err, result) => {
       if (err) { console.log('error saving petOwner data to db:', err); }
       else {
@@ -76,7 +76,7 @@ app.route('/signup')
         res.send(result);
       }
     });
-  }
+  // }
 
   if(req.body.type === 'host') {
     db.saveHost(req.body, (err, result) => {
