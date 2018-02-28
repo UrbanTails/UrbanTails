@@ -9,6 +9,7 @@ class Listings extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      user: this.props.location.state,
       listings: [
         {
           "username":"Maria",
@@ -51,7 +52,7 @@ class Listings extends React.Component {
     });
     return (
       <div>
-        <Navbar link="My Account" linkurl="/pet-profile"/>
+        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user }/>
         <ListingsCarousel listings={this.state.listings}/>
         <div className="row">
           { hostList }
