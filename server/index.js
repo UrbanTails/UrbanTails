@@ -46,7 +46,10 @@ app.route('/signup')
   console.log('posting new user to db:', req.body);
 
   db.saveUser(req.body, (err, result) => {
-    if (err) { console.log('error saving user data to db:', err); }
+    if (err) {
+      console.log('error saving user data to db:', err);
+      res.status(500).send({ error: 'User already exists' });
+    }
     else {
       console.log('saved user data to the db:', result);
       res.send(result);

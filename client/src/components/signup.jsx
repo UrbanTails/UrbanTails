@@ -11,7 +11,8 @@ class Signup extends React.Component {
       username: '',
       password: '',
       type: '',
-      redirectToProfile: false
+      redirectToProfile: false,
+      error: ''
 
     };
     this.handleClick = this.handleClick.bind(this);
@@ -56,11 +57,21 @@ class Signup extends React.Component {
       },
       error: (data) => {
         console.log('error posting data', data);
+        this.setState({
+          error: data.responseJSON.error
+        });
       }
     });
+    this.setState({
+      username: '',
+      password: ''
+
+    })
   }
 
   render () {
+    let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
+
     if (this.state.redirectToProfile) {
       return <Redirect to={{ pathname: '/signupform', state: this.state }} />
     }
@@ -82,7 +93,8 @@ class Signup extends React.Component {
                 Password:
                 <input id="password" placeholder="password" value={this.state.password} onChange={this.onChange} />
               </label>
-              <input type="submit" value="Sign Up" className="submit" /><br />
+              <input type="submit" value="Sign Up" className="submit" />
+              <small style={ show }>{ this.state.error }</small>
               <Link to="/login">Already have an account?</Link>
             </form>
           </div>
