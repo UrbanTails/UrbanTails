@@ -10,7 +10,8 @@ class Login extends React.Component {
       username: '',
       password: '',
       redirectToProfile: false,
-      user: {}
+      user: {},
+      error: ''
     };
     this.handleClick = this.handleClick.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -53,13 +54,16 @@ class Login extends React.Component {
       },
       error: (data) => {
         console.log('error posting data', data);
+        this.setState({
+          error: data.responseText
+        });
       }
     });
-
-
   }
 
   render () {
+    let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
+
     const redirectToProfile = this.state.redirectToProfile;
     if (redirectToProfile) {
       if (this.state.user.type === 'host') {
@@ -88,6 +92,7 @@ class Login extends React.Component {
                 </label>
                 <input type='submit' value='Log In' className='submit' />
                 <br />
+              <small style={ show }>{ this.state.error }</small>
               <Link to='/signup'>Don't have an account?</Link>
             </form>
           </div>
