@@ -1,5 +1,6 @@
 import React from 'react';
 import Calendar from 'react-calendar';
+import Navbar from './navbar.jsx';
 
 class HostProfile extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class HostProfile extends React.Component {
     }
     return (
       <div>
+       <Navbar link="Logout" linkurl="/"/>
         <img src={this.state.imageUrl} style = { imageStyle } />
         <p>{this.state.username}</p>
         <p>Location: {this.state.location}</p>
