@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
 
@@ -10,22 +10,30 @@ class Signup extends React.Component {
     this.state = {
       username: '',
       password: '',
-      type: 'host'
+      type: '',
+      redirectToProfile: false
+
     };
     this.handleClick = this.handleClick.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSelect = this.onSelect.bind(this);
   }
 
-  onChangeUserName (e) {
+  onChange (e) {
+    let target = e.target.id;
+    console.log(target);
     this.setState ({
-      username: e.target.value
+      [ target ]: e.target.value
+    });
+
+  }
+  onSelect(e) {
+    console.log(e.target.value)
+    this.setState({
+      type: e.target.value
     });
   }
 
-  onChangePassword (e) {
-    this.setState ({
-      password: e.target.value
-    });
-  }
 
   handleClick (e) {
     e.preventDefault();
@@ -41,7 +49,8 @@ class Signup extends React.Component {
       success: (data) => {
         console.log('ajax posting data', data);
         this.setState({
-          username: '',
+          redirectToProfile: true,
+          user: data,
           password: ''
         });
       },
@@ -51,13 +60,10 @@ class Signup extends React.Component {
     });
   }
 
-  handleTypeChange (e) {
-    this.setState({
-      type: e.target.value
-    });
-  }
-
   render () {
+    if (this.state.redirectToProfile) {
+      return <Redirect to={{ pathname: '/signupform', state: this.state }} />
+    }
     return (
       <div>
         <Navbar link="Login" linkurl="/login"/>
@@ -69,32 +75,14 @@ class Signup extends React.Component {
             <form onSubmit={this.handleClick}>
               <h2 className="form-signin-heading">Signup</h2>
               <label>
-                Email:
-                <input type="email" placeholder="Email address" required="" autoFocus="" />
-              </label>
-              <label>
                 Username:
-                <input className="username" placeholder="Username" value={this.state.username} onChange={this.onChangeUserName.bind(this)} />
+                <input id="username" placeholder="Username" value={this.state.username} onChange={this.onChange} />
               </label>
               <label>
                 Password:
-                <input className="password" placeholder="password" value={this.state.password} onChange={this.onChangePassword.bind(this)} />
+                <input id="password" placeholder="password" value={this.state.password} onChange={this.onChange} />
               </label>
               <input type="submit" value="Sign Up" className="submit" /><br />
-              <div className="radio">
-                <label>
-                  <input type="radio" value = "host"
-                  onChange={this.handleTypeChange.bind(this)}
-                  checked={this.state.type === "host"}/>
-                  Host
-                </label>
-                <label>
-                  <input type="radio" value = "petOwner"
-                  onChange={this.handleTypeChange.bind(this)}
-                  checked={this.state.type === "petOwner"}/>
-                  Pet Owner
-                </label>
-              </div>
               <Link to="/login">Already have an account?</Link>
             </form>
           </div>
