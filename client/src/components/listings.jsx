@@ -47,13 +47,13 @@ class Listings extends React.Component {
 
   render() {
     const listings = this.state.listings;
-    const hostList = listings.map((hostsummary) => {
-      return <HostListing host={ hostsummary } />
+    const hostList = listings.map((hostsummary, index) => {
+      return <HostListing key ={ index } host={ hostsummary } />
     });
     return (
       <div>
         <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user }/>
-        <ListingsCarousel listings={this.state.listings}/>
+        <ListingsCarousel listings={ this.state.listings }/>
         <div className="row">
           { hostList }
         </div>
