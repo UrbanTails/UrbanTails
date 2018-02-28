@@ -24,32 +24,18 @@ app.use(session({
 
 app.route('/login')
   .get((req,res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   })
   .post((req, res) => {
     console.log('getting user from database:', req.body);
 
-    if(req.body.type === 'petOwner') {
-      db.getUser(req.body, (err, result) => {
-        if (err) { console.log('error getting petOwner data from db:', err); }
-        else {
-          console.log('got petOwner data from the db:', result);
-          // send to profile page
-          res.send(result);
-        }
-      });
-    }
-
-    if(req.body.type === 'host') {
-      db.getHost(req.body, (err, result) => {
-        if (err) { console.log('error getting host data from db::', err); }
-        else {
-          console.log('got host data from the db:', result);
-          // send to profile page
-          res.send(result);
-        }
-      });
-    }
+    db.getUser(req.body, (err, result) => {
+      if (err) { console.log('error getting userdata from db:', err); }
+      else {
+        console.log('got user data from the db:', result);
+        res.send(result);
+      }
+    });
 });
 
 app.route('/users')
@@ -62,33 +48,18 @@ app.route('/users')
 
 app.route('/signup')
   .get((req,res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
   })
   .post((req, res) => {
   console.log('posting new user to db:', req.body);
 
-  // if(req.body.type === 'petOwner') {
-    db.saveUser(req.body, (err, result) => {
-      if (err) { console.log('error saving petOwner data to db:', err); }
-      else {
-        console.log('saved petOwner data to the db:', result);
-        // send to profile page
-        res.send(result);
-      }
-    });
-  // }
-
-  if(req.body.type === 'host') {
-    db.saveHost(req.body, (err, result) => {
-      if (err) { console.log('error saving host data to db:', err); }
-      else {
-        console.log('saved host data to the db:', result);
-        // send to profile page
-        res.send(result);
-      }
-    });
-  }
-
+  db.saveUser(req.body, (err, result) => {
+    if (err) { console.log('error saving user data to db:', err); }
+    else {
+      console.log('saved user data to the db:', result);
+      res.send(result);
+    }
+  });
 });
 
 
