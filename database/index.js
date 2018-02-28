@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 const saltRounds = 5;
 let Schema = mongoose.Schema;
@@ -11,8 +12,9 @@ mongoose.connect(uristring, (err) => {
   }
 });
 
-let PetOwnerSchema = new Schema({
-  username: String,
+let UserSchema = new Schema({
+  username: { type: String, unique: true },
+  email: String,
   password: String,
   profileUrl: String,
   type: String,
@@ -20,67 +22,50 @@ let PetOwnerSchema = new Schema({
   description: String
 });
 
-let HostSchema = new Schema({
-  username: String,
-  password: String,
-  profileUrl: String,
-  type: String,
-  location: String,
-  description: String
-});
-
-let PetOwner = mongoose.model('PetOwner', PetOwnerSchema);
-let Host = mongoose.model('Host', HostSchema);
+let User = mongoose.model('User', UserSchema);
 
 
 module.exports = {
-  getUser: () => {
+  getUser: (data, callback) => {
+    let attemptedPassword = data.password;
 
+    User.find({})
+      .where('username').equals(data.username)
+      .exec((err, user) => {
+      if (err) { return handleError(err); }
+      else {
+        bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
+          if (isMatch) {
+            callback(null, user);
+          } else {
+            console.log('error: password not correct');
+          }
+        });
+      }
+    });
   },
+
   saveUser: (data, callback) => {
-    let pass = data.password;
+    let plainTextPassword = data.password;
 
-    bcrypt.hash(pass, saltRounds, (err, hash) => {
-      let petOwner = new PetOwner ({
+    bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
+      let user = new User ({
       username: data.username,
+      email: data.email,
       password: hash,
       profileUrl: data.profileUrl,
-      type: 'petOwner',
+      type: data.type,
       location: data.location,
       description: data.description
       });
 
-
-      petOwner.save((err, petOwner) => {
-        callback(err, petOwner);
+      user.save((err, user) => {
+        callback(err, user);
       });
     });
 
   },
-  getHost: () => {
 
-  },
-  saveHost: (data, callback) => {
-    let pass = data.password;
-
-    bcrypt.hash(pass, saltRounds, (err, hash) => {
-      let host = new Host ({
-      username: data.username,
-      password: hash,
-      profileUrl: data.profileUrl,
-      type: 'host',
-      location: data.location,
-      description: data.description
-      });
-
-
-      host.save((err, host) => {
-        callback(err, host);
-      });
-    });
-
-
-  },
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
   }

@@ -12,7 +12,7 @@ samplePetOwners.forEach((obj, err) => {
 });
 
 sampleHosts.forEach((obj, err) => {
-  db.saveHost(obj, (err, data) => {
+  db.saveUser(obj, (err, data) => {
     if (err) { console.log('error saving host to database', err); }
     else { console.log('saved host to the database', data); }
   });
