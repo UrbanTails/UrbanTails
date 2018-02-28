@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Jumbotron } from 'react-bootstrap';
 import Navbar from './navbar.jsx';
 
 class Landing extends React.Component {
@@ -7,10 +8,13 @@ class Landing extends React.Component {
     return (
     <div>
       <Navbar link="Login" linkurl="/login"/>
-      <div>
-      <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
-      <Link to='/signup'>Get Started</Link>
-      </div>
+      <Jumbotron>
+        <div class="content">
+          <h1>Urban Tails</h1>
+          <h3>Pet boarding wherever your adventure takes you</h3>
+          <Link to='/signup' className="btn btn-default btn-lg">Get Started</Link>
+        </div>
+      </Jumbotron>
     </div>
     )
   }

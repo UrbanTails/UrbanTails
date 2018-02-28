@@ -1,0 +1,28 @@
+.navbar {
+  margin-bottom: 0;
+}
+
+.padded {
+  margin: 20px;
+}
+
+.jumbotron {
+  background-image: url(https://source.unsplash.com/915UJQaxtrk);
+  background-color:inherit;
+  background-position:center;
+  background-size:cover;
+  width:100%;
+  height: 95vh;
+
+}
+
+.content{
+  padding-top: 15%;
+  text-align: center;
+  color: #fff;
+}
+
+.btn {
+  border: none;
+  margin-top: 25px;
+}
