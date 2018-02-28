@@ -10,7 +10,6 @@ let app = express();
 
 let PORT = process.env.PORT || 3000;
 
-
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 app.use(bodyParser.json());
@@ -62,12 +61,14 @@ app.route('/signup')
   });
 });
 
-
-
 app.route('/messages', (req, res) => {
 
 });
 
+app.route('/*')
+  .get((req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 
 app.listen(PORT, function() {
