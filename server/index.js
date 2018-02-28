@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-
+const session = require('express-session');
 
 
 const bodyParser = require('body-parser');
 const db = require('../database/index');
 let app = express();
+
+let PORT = process.env.PORT || 3000;
 
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
@@ -14,7 +16,16 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(session({
+  secret: 'This is our secret',
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.route('/login')
+  .get((req,res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+  })
   .post((req, res) => {
     console.log('getting user from database:', req.body);
 
@@ -50,6 +61,9 @@ app.route('/users')
 });
 
 app.route('/signup')
+  .get((req,res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'))
+  })
   .post((req, res) => {
   console.log('posting new user to db:', req.body);
 
@@ -83,7 +97,6 @@ app.route('/messages', (req, res) => {
 
 });
 
-let PORT = process.env.PORT || 3000;
 
 
 app.listen(PORT, function() {
