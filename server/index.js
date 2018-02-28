@@ -25,7 +25,8 @@ app.route('/login')
     console.log('getting user from database:', req.body);
 
     db.getUser(req.body, (err, result) => {
-      if (err) { console.log('error getting userdata from db:', err); }
+      // if (err) { console.log('error getting userdata from db:', err); }
+      if (err) { res.status(500).send(err); }
       else {
         console.log('got user data from the db:', result);
         res.send(result);
