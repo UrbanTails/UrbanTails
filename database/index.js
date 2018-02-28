@@ -32,13 +32,17 @@ module.exports = {
     User.find({})
       .where('username').equals(data.username)
       .exec((err, user) => {
-      if (err) { return handleError(err); }
+      if (err) {
+        console.log('Error retrieving user from database', err);
+         callback(err, null);
+      }
       else {
         bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
+          if (err) { callback(err, null); }
           if (isMatch) {
-            callback(null, user);
-          } else {
-            console.log('error: password not correct');
+            return callback(null, user);
+          } else if (!isMatch) {
+            callback('Password is not correct, try again', null);
           }
         });
       }
@@ -60,7 +64,13 @@ module.exports = {
       });
 
       user.save((err, user) => {
-        callback(err, user);
+        if (err) {
+          console.log('database error saving user, duplicate key');
+          callback('User already exists', null);
+          // callback(err, null);
+        } else {
+          callback(null, user);
+        }
       });
     });
 
