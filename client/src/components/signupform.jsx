@@ -11,7 +11,8 @@ class SignupForm extends React.Component {
       username: this.props.location.state,
       type: 'host',
       email: '',
-      image: '',
+      location: '',
+      profileUrl: '',
       description: '',
       redirectToProfile: false
 
@@ -31,7 +32,8 @@ class SignupForm extends React.Component {
         username: this.state.username,
         type: this.state.type,
         email: this.state.email,
-        image: this.state.image,
+        location: this.state.location,
+        profileUrl: this.state.profileUrl,
         description: this.state.description
       },
       success: (data) => {
@@ -85,8 +87,10 @@ class SignupForm extends React.Component {
               <input type="text" className="form-control" id="username" value={this.state.username} onChange={this.handleChange}/>
               <label for="email">Email:</label>
               <input type="email" className="form-control" id="email" value={this.state.email} onChange={this.handleChange}/>
-              <label for="image">Image URL:</label>
-              <input type="text" className="form-control" id="image" value={this.state.image} onChange={this.handleChange}/>
+              <label for="location">Location:</label>
+              <input type="text" className="form-control" id="location" value={this.state.location} onChange={this.handleChange}/>
+              <label for="profileUrl">Image URL:</label>
+              <input type="text" className="form-control" id="profileUrl" value={this.state.profileUrl} onChange={this.handleChange}/>
               <label for="description">Description:</label>
               <textarea className="form-control" id="description" rows="3" value={this.state.description} onChange={this.handleChange}></textarea>
             </div>
