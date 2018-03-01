@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from './navbar.jsx';
 
 class PetProfile extends React.Component {
@@ -23,7 +22,7 @@ class PetProfile extends React.Component {
     }
     return (
       <div>
-        <Navbar link="Logout" linkurl="/"/>
+        <Navbar link="Logout" linkurl="/" />
         <div className="row">
           <div style={{ paddingLeft: '10%' }} className="col-sm-4">
             <img style={style} src={this.state.profileUrl} />
