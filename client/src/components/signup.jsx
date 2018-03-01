@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
@@ -10,14 +9,13 @@ class Signup extends React.Component {
     this.state = {
       username: '',
       password: '',
-      type: '',
+      user: '',
       redirectToProfile: false,
       error: ''
 
     };
     this.handleClick = this.handleClick.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.onSelect = this.onSelect.bind(this);
   }
 
   onChange (e) {
@@ -28,32 +26,28 @@ class Signup extends React.Component {
     });
 
   }
-  onSelect(e) {
-    console.log(e.target.value)
-    this.setState({
-      type: e.target.value
-    });
-  }
-
 
   handleClick (e) {
     e.preventDefault();
 
     $.ajax({
       type: 'POST',
-      url: '/signup',
+      url: '/checkuser',
       data: {
         username: this.state.username,
-        password: this.state.password,
-        type: this.state.type
+        password: this.state.password
       },
       success: (data) => {
         console.log('ajax posting data', data);
-        this.setState({
-          redirectToProfile: true,
-          user: data,
-          password: ''
-        });
+        if (data) {
+          this.setState({
+            error: 'Username taken, please retry'
+          });
+        } else {
+          this.setState({
+            redirectToProfile: true
+          });
+        }
       },
       error: (data) => {
         console.log('error posting data', data);
@@ -63,17 +57,17 @@ class Signup extends React.Component {
       }
     });
     this.setState({
+      user: this.state.username,
       username: '',
       password: ''
-
-    })
+    });
   }
 
   render () {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
 
     if (this.state.redirectToProfile) {
-      return <Redirect to={{ pathname: '/signupform', state: this.state }} />
+      return <Redirect to={{ pathname: '/signupform', state: this.state.user }} />
     }
     return (
       <div>
