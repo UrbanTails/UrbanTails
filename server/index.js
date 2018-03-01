@@ -35,11 +35,11 @@ app.route('/login')
 app.route('/checkuser')
    .post((req, res) => {
 
-    db.getUser(req.body, function(err, result) {
+    db.checkUser(req.body, function(err, result) {
       if (err) {
-        res.send({ 'exists': false });
+        res.status(500).send({ error: 'Error checking username' });
       } else {
-        res.send({ 'exists': true });
+        res.send(result);
       }
     });
 });
