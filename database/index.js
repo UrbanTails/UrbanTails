@@ -14,7 +14,7 @@ mongoose.connect(uristring, (err) => {
 
 let UserSchema = new Schema({
   username: { type: String, unique: true },
-  email: String,
+  email: { type: String, unique: true},
   password: String,
   profileUrl: String,
   type: String,
@@ -26,6 +26,21 @@ let User = mongoose.model('User', UserSchema);
 
 
 module.exports = {
+  checkUser: (data, callback) => {
+    User.find({})
+      .where('username').equals(data.username)
+      .exec((err, user) => {
+        if (err) {
+          callback(err, null);
+        } else if (!user.length) {
+          console.log('User does not exist in the database');
+          callback(null, false);
+        } else {
+          console.log('User already exists in the database');
+          callback(null, true);
+        }
+      });
+  },
   getUser: (data, callback) => {
     let attemptedPassword = data.password;
 
