@@ -22,7 +22,12 @@
   color: #fff;
 }
 
-.btn {
+.searchbar {
+  text-align: center;
+}
+
+
+/*.btn {
   border: none;
   margin-top: 25px;
-}
+}*/

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Carousel, Item, Caption } from 'react-bootstrap';
 import ListingsCarousel from './listings-carousel.jsx';
 import HostListing from './hostlisting.jsx';
 import Navbar from './navbar.jsx';
@@ -52,13 +50,13 @@ class Listings extends React.Component {
     });
     return (
       <div>
-        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user }/>
+        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user } search={ true }/>
         <ListingsCarousel listings={ this.state.listings }/>
         <div className="row">
           { hostList }
         </div>
-        </div>
-      )
+      </div>
+    )
   }
 }
 
