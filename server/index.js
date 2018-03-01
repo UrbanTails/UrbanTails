@@ -21,12 +21,11 @@ app.use(session({
 
 app.route('/login')
    .post((req, res) => {
-    console.log('getting user from database:', req.body);
 
     db.getUser(req.body, (err, result) => {
       if (err) { res.status(500).send(err); }
       else {
-        console.log('got user data from the db:', result);
+        req.session.user = result[0];
         res.send(result);
       }
     });
@@ -46,7 +45,6 @@ app.route('/checkuser')
 
 app.route('/signup')
    .post((req, res) => {
-    console.log('posting new user to db:', req.body);
 
     db.saveUser(req.body, (err, result) => {
       if (err) {
@@ -60,6 +58,29 @@ app.route('/signup')
     });
 });
 
+app.route('/pet-profile')
+  .get((req, res) => {
+    if (!req.session.user) {
+      return res.status(401).send();
+    }
+    return res.status(200).send('Welcome to UrbanTails!');
+  });
+
+app.route('/host-profile')
+  .get((req, res) => {
+    if (!req.session.user) {
+      return res.status(401).send();
+    }
+    return res.status(200).send('Welcome to UrbanTails!');
+  });
+
+app.route('/listings')
+  .get((req, res) => {
+    if (!req.session.user) {
+      return res.status(401).send();
+    }
+    return res.status(200).send('Welcome to UrbanTails!');
+  });
 
 app.route('/*')
    .get((req, res) => {
