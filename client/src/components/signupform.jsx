@@ -8,7 +8,7 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.props.location.state.user.username,
+      username: this.props.location.state,
       type: 'host',
       email: '',
       image: '',
@@ -25,7 +25,7 @@ class SignupForm extends React.Component {
     let data = this.state;
 
     $.ajax({
-      type: 'PUT',
+      type: 'POST',
       url: '/signup',
       data: {
         username: this.state.username,
