@@ -8,23 +8,25 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      errors: {},
       username: '',
       password: '',
       redirectToProfile: false,
-      user: {},
-      error: ''
+      user: {}
     };
     this.handleClick = this.handleClick.bind(this);
     this.onChange = this.onChange.bind(this);
   }
+
   componentDidMount() {
     if (this.props.location.state) {
       this.setState({
         redirectToProfile: true,
         user: this.props.location.state.user
-      })
+      });
     }
   }
+
   login(userData) {
     this.setState({
       redirectToProfile: true,
@@ -35,7 +37,8 @@ class Login extends React.Component {
   onChange (e) {
     let target = e.target.name;
     this.setState ({
-      [ target ]: e.target.value
+      [ target ]: e.target.value,
+      errors: {}
     })
   }
 
@@ -50,21 +53,30 @@ class Login extends React.Component {
         password: this.state.password
       },
       success: (data) => {
-        console.log('ajax posting data', data);
-        this.login(data[0]);
+        console.log(data)
+        if (data.errors) {
+          this.setState({
+            errors: data.errors
+          });
+        } else {
+          this.login(data[0]);
+        }
       },
       error: (data) => {
         console.log('error posting data', data);
         this.setState({
-          error: data.responseText
+          errors: { password: data.responseText }
         });
       }
+    });
+
+    this.setState({
+      username: '',
+      password: ''
     });
   }
 
   render () {
-    let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
-
     const redirectToProfile = this.state.redirectToProfile;
     if (redirectToProfile) {
       if (this.state.user.type === 'host') {
@@ -84,15 +96,13 @@ class Login extends React.Component {
             <form onSubmit={this.handleClick}>
               <h2 className="form-signin-heading">Login</h2>
               <div className="field-line">
-                <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} />
+                <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} errorText={ this.state.errors.username }/>
               </div>
               <div className="field-line">
-                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} />
+                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} errorText={ this.state.errors.password }/>
               </div>
               <div className="field-line">
                 <RaisedButton type="submit" label="Login" primary={true} />
-                <small style={ show }>{ this.state.error }</small>
-                <br/>
                 <Link to="/signup">Don't have an account?</Link>
               </div>
             </form>
