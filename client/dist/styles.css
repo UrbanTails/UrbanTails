@@ -22,7 +22,12 @@
   color: #fff;
 }
 
-.btn {
-  border: none;
-  margin-top: 25px;
+.field-line {
+  padding: 16px;
+  padding-bottom: 0;
+}
+
+.signupform {
+  width: 60%;
+  margin: 20px auto;
 }

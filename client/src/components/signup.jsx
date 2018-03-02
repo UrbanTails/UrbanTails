@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
+import { TextField, RaisedButton } from 'material-ui';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class Signup extends React.Component {
     this.onSelect = this.onSelect.bind(this);
   }
 
-  onChange (e) {
-    let target = e.target.id;
+  onChange(e) {
+    let target = e.target.name;
     console.log(target);
     this.setState ({
       [ target ]: e.target.value
@@ -85,17 +86,19 @@ class Signup extends React.Component {
           <div className="col-sm-7">
             <form onSubmit={this.handleClick}>
               <h2 className="form-signin-heading">Signup</h2>
-              <label>
-                Username:
-                <input id="username" placeholder="Username" value={this.state.username} onChange={this.onChange} />
-              </label>
-              <label>
-                Password:
-                <input id="password" placeholder="password" value={this.state.password} onChange={this.onChange} />
-              </label>
-              <input type="submit" value="Sign Up" className="submit" />
-              <small style={ show }>{ this.state.error }</small>
-              <Link to="/login">Already have an account?</Link>
+              <div className="field-line">
+                <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} />
+              </div>
+              <div className="field-line">
+                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} />
+              </div>
+              <div className="field-line">
+                <RaisedButton type="submit" label="Sign Up" primary={true} />
+                <small style={ show }>{ this.state.error }</small>
+                <br/>
+                <Link to="/login">Already have an account?</Link>
+              </div>
+
             </form>
           </div>
         </div>
