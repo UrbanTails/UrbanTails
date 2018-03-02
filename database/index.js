@@ -97,8 +97,9 @@ module.exports = {
       .exec((err, listings) => {
         if (err) {
           console.log('Error getting listings');
+          callback(err)
         } else {
-          callback(listings);
+          callback(null, listings);
         }
       });
   },
