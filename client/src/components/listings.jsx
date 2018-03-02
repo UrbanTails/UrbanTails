@@ -33,6 +33,14 @@ class Listings extends React.Component {
         }
       ]
     }
+    this.setResults = this.setResults.bind(this);
+  }
+
+  setListings(list) {
+    this.setState({
+      listings: list
+    });
+    console.log(this.state.listings);
   }
 
   componentDidMount() {
@@ -41,9 +49,7 @@ class Listings extends React.Component {
       url: '/getlistings',
       success: (data) => {
         if (data.length > 3) {
-          this.setState({
-            listings: data
-          });
+          this.setListings(data);
         }
       },
       error: (data) => {
@@ -54,12 +60,11 @@ class Listings extends React.Component {
 
   setResults(searchresults) {
     console.log('setting', searchresults);
-    this.setState({
-      listings: searchresults
-    });
+    this.setListings(searchresults);
   }
 
   render() {
+    console.log('rendering')
     let listings = this.state.listings;
     let hostList = listings.map((hostsummary, index) => {
       return <HostListing key ={ index } host={ hostsummary } />
