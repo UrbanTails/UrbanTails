@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
+import { TextField, RaisedButton } from 'material-ui';
 
 class Login extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class Login extends React.Component {
   }
 
   onChange (e) {
-    let target = e.target.id;
+    let target = e.target.name;
     this.setState ({
       [ target ]: e.target.value
     })
@@ -82,18 +83,18 @@ class Login extends React.Component {
           <div className="col-md-7">
             <form onSubmit={this.handleClick}>
               <h2 className="form-signin-heading">Login</h2>
-                <label>
-                  Username:
-                  <input id='username' value={this.state.username} onChange={ this.onChange }/>
-                </label>
-                <label>
-                  Password:
-                  <input id='password' value={this.state.password} onChange={ this.onChange }/>
-                </label>
-                <input type='submit' value='Log In' className='submit' />
-                <br />
-              <small style={ show }>{ this.state.error }</small>
-              <Link to='/signup'>Don't have an account?</Link>
+              <div className="field-line">
+                <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} />
+              </div>
+              <div className="field-line">
+                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} />
+              </div>
+              <div className="field-line">
+                <RaisedButton type="submit" label="Login" primary={true} />
+                <small style={ show }>{ this.state.error }</small>
+                <br/>
+                <Link to="/signup">Don't have an account?</Link>
+              </div>
             </form>
           </div>
         </div>

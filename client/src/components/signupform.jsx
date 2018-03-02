@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
+import { Card, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -52,13 +53,14 @@ class SignupForm extends React.Component {
   }
 
   handleChange(e) {
-    const target = e.target.id;
+    const target = e.target.name;
     this.setState({
       [ target ]: e.target.value
     })
   }
 
   onSelect(e) {
+    console.log(e.target.value)
     this.setState({
       type: e.target.value
     });
@@ -71,34 +73,31 @@ class SignupForm extends React.Component {
     return (
       <div>
         <Navbar link="Login" linkurl="/login"/>
-        <div className="container lend-cat">
-          <h1>Create Your Profile</h1>
-          <form className="form-box" onSubmit={this.handleSubmit.bind(this)}>
-            <div className="form-group">
-              <div className="radio">
-                <label>
-                  <input type="radio" value="host" onChange={this.onSelect} checked={this.state.type === "host"}/>
-                  Host
-                </label>
-                <label>
-                  <input type="radio" value="petOwner" onChange={this.onSelect} checked={this.state.type === "petOwner"}/>
-                  Pet Owner
-                </label>
-              </div>
-              <label for="username">Username:</label>
-              <input type="text" className="form-control" id="username" value={this.state.username} onChange={this.handleChange}/>
-              <label for="email">Email:</label>
-              <input type="email" className="form-control" id="email" value={this.state.email} onChange={this.handleChange}/>
-              <label for="location">Location:</label>
-              <input type="text" className="form-control" id="location" value={this.state.location} onChange={this.handleChange}/>
-              <label for="profileUrl">Image URL:</label>
-              <input type="text" className="form-control" id="profileUrl" value={this.state.profileUrl} onChange={this.handleChange}/>
-              <label for="description">Description:</label>
-              <textarea className="form-control" id="description" rows="3" value={this.state.description} onChange={this.handleChange}></textarea>
+        <Card className="container signupform">
+          <form action="/" onSubmit={this.handleSubmit.bind(this)} >
+            <h2>Create Your Profile</h2>
+            <RadioButtonGroup name="Usertype" defaultSelected="host" onChange={this.onSelect}>
+              <RadioButton value="host" label="Host"/>
+              <RadioButton value="petOwner" label="Pet Owner"/>
+            </RadioButtonGroup>
+            <div className="field-line">
+              <TextField floatingLabelText="Username" name="username" onChange={this.handleChange} value={this.state.username}/>
             </div>
-            <button type="submit" className="btn btn-primary add-cat-button">Submit</button>
+            <div className="field-line">
+              <TextField floatingLabelText="Email" name="email" onChange={this.handleChange} value={this.state.email}/>
+            </div>
+            <div className="field-line">
+              <TextField floatingLabelText="Location" name="location" onChange={this.handleChange} value={this.state.location}/>
+            </div>
+            <div className="field-line">
+              <TextField floatingLabelText="ImageUrl" name="profileUrl" onChange={this.handleChange} value={this.state.profileUrl}/>
+            </div>
+            <div className="field-line">
+              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} />
+            </div>
+            <RaisedButton type="submit" label="Submit" primary={true} fullWidth={true} />
           </form>
-        </div>
+        </Card>
       </div>
     )
   }
