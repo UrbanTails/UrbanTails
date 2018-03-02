@@ -9,7 +9,6 @@ class Signup extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: '',
       user: '',
       redirectToProfile: false,
       error: ''
@@ -35,8 +34,7 @@ class Signup extends React.Component {
       type: 'POST',
       url: '/checkuser',
       data: {
-        username: this.state.username,
-        password: this.state.password
+        username: this.state.username
       },
       success: (data) => {
         console.log('ajax posting data', data);
@@ -59,11 +57,9 @@ class Signup extends React.Component {
     });
     this.setState({
       user: {
-        username: this.state.username,
-        password: this.state.password
+        username: this.state.username
       },
-      username: '',
-      password: ''
+      username: ''
     });
   }
 
@@ -85,9 +81,6 @@ class Signup extends React.Component {
               <h2 className="form-signin-heading">Signup</h2>
               <div className="field-line">
                 <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} />
-              </div>
-              <div className="field-line">
-                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} />
               </div>
               <div className="field-line">
                 <RaisedButton type="submit" label="Sign Up" primary={true} />
