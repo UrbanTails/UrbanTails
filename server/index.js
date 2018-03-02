@@ -23,7 +23,7 @@ app.route('/login')
    .post((req, res) => {
 
     db.getUser(req.body, (err, result) => {
-      if (err) { res.status(500).send(err); }
+      if (err) { res.send(err); }
       else {
         req.session.user = result[0];
         res.send(result);

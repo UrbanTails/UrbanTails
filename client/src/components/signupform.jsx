@@ -8,7 +8,8 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.props.location.state,
+      username: this.props.location.state.username,
+      password: this.props.location.state.password,
       type: 'host',
       email: '',
       location: '',
@@ -30,6 +31,7 @@ class SignupForm extends React.Component {
       url: '/signup',
       data: {
         username: this.state.username,
+        password: this.state.password,
         type: this.state.type,
         email: this.state.email,
         location: this.state.location,
