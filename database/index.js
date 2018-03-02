@@ -103,6 +103,19 @@ module.exports = {
       });
   },
 
+  getAllListings: (data, callback) => {
+    User.find({type: 'host'})
+      .sort({location:1})
+      .exec((err, listings) => {
+        if (err) {
+          console.log('Error getting all listings');
+          callback('Error getting all listings');
+        } else {
+          callback(null, listings);
+        }
+      });
+  },
+
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
   }

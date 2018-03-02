@@ -2,6 +2,7 @@ import React from 'react';
 import ListingsCarousel from './listings-carousel.jsx';
 import HostListing from './hostlisting.jsx';
 import Navbar from './navbar.jsx';
+import $ from 'jquery';
 
 class Listings extends React.Component {
   constructor(props){
@@ -41,7 +42,24 @@ class Listings extends React.Component {
     //     listings: data
     //   });
     // });
+    // console.log('mounted');
+    $.ajax({
+      type: 'GET',
+      url: '/listingAll',
+      success: (data) => {
+        // console.log('ajax get data', data);
+        this.setState({
+          listings: data
+        });
+      },
+      error: (data) => {
+        console.log('error get data', data);
+      }
+    });
   }
+
+  
+
 
   render() {
     const listings = this.state.listings;
