@@ -14,7 +14,7 @@ mongoose.connect(uristring, (err) => {
 
 let UserSchema = new Schema({
   username: { type: String, unique: true },
-  email: String,
+  email: { type: String, unique: true},
   password: String,
   profileUrl: String,
   type: String,
@@ -26,6 +26,21 @@ let User = mongoose.model('User', UserSchema);
 
 
 module.exports = {
+  checkUser: (data, callback) => {
+    User.find({})
+      .where('username').equals(data.username)
+      .exec((err, user) => {
+        if (err) {
+          callback(err, null);
+        } else if (!user.length) {
+          console.log('User does not exist in the database');
+          callback(null, false);
+        } else {
+          console.log('User already exists in the database');
+          callback(null, true);
+        }
+      });
+  },
   getUser: (data, callback) => {
     let attemptedPassword = data.password;
 
@@ -33,10 +48,10 @@ module.exports = {
       .where('username').equals(data.username)
       .exec((err, user) => {
       if (err) {
-        console.log('Error retrieving user from database', err);
+         console.log('Error retrieving user from database', err);
          callback(err, null);
       }
-      else {
+      else if (user[0]) {
         bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
           if (err) { callback(err, null); }
           if (isMatch) {
@@ -67,13 +82,38 @@ module.exports = {
         if (err) {
           console.log('database error saving user, duplicate key');
           callback('User already exists', null);
-          // callback(err, null);
         } else {
           callback(null, user);
         }
       });
     });
 
+  },
+
+  getListings: (data, callback) => {
+    User.find({type: 'host'})
+      .where('location').equals(data.query)
+      .exec((err, listings) => {
+        if (err) {
+          console.log('Error getting listings');
+          callback('Error getting listings');
+        } else {
+          callback(null, listings);
+        }
+      });
+  },
+
+  getAllListings: (data, callback) => {
+    User.find({type: 'host'})
+      .sort({location:1})
+      .exec((err, listings) => {
+        if (err) {
+          console.log('Error getting all listings');
+          callback('Error getting all listings');
+        } else {
+          callback(null, listings);
+        }
+      });
   },
 
   dropDatabase: () => {

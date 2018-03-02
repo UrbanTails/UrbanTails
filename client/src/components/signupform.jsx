@@ -9,10 +9,12 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.props.location.state.user.username,
+      username: this.props.location.state.username,
+      password: this.props.location.state.password,
       type: 'host',
       email: '',
-      image: '',
+      location: '',
+      profileUrl: '',
       description: '',
       redirectToProfile: false
 
@@ -26,13 +28,15 @@ class SignupForm extends React.Component {
     let data = this.state;
 
     $.ajax({
-      type: 'PUT',
+      type: 'POST',
       url: '/signup',
       data: {
         username: this.state.username,
+        password: this.state.password,
         type: this.state.type,
         email: this.state.email,
-        image: this.state.image,
+        location: this.state.location,
+        profileUrl: this.state.profileUrl,
         description: this.state.description
       },
       success: (data) => {

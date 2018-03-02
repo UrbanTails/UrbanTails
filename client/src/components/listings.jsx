@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Carousel, Item, Caption } from 'react-bootstrap';
 import ListingsCarousel from './listings-carousel.jsx';
 import HostListing from './hostlisting.jsx';
 import Navbar from './navbar.jsx';
+import $ from 'jquery';
 
 class Listings extends React.Component {
   constructor(props){
@@ -34,31 +33,51 @@ class Listings extends React.Component {
         }
       ]
     }
+    this.setResults = this.setResults.bind(this);
+  }
+
+  setListings(list) {
+    this.setState({
+      listings: list
+    });
+    console.log(this.state.listings);
   }
 
   componentDidMount() {
-    // let context = this;
-    // $.get('/listings', (err, data) => {
-    //   context.setState({
-    //     listings: data
-    //   });
-    // });
+    $.ajax({
+      type: 'GET',
+      url: '/getlistings',
+      success: (data) => {
+        if (data.length > 3) {
+          this.setListings(data);
+        }
+      },
+      error: (data) => {
+        console.log('error get data', data);
+      }
+    });
+  }
+
+  setResults(searchresults) {
+    console.log('setting', searchresults);
+    this.setListings(searchresults);
   }
 
   render() {
-    const listings = this.state.listings;
-    const hostList = listings.map((hostsummary, index) => {
+    console.log('rendering')
+    let listings = this.state.listings;
+    let hostList = listings.map((hostsummary, index) => {
       return <HostListing key ={ index } host={ hostsummary } />
     });
     return (
       <div>
-        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user }/>
+        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user } setresults={this.setResults} search={ true }/>
         <ListingsCarousel listings={ this.state.listings }/>
         <div className="row">
           { hostList }
         </div>
-        </div>
-      )
+      </div>
+    )
   }
 }
 
