@@ -91,6 +91,18 @@ module.exports = {
 
   },
 
+  getListings: (data, callback) => {
+    User.find({type: 'host'})
+      .where('location').equals(data.location)
+      .exec((err, listings) => {
+        if (err) {
+          console.log('Error getting listings');
+        } else {
+          callback(listings);
+        }
+      });
+  },
+
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
   }
