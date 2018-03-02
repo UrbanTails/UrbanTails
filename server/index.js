@@ -92,6 +92,20 @@ app.route('/listings')
     }
   });
 
+app.route('/listingAll')
+  .get((req, res) => {
+      db.getAllListings(req.body, (err, result) => {
+        if (err) {
+          console.log('error getting all listings from db:', err);
+          res.status(500).send({ error: 'Could not retrieve all listings' });
+        }
+        else {
+          console.log('retrieved all listings:');
+          res.send(result)
+        }
+      });
+  });
+
 app.route('/*')
    .get((req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
