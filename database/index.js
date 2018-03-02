@@ -82,7 +82,6 @@ module.exports = {
         if (err) {
           console.log('database error saving user, duplicate key');
           callback('User already exists', null);
-          // callback(err, null);
         } else {
           callback(null, user);
         }
@@ -97,7 +96,7 @@ module.exports = {
       .exec((err, listings) => {
         if (err) {
           console.log('Error getting listings');
-          callback(err)
+          callback('Error getting listings');
         } else {
           callback(null, listings);
         }

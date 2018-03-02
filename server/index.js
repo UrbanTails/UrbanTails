@@ -75,11 +75,21 @@ app.route('/host-profile')
   });
 
 app.route('/listings')
-  .get((req, res) => {
+  .post((req, res) => {
     if (!req.session.user) {
       return res.status(401).send();
+    } else {
+      db.getListings(req.body, (err, result) => {
+        if (err) {
+          console.log('error getting listings from db:', err);
+          res.status(500).send({ error: 'Could not retrieve listings' });
+        }
+        else {
+          console.log('retrieved listings:', result);
+          res.send(result);
+        }
+      });
     }
-    return res.status(200).send('Welcome to UrbanTails!');
   });
 
 app.route('/*')
