@@ -18,7 +18,7 @@ class Signup extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange (e) {
+  onChange(e) {
     let target = e.target.id;
     console.log(target);
     this.setState ({
@@ -27,7 +27,7 @@ class Signup extends React.Component {
 
   }
 
-  handleClick (e) {
+  handleClick(e) {
     e.preventDefault();
 
     $.ajax({
@@ -66,7 +66,7 @@ class Signup extends React.Component {
     });
   }
 
-  render () {
+  render() {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
 
     if (this.state.redirectToProfile) {
