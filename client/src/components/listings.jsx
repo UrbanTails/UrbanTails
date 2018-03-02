@@ -33,24 +33,24 @@ class Listings extends React.Component {
         }
       ]
     }
+    this.setResults = this.setResults.bind(this);
+  }
+
+  setListings(list) {
+    this.setState({
+      listings: list
+    });
+    console.log(this.state.listings);
   }
 
   componentDidMount() {
-    // let context = this;
-    // $.get('/listings', (err, data) => {
-    //   context.setState({
-    //     listings: data
-    //   });
-    // });
-    // console.log('mounted');
     $.ajax({
       type: 'GET',
-      url: '/listingAll',
+      url: '/getlistings',
       success: (data) => {
-        // console.log('ajax get data', data);
-        this.setState({
-          listings: data
-        });
+        if (data.length > 3) {
+          this.setListings(data);
+        }
       },
       error: (data) => {
         console.log('error get data', data);
@@ -58,17 +58,20 @@ class Listings extends React.Component {
     });
   }
 
-  
-
+  setResults(searchresults) {
+    console.log('setting', searchresults);
+    this.setListings(searchresults);
+  }
 
   render() {
-    const listings = this.state.listings;
-    const hostList = listings.map((hostsummary, index) => {
+    console.log('rendering')
+    let listings = this.state.listings;
+    let hostList = listings.map((hostsummary, index) => {
       return <HostListing key ={ index } host={ hostsummary } />
     });
     return (
       <div>
-        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user } search={ true }/>
+        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user } setresults={this.setResults} search={ true }/>
         <ListingsCarousel listings={ this.state.listings }/>
         <div className="row">
           { hostList }

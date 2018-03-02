@@ -8,7 +8,8 @@ class Navbar extends React.Component {
     this.state = {
       link: this.props.link,
       linkurl: this.props.linkurl,
-      user: this.props.user
+      user: this.props.user,
+      setresults: this.props.setresults
     }
   }
 
@@ -20,7 +21,7 @@ class Navbar extends React.Component {
             <div className="navbar-header">
               <a className="navbar-brand" href="/">Urban Tails</a>
             </div>
-            { this.props.search ? <Searchbar/> : null }
+            { this.props.search ? <Searchbar setresults={this.state.setresults}/> : null }
             <ul className="nav navbar-nav navbar-right">
               <li><Link to={{ pathname: this.state.linkurl, state: this.state.user }}>{this.state.link}</Link></li>
             </ul>

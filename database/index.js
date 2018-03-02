@@ -48,10 +48,10 @@ module.exports = {
       .where('username').equals(data.username)
       .exec((err, user) => {
       if (err) {
-        console.log('Error retrieving user from database', err);
+         console.log('Error retrieving user from database', err);
          callback(err, null);
       }
-      else {
+      else if (user[0]) {
         bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
           if (err) { callback(err, null); }
           if (isMatch) {
@@ -92,7 +92,7 @@ module.exports = {
 
   getListings: (data, callback) => {
     User.find({type: 'host'})
-      .where('location').equals(data.location)
+      .where('location').equals(data.query)
       .exec((err, listings) => {
         if (err) {
           console.log('Error getting listings');

@@ -64,7 +64,7 @@ app.route('/pet-profile')
       return res.status(401).send();
     }
     return res.status(200).send('Welcome to UrbanTails!');
-  });
+});
 
 app.route('/host-profile')
   .get((req, res) => {
@@ -72,39 +72,33 @@ app.route('/host-profile')
       return res.status(401).send();
     }
     return res.status(200).send('Welcome to UrbanTails!');
-  });
+});
 
-app.route('/listings')
-  .post((req, res) => {
-    if (!req.session.user) {
-      return res.status(401).send();
-    } else {
-      db.getListings(req.body, (err, result) => {
-        if (err) {
-          console.log('error getting listings from db:', err);
-          res.status(500).send({ error: 'Could not retrieve listings' });
-        }
-        else {
-          console.log('retrieved listings:', result);
-          res.send(result);
-        }
-      });
-    }
-  });
-
-app.route('/listingAll')
+app.route('/getlistings')
   .get((req, res) => {
-      db.getAllListings(req.body, (err, result) => {
-        if (err) {
-          console.log('error getting all listings from db:', err);
-          res.status(500).send({ error: 'Could not retrieve all listings' });
-        }
-        else {
-          console.log('retrieved all listings:');
-          res.send(result)
-        }
-      });
-  });
+    db.getAllListings(req.body, (err, result) => {
+      if (err) {
+        console.log('error getting all listings from db:', err);
+        res.status(500).send({ error: 'Could not retrieve all listings' });
+      }
+      else {
+        console.log('retrieved all listings');
+        res.send(result)
+      }
+    });
+  })
+  .post((req, res) => {
+    db.getListings(req.body, (err, result) => {
+      if (err) {
+        console.log('error getting listings from db:', err);
+        res.status(500).send({ error: 'Could not retrieve listings' });
+      }
+      else {
+        console.log('retrieved listings from', result[0].location);
+        res.send(result);
+      }
+    });
+});
 
 app.route('/*')
    .get((req, res) => {
