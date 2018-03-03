@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import { TextField, RaisedButton } from 'material-ui';
+import { Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
-import { TextField, RaisedButton } from 'material-ui';
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -39,11 +41,10 @@ class Login extends React.Component {
     this.setState ({
       [ target ]: e.target.value,
       errors: {}
-    })
+    });
   }
 
   handleClick (e) {
-    console.log('login submitted', e.target.value);
     e.preventDefault();
     $.ajax({
       type: 'POST',
@@ -53,7 +54,6 @@ class Login extends React.Component {
         password: this.state.password
       },
       success: (data) => {
-        console.log(data)
         if (data.errors) {
           this.setState({
             errors: data.errors
@@ -63,7 +63,6 @@ class Login extends React.Component {
         }
       },
       error: (data) => {
-        console.log('error posting data', data);
         this.setState({
           errors: { password: data.responseText }
         });
@@ -88,26 +87,28 @@ class Login extends React.Component {
     return (
       <div>
         <Navbar link="Sign Up" linkurl="/signup"/>
-        <div className="row">
-          <div className="col-md-5">
-            <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
-          </div>
-          <div className="col-md-7">
-            <form onSubmit={this.handleClick}>
-              <h2 className="form-signin-heading">Login</h2>
-              <div className="field-line">
-                <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} errorText={ this.state.errors.username }/>
-              </div>
-              <div className="field-line">
-                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} errorText={ this.state.errors.password }/>
-              </div>
-              <div className="field-line">
-                <RaisedButton type="submit" label="Login" primary={true} />
-                <br/>
-                <Link to="/signup">Don't have an account?</Link>
-              </div>
-            </form>
-          </div>
+        <div className="container">
+          <Row>
+            <Col md={5}>
+              <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
+            </Col>
+            <Col md={7}>
+              <form onSubmit={this.handleClick}>
+                <h2 className="form-signin-heading">Login</h2>
+                <div className="field-line">
+                  <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} errorText={ this.state.errors.username }/>
+                </div>
+                <div className="field-line">
+                  <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} errorText={ this.state.errors.password }/>
+                </div>
+                <div className="field-line">
+                  <RaisedButton type="submit" label="Login" primary={true} />
+                  <br/>
+                  <Link to="/signup">Don't have an account?</Link>
+                </div>
+              </form>
+            </Col>
+          </Row>
         </div>
       </div>
     )

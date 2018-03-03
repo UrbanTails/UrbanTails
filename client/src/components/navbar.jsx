@@ -19,7 +19,6 @@ class Navbar extends React.Component {
         <nav className="navbar navbar-light">
           <div className="container-fluid">
             <div className="navbar-header">
-
               <a className="navbar-brand" href="/">
                 <i className="material-icons">pets</i>Urban Tails
               </a>

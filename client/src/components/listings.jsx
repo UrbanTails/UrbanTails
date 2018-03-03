@@ -9,8 +9,7 @@ class Listings extends React.Component {
     super(props);
     this.state = {
       user: this.props.location.state,
-      listings: [
-        {
+      listings: [{
           "username":"Maria",
           "profileUrl":"https://source.unsplash.com/3wylDrjxH-E",
           "type": "host",
@@ -30,8 +29,7 @@ class Listings extends React.Component {
           "type": "host",
           "location": "New York",
           "description":"Best spot in the West Village, just steps from the dog park."
-        }
-      ]
+        }]
     }
     this.setResults = this.setResults.bind(this);
   }
@@ -40,7 +38,6 @@ class Listings extends React.Component {
     this.setState({
       listings: list
     });
-    console.log(this.state.listings);
   }
 
   componentDidMount() {
@@ -59,21 +56,19 @@ class Listings extends React.Component {
   }
 
   setResults(searchresults) {
-    console.log('setting', searchresults);
     this.setListings(searchresults);
   }
 
   render() {
-    console.log('rendering')
     let listings = this.state.listings;
     let hostList = listings.map((hostsummary, index) => {
-      return <HostListing key ={ index } host={ hostsummary } />
+      return <HostListing key ={ index } host={ hostsummary }/>
     });
     return (
       <div>
-        <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user } setresults={ this.setResults } search={ true }/>
-        <ListingsCarousel listings={ this.state.listings }/>
-        <div className="row">
+        <Navbar link="My Account" linkurl="/pet-profile" user={this.state.user} setresults={this.setResults} search={true}/>
+        <ListingsCarousel listings={this.state.listings}/>
+        <div className="container">
           { hostList }
         </div>
       </div>
