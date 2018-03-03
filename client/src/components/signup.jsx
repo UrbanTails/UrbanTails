@@ -9,6 +9,7 @@ class Signup extends React.Component {
     super(props);
     this.state = {
       username: '',
+      password: '',
       user: '',
       redirectToProfile: false,
       error: ''
@@ -34,7 +35,8 @@ class Signup extends React.Component {
       type: 'POST',
       url: '/checkuser',
       data: {
-        username: this.state.username
+        username: this.state.username,
+        password: this.state.password
       },
       success: (data) => {
         console.log('ajax posting data', data);
@@ -57,9 +59,11 @@ class Signup extends React.Component {
     });
     this.setState({
       user: {
-        username: this.state.username
+        username: this.state.username,
+        password: this.state.password
       },
-      username: ''
+      username: '',
+      password: ''
     });
   }
 
@@ -73,14 +77,17 @@ class Signup extends React.Component {
       <div>
         <Navbar link="Login" linkurl="/login"/>
         <div className ="row">
-          <div className="col-sm-5">
+          <div className="col-md-5">
             <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
           </div>
-          <div className="col-sm-7">
+          <div className="col-md-7">
             <form onSubmit={this.handleClick}>
               <h2 className="form-signin-heading">Signup</h2>
               <div className="field-line">
                 <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} />
+              </div>
+              <div className="field-line">
+                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} />
               </div>
               <div className="field-line">
                 <RaisedButton type="submit" label="Sign Up" primary={true} />
