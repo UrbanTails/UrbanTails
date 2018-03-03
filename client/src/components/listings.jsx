@@ -9,7 +9,27 @@ class Listings extends React.Component {
     super(props);
     this.state = {
       user: this.props.location.state,
-      listings: []
+      listings: [{
+          "username":"Maria",
+          "profileUrl":"https://source.unsplash.com/3wylDrjxH-E",
+          "type": "host",
+          "location": "Los Angeles",
+          "description":"I've got a wonderful patio and serve meals outside when the weather is nice."
+        },
+        {
+          "username":"Jon",
+          "profileUrl":"https://source.unsplash.com/b37mDyPzdJM",
+          "type": "host",
+          "location": "Los Angeles",
+          "description":"Located in the heart of Santa Monica, your pet will love the social scene with tons of people and pets to meet."
+        },
+        {
+          "username":"Mira",
+          "profileUrl":"https://source.unsplash.com/_-JR5TxKNSo",
+          "type": "host",
+          "location": "New York",
+          "description":"Best spot in the West Village, just steps from the dog park."
+        }]
     }
     this.setResults = this.setResults.bind(this);
   }
