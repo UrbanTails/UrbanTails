@@ -11,28 +11,20 @@ class PetProfile extends React.Component {
       location: this.props.location.state.location
     }
   }
+  
   render() {
-    const style = {
-      width: '150px',
-      height: '150px',
-      borderRadius: '50%',
-    }
-    const margin = {
-      margin: 'auto'
-    }
     return (
       <div>
         <Navbar link="Logout" linkurl="/" />
-        <div className="row">
-          <div style={{ paddingLeft: '10%' }} className="col-sm-4">
-            <img style={style} src={this.state.profileUrl} />
+        <div className="well"></div>
+          <div style={{ paddingLeft: '10%' }} className="col-md-4">
+            <img className="profileimg" src={this.state.profileUrl} />
             <h3>{this.state.username}</h3>
-            <p>Location: {this.state.location}</p>
+            <p><b>Location:</b> {this.state.location}</p>
           </div>
-          <div style={{ margin: '30px auto' }} className="col-sm-8">
-            {this.state.description}
+          <div style={{ margin: '30px auto' }} className="col-md-7">
+            <b>Description:</b> {this.state.description}
           </div>
-        </div>
       </div>
     )
   }

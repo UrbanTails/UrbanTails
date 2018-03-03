@@ -14,29 +14,24 @@ class HostProfile extends React.Component {
   }
 
   render () {
-    const calendarStyle = {
-      width: "350px"
-    }
-    const imageStyle = {
-      width: "150px",
-      height: "150px",
-      objectFit: "cover",
-      borderRadius: "50%"
-    }
     return (
       <div>
-       <Navbar link="Logout" linkurl="/"/>
-        <img src={this.state.imageUrl} style = { imageStyle } />
-        <p>{this.state.username}</p>
-        <p>Location: {this.state.location}</p>
-        <p>Description: {this.state.description}</p>
-        <div style={ calendarStyle }>
-          <Calendar className="react-calendar" />
-        </div>
+        <Navbar link="Logout" linkurl="/"/>
+        <div className="well"></div>
+          <div style={{ paddingLeft: '10%' }} className="col-md-4">
+            <img className="profileimg" src={this.state.imageUrl} />
+            <h3>{this.state.username}</h3>
+            <p><b>Location:</b> {this.state.location}</p>
+            <div style= {{ maxWidth: '300px' }}>
+              <Calendar className="react-calendar" />
+            </div>
+          </div>
+          <div style={{ margin: '30px auto' }} className="col-md-7">
+            <b>Description:</b> {this.state.description}
+          </div>
       </div>
     )
   }
 }
-
 
 module.exports = HostProfile;

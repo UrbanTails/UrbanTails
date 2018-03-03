@@ -47,6 +47,11 @@ div.col-sm-6.right {
   text-align:right;
 }
 
+.profileimg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
 /*.btn {
   border: none;
   margin-top: 25px;
