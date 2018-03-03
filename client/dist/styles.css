@@ -54,6 +54,10 @@
   border-radius: 50%;
 }
 
+.top-nav {
+  height: 55px;
+}
+
 /*=== LANDING ===*/
 .landing-content {
   margin-top: 20px;
