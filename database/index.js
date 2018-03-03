@@ -52,12 +52,14 @@ module.exports = {
          callback(err, null);
       }
       else if (user[0]) {
+        let message = { errors: { password: 'Incorrect submission, try again'} };
+
         bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
           if (err) { callback(err, null); }
           if (isMatch) {
             return callback(null, user);
           } else if (!isMatch) {
-            callback('Password is not correct, try again', null);
+            callback(message, null);
           }
         });
       }

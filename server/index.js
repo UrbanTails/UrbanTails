@@ -1,14 +1,16 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
-
 const bodyParser = require('body-parser');
 const db = require('../database/index');
+const auth = require('./utils/auth');
+
 let app = express();
 
 let PORT = process.env.PORT || 3000;
 
-app.use('/', express.static(path.join(__dirname, '../client/dist')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,43 +21,50 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.route('/login')
-   .post((req, res) => {
-
-    db.getUser(req.body, (err, result) => {
-      if (err) { res.send(err); }
-      else {
-        req.session.user = result[0];
-        res.send(result);
-      }
-    });
+app.post('/login', (req, res) => {
+  auth.validateLoginForm(req.body, (result) => {
+    if (result.success) {
+      db.getUser(req.body, (err, result) => {
+        if (err) {
+          res.send(err);
+        } else {
+          req.session.user = result[0];
+          res.send(result);
+        }
+      });
+    } else {
+      res.send(result);
+    }
+  });
 });
 
-app.route('/checkuser')
-   .post((req, res) => {
-
-    db.checkUser(req.body, function(err, result) {
-      if (err) {
-        res.status(500).send({ error: 'Error checking username' });
-      } else {
-        res.send(result);
-      }
-    });
+app.post('/checkuser', (req, res) => {
+  db.checkUser(req.body, function(err, result) {
+    if (err) {
+      res.status(500).send({ error: 'Error checking username' });
+    } else {
+      res.send(result);
+    }
+  });
 });
 
-app.route('/signup')
-   .post((req, res) => {
-
-    db.saveUser(req.body, (err, result) => {
-      if (err) {
-        console.log('error saving user data to db:', err);
-        res.status(500).send({ error: 'User already exists' });
-      }
-      else {
-        console.log('saved user data to the db:', result);
-        res.send(result);
-      }
-    });
+app.post('/signup', (req, res) => {
+  auth.validateSignupForm(req.body, (result) => {
+    if (result.success) {
+      db.saveUser(req.body, (err, result) => {
+        if (err) {
+          console.log('error saving user data to db:', err);
+          res.status(500).send({ error: 'User already exists' });
+        }
+        else {
+          console.log('saved user data to the db:', result);
+          res.send(result);
+        }
+      });
+    } else {
+      res.send(result);
+    }
+  });
 });
 
 app.route('/pet-profile')
@@ -104,7 +113,6 @@ app.route('/*')
    .get((req, res) => {
     res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
-
 
 app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
