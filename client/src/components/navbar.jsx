@@ -16,12 +16,12 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-light bg-muted">
+        <nav className="navbar navbar-light">
           <div className="container-fluid">
             <div className="navbar-header">
 
               <a className="navbar-brand" href="/">
-                <i class="material-icons">pets</i>  Urban Tails
+                <i className="material-icons">pets</i>Urban Tails
               </a>
             </div>
             { this.props.search ? <Searchbar setresults={this.state.setresults}/> : null }

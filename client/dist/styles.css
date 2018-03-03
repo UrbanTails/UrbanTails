@@ -3,6 +3,7 @@
 .navbar {
   margin-bottom: 0px;
   background-color: white;
+  color: teal;
 }
 
 .footer {
@@ -43,7 +44,7 @@
   text-align: center;
 }
 
-div.col-sm-6.right {
+.footer-right {
   text-align:right;
 }
 
