@@ -1,4 +1,6 @@
 import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+import { RaisedButton } from 'material-ui';
 
 class HostListing extends React.Component {
   constructor(props) {
@@ -6,20 +8,28 @@ class HostListing extends React.Component {
   }
 
   render() {
+    let contact = "Contact " + this.props.host.username;
     return (
-      <div style={{padding: '1px'}}>
-      <div className="row">
-        <div className="col-md-2"></div>
-        <div className="col-md-3">
-          <img style={{ width: '300px', height: '300px'}} className="" src={this.props.host.profileUrl}/>
-        </div>
-        <div className="col-md-7">
-            <h2>{this.props.host.username}</h2>
-            <h5>{this.props.host.location}</h5>
-            <p>{this.props.host.description}</p>
-        </div>
-      </div>
-      </div>
+      <Row className="host-listing">
+        <Col md={4}>
+          <img style={{ width: '300px', height: '250px'}} className="" src={this.props.host.profileUrl}/>
+        </Col>
+        <Col md={5} className="host-content" >
+          <h2>{this.props.host.username}</h2>
+          <h5>{this.props.host.location}</h5>
+          <p>{this.props.host.description}</p>
+          <div>
+            <i class="material-icons md-24 ratings">pets</i>
+            <i class="material-icons md-24 ratings">pets</i>
+            <i class="material-icons md-24 ratings">pets</i>
+            <i class="material-icons md-24 ratings">pets</i>
+            <i class="material-icons md-24 ratings">pets</i>
+          </div>
+        </Col>
+        <Col md={2}>
+          <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={contact} />
+        </Col>
+      </Row>
     )
   }
 }

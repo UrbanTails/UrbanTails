@@ -67,13 +67,13 @@ class Listings extends React.Component {
     console.log('rendering')
     let listings = this.state.listings;
     let hostList = listings.map((hostsummary, index) => {
-      return <HostListing key ={ index } host={ hostsummary } />
+      return <HostListing key ={ index } host={ hostsummary }/>
     });
     return (
       <div>
         <Navbar link="My Account" linkurl="/pet-profile" user={ this.state.user } setresults={this.setResults} search={ true }/>
         <ListingsCarousel listings={ this.state.listings }/>
-        <div className="row">
+        <div className="container">
           { hostList }
         </div>
       </div>

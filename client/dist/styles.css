@@ -16,7 +16,7 @@
 .jumbotron {
   background-image: url(https://source.unsplash.com/915UJQaxtrk);
   background-color: inherit;
-  background-position: center;
+  background-position: center right;
   background-size: cover;
   width: 100%;
   height: 95vh;
@@ -70,15 +70,35 @@ div.col-sm-6.right {
 
 .host-listing {
   padding: 30px;
+  text-align: center;
 }
 
-.host-image-wrapper {
-  text-align: center;
+.host-content {
+  padding: 30px;
+  text-align: left;
+}
+
+.ratings {
+  color: #008080;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+
+.contact-btn {
+  margin-top: 50%;
 }
 
 /*=== CAROUSEL ===*/
 .feature-image-text {
   margin: 0 auto;
+}
+
+.carousel-image {
+  min-width: 100%;
+  max-height: 600px;
+  min-height: 550px;
+  object-fit: cover;
+  object-position: 50% 70%;
 }
 
 /*=== ICONS ===*/

@@ -23,7 +23,6 @@ class ListingCarousel extends React.Component {
             <img style={imgStyle} src={ feature.profileUrl} />
             <Carousel.Caption>
               <h3>Plan your next trip to {feature.location}</h3>
-              <p>{feature.description}</p>
             </Carousel.Caption>
           </Carousel.Item>
         )

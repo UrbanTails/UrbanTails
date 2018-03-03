@@ -7,7 +7,6 @@ import SignupForm from './signupform.jsx';
 import PetProfile from './pet-owner-profile.jsx';
 import HostProfile from './hostprofile.jsx';
 import Listings from './listings.jsx';
-import Footer from './footer.jsx'
 
 class App extends React.Component {
   render () {
@@ -20,7 +19,6 @@ class App extends React.Component {
         <Route path='/pet-profile' component={ PetProfile } />
         <Route path='/host-profile' component={ HostProfile } />
         <Route path='/listings' component={ Listings } />
-        <Footer />
       </div>
     )
   }
