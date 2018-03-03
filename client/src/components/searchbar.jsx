@@ -54,14 +54,14 @@ class Searchbar extends React.Component {
   render() {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
     return (
-      <div className="col-sm-10 searchbar">
+      <div className="col-sm-8 searchbar">
         <form className="navbar-form" role="search" onSubmit={this.handleSubmit.bind(this)}>
-        <div className="input-group">
-          <input style={{ width: '225px' }} type="text" className="form-control" placeholder="Search" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
-          <div className="input-group-btn">
-            <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+          <div className="input-group">
+            <input style={{ width: '225px' }} type="text" className="form-control" placeholder="Search" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
+            <div className="input-group-btn">
+              <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+            </div>
           </div>
-        </div>
         </form>
         <small style={ show }>{ this.state.error }</small>
       </div>
