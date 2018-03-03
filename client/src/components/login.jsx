@@ -85,29 +85,31 @@ class Login extends React.Component {
       }
     }
     return (
-      <div className="container">
+      <div>
         <Navbar link="Sign Up" linkurl="/signup"/>
-        <Row>
-          <Col md={5}>
-            <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
-          </Col>
-          <Col md={7}>
-            <form onSubmit={this.handleClick}>
-              <h2 className="form-signin-heading">Login</h2>
-              <div className="field-line">
-                <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} errorText={ this.state.errors.username }/>
-              </div>
-              <div className="field-line">
-                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} errorText={ this.state.errors.password }/>
-              </div>
-              <div className="field-line">
-                <RaisedButton type="submit" label="Login" primary={true} />
-                <br/>
-                <Link to="/signup">Don't have an account?</Link>
-              </div>
-            </form>
-          </Col>
-        </Row>
+        <div className="container">
+          <Row>
+            <Col md={5}>
+              <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
+            </Col>
+            <Col md={7}>
+              <form onSubmit={this.handleClick}>
+                <h2 className="form-signin-heading">Login</h2>
+                <div className="field-line">
+                  <TextField floatingLabelText="Username" name="username" value={this.state.username} onChange={this.onChange} errorText={ this.state.errors.username }/>
+                </div>
+                <div className="field-line">
+                  <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} errorText={ this.state.errors.password }/>
+                </div>
+                <div className="field-line">
+                  <RaisedButton type="submit" label="Login" primary={true} />
+                  <br/>
+                  <Link to="/signup">Don't have an account?</Link>
+                </div>
+              </form>
+            </Col>
+          </Row>
+        </div>
       </div>
     )
   }

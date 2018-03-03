@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
@@ -40,7 +39,6 @@ class SignupForm extends React.Component {
         description: this.state.description
       },
       success: (data) => {
-        console.log(data)
         if (data.errors) {
           this.setState({
             errors: data.errors
@@ -64,7 +62,7 @@ class SignupForm extends React.Component {
     const target = e.target.name;
     this.setState({
       [ target ]: e.target.value
-    })
+    });
   }
 
   onSelect(e) {
