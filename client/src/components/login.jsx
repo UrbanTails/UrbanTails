@@ -103,6 +103,7 @@ class Login extends React.Component {
               </div>
               <div className="field-line">
                 <RaisedButton type="submit" label="Login" primary={true} />
+                <br/>
                 <Link to="/signup">Don't have an account?</Link>
               </div>
             </form>
