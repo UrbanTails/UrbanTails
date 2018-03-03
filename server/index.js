@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const session = require('express-session');
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const db = require('../database/index');
 const auth = require('./utils/auth');
@@ -9,17 +10,60 @@ let app = express();
 
 let PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
+// Authentication Packages
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+// Express Session
 app.use(session({
   secret: 'This is our secret',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false,
+  store: new MongoStore({
+    mongooseConnection: db.connection,
+    ttl: 2 * 24 * 60 * 60
+  })
 }));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy((username, password, done) => {
+  db.getUser(username, (err, user) => {
+    if (err) { console.log('error in passport local strategy get user', err); }
+    else if (!user) {
+      return done(null, false, {message: 'Unknown user'});
+    } else {
+      return done(null, user);
+    }
+  });
+  // db.User.findOne({username: username}, (err, user) => {
+  //   if (err) { return done(err); }
+  //   if (!user) {
+  //     return done(null, false, {message: 'Incorrect username.'});
+  //   }
+  //   if (!user.validPassword(password)) {
+  //     return done(null, fale, {message: 'Incorrect password'});
+  //   }
+  //   return done(null, user);
+  // });
+}));
+
+app.use((req, res, next) => {
+  console.log('req.session:', req.session);
+  console.log('==========');
+  console.log('req.user', req.user);
+  next();
+});
 
 app.post('/login', (req, res) => {
   auth.validateLoginForm(req.body, (result) => {
@@ -58,33 +102,35 @@ app.post('/signup', (req, res) => {
         }
         else {
           console.log('saved user data to the db:', result);
-          res.send(result);
+          db.getUser(req.body, (err, result) => {
+            if (err) { res.send(err); }
+            else {
+              console.log('result db.getUser', result);
+              const user_id = result._id;
+              req.login(user_id, (err) => {
+                console.log('logged in...redirecting...');
+                // res.redirect('/');
+                res.send(result);
+              });
+            }
+          });
         }
       });
-    } else {
-      res.send(result);
     }
   });
 });
 
-app.route('/pet-profile')
-  .get((req, res) => {
-    if (!req.session.user) {
-      return res.status(401).send();
-    }
-    return res.status(200).send('Welcome to UrbanTails!');
+app.get('/pet-profile', passport.authenticate('local'), (req, res) => {
+    console.log('pet profile authenticated');
+    return res.status(200).send(req.user);
 });
 
-app.route('/host-profile')
-  .get((req, res) => {
-    if (!req.session.user) {
-      return res.status(401).send();
-    }
-    return res.status(200).send('Welcome to UrbanTails!');
+app.get('/host-profile', passport.authenticate('local'), (req, res) => {
+    console.log('host profile authenticated');
+    return res.status(200).send(req.user);
 });
 
-app.route('/getlistings')
-  .get((req, res) => {
+app.get('/getlistings', passport.authenticate('local'), (req, res) => {
     db.getAllListings(req.body, (err, result) => {
       if (err) {
         console.log('error getting all listings from db:', err);
@@ -95,8 +141,9 @@ app.route('/getlistings')
         res.send(result)
       }
     });
-  })
-  .post((req, res) => {
+});
+
+app.post('/getlisting', passport.authenticate('local'), (req, res) => {
     db.getListings(req.body, (err, result) => {
       if (err) {
         console.log('error getting listings from db:', err);
@@ -107,6 +154,17 @@ app.route('/getlistings')
         res.send(result);
       }
     });
+});
+
+passport.serializeUser((user_id, done) => {
+  done(null, user_id);
+});
+
+passport.deserializeUser((user_id, done) => {
+  User.getUserById(user_id, (err, user) => {
+    done(err, user);
+  });
+  // done(null, user_id);
 });
 
 app.route('/*')

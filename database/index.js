@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
+const passportLocalMongoose = require('passport-local-mongoose');
 const bcrypt = require('bcrypt');
 const saltRounds = 5;
 let Schema = mongoose.Schema;
@@ -66,6 +67,10 @@ module.exports = {
     });
   },
 
+  getUserById: (id, callback) => {
+    User.findById(id, callback);
+  },
+
   saveUser: (data, callback) => {
     let plainTextPassword = data.password;
 
@@ -120,6 +125,7 @@ module.exports = {
 
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
-  }
+  },
 
+  connection: mongoose.connection
 };
