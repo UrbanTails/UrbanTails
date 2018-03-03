@@ -7,11 +7,7 @@ class ListingCarousel extends React.Component {
   }
 
   render () {
-    const imgStyle = {
-
-    }
     let feature = this.props.listings;
-
     let featuresList = feature.map((feature, index) => {
       if (index < 3) {
         return (
