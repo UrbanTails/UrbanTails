@@ -10,14 +10,14 @@ class SignupForm extends React.Component {
     super(props);
     this.state = {
       username: this.props.location.state.username,
-      password: this.props.location.state.password,
+      password: '',
       type: 'host',
       email: '',
       location: '',
       profileUrl: '',
       description: '',
+      errors: {},
       redirectToProfile: false
-
     }
     this.handleChange = this.handleChange.bind(this);
     this.onSelect = this.onSelect.bind(this);
@@ -25,8 +25,8 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let data = this.state;
 
+    let clearedState = {}
     $.ajax({
       type: 'POST',
       url: '/signup',
@@ -40,16 +40,24 @@ class SignupForm extends React.Component {
         description: this.state.description
       },
       success: (data) => {
-        console.log('ajax posting data', data);
-        this.setState({
-          redirectToProfile: true,
-          user: data,
-        });
+        console.log(data)
+        if (data.errors) {
+          this.setState({
+            errors: data.errors
+          });
+        } else {
+          this.setState({
+            redirectToProfile: true,
+            user: data,
+          });
+        }
       },
       error: (data) => {
         console.log('error posting data', data);
       }
     });
+
+    this.setState(clearedState);
   }
 
   handleChange(e) {
@@ -81,19 +89,22 @@ class SignupForm extends React.Component {
               <RadioButton value="petOwner" label="Pet Owner"/>
             </RadioButtonGroup>
             <div className="field-line">
-              <TextField floatingLabelText="Username" name="username" onChange={this.handleChange} value={this.state.username}/>
+              <TextField floatingLabelText="Username" name="username" onChange={this.handleChange} value={this.state.username} errorText={ this.state.errors.username }/>
             </div>
             <div className="field-line">
-              <TextField floatingLabelText="Email" name="email" onChange={this.handleChange} value={this.state.email}/>
+                <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange} errorText={ this.state.errors.password } />
+              </div>
+            <div className="field-line">
+              <TextField floatingLabelText="Email" name="email" onChange={this.handleChange} value={this.state.email} errorText={ this.state.errors.email }/>
             </div>
             <div className="field-line">
-              <TextField floatingLabelText="Location" name="location" onChange={this.handleChange} value={this.state.location}/>
+              <TextField floatingLabelText="Location" name="location" onChange={this.handleChange} value={this.state.location} errorText={ this.state.errors.location }/>
             </div>
             <div className="field-line">
-              <TextField floatingLabelText="ImageUrl" name="profileUrl" onChange={this.handleChange} value={this.state.profileUrl}/>
+              <TextField floatingLabelText="ImageUrl" name="profileUrl" onChange={this.handleChange} value={this.state.profileUrl} errorText={ this.state.errors.profileUrl }/>
             </div>
             <div className="field-line">
-              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} />
+              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} errorText={ this.state.errors.description}/>
             </div>
             <RaisedButton type="submit" label="Submit" primary={true} fullWidth={true} />
           </form>
