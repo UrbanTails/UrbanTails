@@ -7,6 +7,7 @@ class HostListing extends React.Component {
 
   render() {
     return (
+      <div style={{padding: '1px'}}>
       <div className="row">
         <div className="col-md-2"></div>
         <div className="col-md-3">
@@ -17,6 +18,7 @@ class HostListing extends React.Component {
             <h5>{this.props.host.location}</h5>
             <p>{this.props.host.description}</p>
         </div>
+      </div>
       </div>
     )
   }

@@ -25,7 +25,6 @@ let UserSchema = new Schema({
 
 let User = mongoose.model('User', UserSchema);
 
-
 module.exports = {
   checkUser: (data, callback) => {
     User.find({})
@@ -94,7 +93,6 @@ module.exports = {
         }
       });
     });
-
   },
 
   getListings: (data, callback) => {
