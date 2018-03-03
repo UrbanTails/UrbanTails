@@ -19,11 +19,11 @@ class HostListing extends React.Component {
           <h5>{this.props.host.location}</h5>
           <p>{this.props.host.description}</p>
           <div>
-            <i class="material-icons md-24 ratings">pets</i>
-            <i class="material-icons md-24 ratings">pets</i>
-            <i class="material-icons md-24 ratings">pets</i>
-            <i class="material-icons md-24 ratings">pets</i>
-            <i class="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
           </div>
         </Col>
         <Col md={2}>
