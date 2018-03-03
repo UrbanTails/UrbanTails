@@ -19,7 +19,10 @@ class Navbar extends React.Component {
         <nav className="navbar navbar-light bg-muted">
           <div className="container-fluid">
             <div className="navbar-header">
-              <a className="navbar-brand" href="/">Urban Tails</a>
+
+              <a className="navbar-brand" href="/">
+                <i class="material-icons">pets</i>  Urban Tails
+              </a>
             </div>
             { this.props.search ? <Searchbar setresults={this.state.setresults}/> : null }
             <ul className="nav navbar-nav navbar-right">
