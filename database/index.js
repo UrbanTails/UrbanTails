@@ -108,7 +108,7 @@ module.exports = {
       });
   },
 
-  getAllListings: (data, callback) => {
+  getAllListings: (callback) => {
     User.find({type: 'host'})
       .sort({location:1})
       .exec((err, listings) => {

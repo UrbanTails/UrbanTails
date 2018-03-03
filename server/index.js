@@ -130,8 +130,8 @@ app.get('/host-profile', passport.authenticate('local'), (req, res) => {
     return res.status(200).send(req.user);
 });
 
-app.get('/getlistings', passport.authenticate('local'), (req, res) => {
-    db.getAllListings(req.body, (err, result) => {
+app.get('/getlistings', (req, res) => {
+    db.getAllListings((err, result) => {
       if (err) {
         console.log('error getting all listings from db:', err);
         res.status(500).send({ error: 'Could not retrieve all listings' });
