@@ -61,7 +61,7 @@ passport.use(new LocalStrategy((username, password, done) => {
 app.use((req, res, next) => {
   console.log('req.session:', req.session);
   console.log('==========');
-  console.log('req.user', req.user);
+  console.log('req.session.user', req.session.user);
   next();
 });
 
