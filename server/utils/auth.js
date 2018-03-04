@@ -1,5 +1,6 @@
-const validator = require('validator');
+const validator = require('validator');  //A library of string validators and sanitizers.
 
+// checking the the sign up form data
 function validateSignupForm(formData, callback) {
   const errors = {};
   let isFormValid = true;
@@ -42,6 +43,7 @@ function validateSignupForm(formData, callback) {
   callback(result);
 }
 
+// checking the the login form data
 function validateLoginForm(formData, callback) {
   const errors = {};
   let isFormValid = true;

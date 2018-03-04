@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
-const passportLocalMongoose = require('passport-local-mongoose');
+const uniqueValidator = require('mongoose-unique-validator'); //adds pre-save validation for unique fields within a Mongoose schema.
+const passportLocalMongoose = require('passport-local-mongoose'); //simplifies building username and password login with Passport.
 const bcrypt = require('bcrypt');
 const saltRounds = 5;
 let Schema = mongoose.Schema;
 let uristring = process.env.MONGODB_URI || 'mongodb://localhost:27017/users';
-
+//establish connection 
 mongoose.connect(uristring, (err) => {
   if (err) { console.log('mongodb not connected', err); }
   else {
@@ -13,6 +13,7 @@ mongoose.connect(uristring, (err) => {
   }
 });
 
+//set schema
 let UserSchema = new Schema({
   username: { type: String, unique: true },
   email: { type: String, unique: true},
@@ -23,9 +24,12 @@ let UserSchema = new Schema({
   description: String
 });
 
+//compile schema into a model 
 let User = mongoose.model('User', UserSchema);
 
+
 module.exports = {
+//database search function to ID whether uniq user exist in the db returns boolean 
   checkUser: (data, callback) => {
     User.find({})
       .where('username').equals(data.username)
@@ -41,6 +45,7 @@ module.exports = {
         }
       });
   },
+//database search function to get user information 
   getUser: (data, callback) => {
     let attemptedPassword = data.password;
 
@@ -65,14 +70,15 @@ module.exports = {
       }
     });
   },
-
+  //get user by id to feed deserialize user. 
   getUserById: (id, callback) => {
     User.findById(id, callback);
   },
 
+  //save user data 
   saveUser: (data, callback) => {
     let plainTextPassword = data.password;
-
+    //bcrypt passward before save it to database
     bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
       let user = new User ({
       username: data.username,
@@ -94,7 +100,7 @@ module.exports = {
       });
     });
   },
-
+  
   getListings: (data, callback) => {
     User.find({type: 'host'})
       .where('location').equals(data.query)
