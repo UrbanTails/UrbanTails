@@ -95,6 +95,7 @@ app.post('/checkuser', (req, res) => {
 app.post('/signup', (req, res) => {
   auth.validateSignupForm(req.body, (result) => {
     if (result.success) {
+      console.log(result);
       db.saveUser(req.body, (err, result) => {
         if (err) {
           console.log('error saving user data to db:', err);
@@ -116,6 +117,9 @@ app.post('/signup', (req, res) => {
           });
         }
       });
+    } else if (result) {
+      console.log(result);
+      res.status(500).send(result);
     }
   });
 });
