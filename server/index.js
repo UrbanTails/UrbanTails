@@ -143,7 +143,7 @@ app.get('/getlistings', (req, res) => {
     });
 });
 
-app.post('/getlisting', passport.authenticate('local'), (req, res) => {
+app.post('/getlistings', (req, res) => {
     db.getListings(req.body, (err, result) => {
       if (err) {
         console.log('error getting listings from db:', err);
