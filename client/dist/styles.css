@@ -70,10 +70,9 @@
 
 .description {
   background-color:lightgrey;
-  border-radius:10px;
+  border-radius:5px;
   border: dotted 1px;
   padding: 5px;
-  background-size: 300px 100px;
 }
 
 .top-nav {
