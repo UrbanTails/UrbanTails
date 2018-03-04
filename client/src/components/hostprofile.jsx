@@ -9,26 +9,35 @@ class HostProfile extends React.Component {
       username: this.props.location.state.username,
       imageUrl: this.props.location.state.profileUrl,
       location: this.props.location.state.location,
-      description: this.props.location.state.description
+      description: this.props.location.state.description,
+      email: this.props.location.state.email
     };
   }
 
   render () {
     return (
       <div>
-        <Navbar link="Logout" linkurl="/"/>
+        <Navbar link="Logout" linkurl="/" />
         <div className="well"></div>
-          <div style={{ paddingLeft: '10%' }} className="col-md-4">
-            <img className="profileimg" src={this.state.imageUrl} />
+        <div className='row'>
+          <div style={{ paddingLeft: '10%' }} className='col-md-4'>
+            <div className="profileimg"><img src={this.state.imageUrl} /></div>
+          </div>
+          <div style={{ paddingLeft: '10%' }} className='col-md-5'>
             <h3>{this.state.username}</h3>
+            <p><b>Email:</b> {this.state.email}</p>
             <p><b>Location:</b> {this.state.location}</p>
+            <p><b>Description:</b></p>
+            <p className="description">{this.state.description}</p>
+          </div>
+        </div><br/>
+        <div className='row'>
+          <div style={{ paddingLeft: '10%' }} className='col-md-4' className="host-content">
             <div style= {{ maxWidth: '300px' }}>
               <Calendar className="react-calendar" />
             </div>
           </div>
-          <div style={{ margin: '30px auto' }} className="col-md-7">
-            <b>Description:</b> {this.state.description}
-          </div>
+        </div>
       </div>
     )
   }
