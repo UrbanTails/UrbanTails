@@ -69,9 +69,15 @@ class SignupForm extends React.Component {
   }
 
   render () {
-    if (this.state.redirectToProfile) {
-      return <Redirect to={{ pathname: '/login', state: this.state }} />
+    const redirectToProfile = this.state.redirectToProfile;
+    if (redirectToProfile) {
+      if (this.state.type === 'host') {
+        return(<Redirect to={{ pathname: '/host-profile', state: this.state }}/>)
+      } else {
+        return (<Redirect to={{ pathname: '/listings', state: this.state }}/>)
+      }
     }
+    
     return (
       <div>
         <Navbar link="Login" linkurl="/login"/>
