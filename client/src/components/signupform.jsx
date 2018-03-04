@@ -98,7 +98,7 @@ class SignupForm extends React.Component {
               <TextField floatingLabelText="ImageUrl" name="profileUrl" onChange={this.handleChange} value={this.state.profileUrl} errorText={ this.state.errors.profileUrl }/>
             </div>
             <div className="field-line">
-              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} errorText={ this.state.errors.description}/>
+              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} value={this.state.description} errorText={ this.state.errors.description}/>
             </div>
             <RaisedButton type="submit" label="Submit" primary={true} fullWidth={true} />
           </form>
