@@ -9,8 +9,8 @@ class SignupForm extends React.Component {
     super(props);
     this.state = {
       username: this.props.location.state.username,
-      password: '',
-      type: 'host',
+      password: this.props.location.state.password,
+      type: 'petOwner',
       email: '',
       location: '',
       profileUrl: '',
@@ -39,19 +39,15 @@ class SignupForm extends React.Component {
         description: this.state.description
       },
       success: (data) => {
-        if (data.errors) {
-          this.setState({
-            errors: data.errors
-          });
-        } else {
-          this.setState({
-            redirectToProfile: true,
-            user: data,
-          });
-        }
+        this.setState({
+          redirectToProfile: true,
+          user: data,
+        });
       },
       error: (data) => {
-        console.log('error posting data', data);
+        this.setState({
+          errors: data.responseJSON.errors
+        })
       }
     });
 
@@ -82,7 +78,7 @@ class SignupForm extends React.Component {
         <Card className="container signupform">
           <form action="/" onSubmit={this.handleSubmit.bind(this)} >
             <h2>Create Your Profile</h2>
-            <RadioButtonGroup name="Usertype" defaultSelected="host" onChange={this.onSelect}>
+            <RadioButtonGroup name="Usertype" defaultSelected="petOwner" onChange={this.onSelect}>
               <RadioButton value="host" label="Host"/>
               <RadioButton value="petOwner" label="Pet Owner"/>
             </RadioButtonGroup>

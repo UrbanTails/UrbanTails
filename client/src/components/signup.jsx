@@ -29,38 +29,44 @@ class Signup extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    $.ajax({
-      type: 'POST',
-      url: '/checkuser',
-      data: {
-        username: this.state.username,
-        password: this.state.password
-      },
-      success: (data) => {
-        if (data) {
+    if (this.state.password.length < 8) {
+      this.setState({
+        error: 'Password must be longer than 8 characters'
+      })
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: '/checkuser',
+        data: {
+          username: this.state.username,
+          password: this.state.password
+        },
+        success: (data) => {
+          if (data) {
+            this.setState({
+              error: 'Username taken, please retry'
+            });
+          } else {
+            this.setState({
+              redirectToProfile: true
+            });
+          }
+        },
+        error: (data) => {
           this.setState({
-            error: 'Username taken, please retry'
-          });
-        } else {
-          this.setState({
-            redirectToProfile: true
+            error: data.responseJSON.error
           });
         }
-      },
-      error: (data) => {
-        this.setState({
-          error: data.responseJSON.error
-        });
-      }
-    });
-    this.setState({
-      user: {
-        username: this.state.username,
-        password: this.state.password
-      },
-      username: '',
-      password: ''
-    });
+      });
+      this.setState({
+        user: {
+          username: this.state.username,
+          password: this.state.password
+        },
+        username: '',
+        password: ''
+      });
+    }
   }
 
   render() {
