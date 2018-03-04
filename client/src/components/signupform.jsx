@@ -87,7 +87,7 @@ class SignupForm extends React.Component {
             </div>
             <div className="field-line">
                 <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.handleChange} errorText={ this.state.errors.password } />
-              </div>
+            </div>
             <div className="field-line">
               <TextField floatingLabelText="Email" name="email" onChange={this.handleChange} value={this.state.email} errorText={ this.state.errors.email }/>
             </div>
