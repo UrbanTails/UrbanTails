@@ -8,6 +8,11 @@ import PetProfile from './pet-owner-profile.jsx';
 import HostProfile from './hostprofile.jsx';
 import Listings from './listings.jsx';
 
+/*
+  App Component:
+  Routes to all other components
+*/
+
 class App extends React.Component {
   render () {
     return (
