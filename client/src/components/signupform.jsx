@@ -17,7 +17,7 @@ class SignupForm extends React.Component {
       description: '',
       errors: {},
       redirectToProfile: false
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
     this.onSelect = this.onSelect.bind(this);
   }
