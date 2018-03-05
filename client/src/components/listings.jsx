@@ -48,7 +48,7 @@ class Listings extends React.Component {
   }
 
   render() {
-    let listings = this.state.listings;
+    let listings = this.state.listings.reverse();
     let hostList = listings.map((hostsummary, index) => {
       return <HostListing key ={ index } host={ hostsummary }/>
     });
