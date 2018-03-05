@@ -2,10 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Jumbotron, Row, Col } from 'react-bootstrap';
 import { Avatar } from 'material-ui';
+import $ from 'jquery';
 import Navbar from './navbar.jsx';
 import Footer from './footer.jsx';
 
+
 class Landing extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    $.get('/logout');
+  }
+
   render() {
     return (
       <div>
