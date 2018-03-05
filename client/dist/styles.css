@@ -49,6 +49,10 @@
   text-align:right;
 }
 
+.form-container {
+  padding-bottom: 75px;
+}
+
 /*=== PETOWNER/HOST PROFILE ===*/
 
 .profileimg {
