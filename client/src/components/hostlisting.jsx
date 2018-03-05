@@ -5,15 +5,21 @@ import { RaisedButton } from 'material-ui';
 class HostListing extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showContact: false
+    };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    alert(this.props.host);
+    console.log(this.props);
+    this.setState({
+      showContact: !this.state.showContact
+    });
   }
 
   render() {
-    let contact = `Contact
-    ` + this.props.host.username;
+    let contact = 'Contact ' + this.props.host.username;
     return (
       <Row className="host-listing">
         <Col md={5}>
@@ -31,7 +37,9 @@ class HostListing extends React.Component {
             <i className="material-icons md-24 ratings">pets</i>
           </div>
           <p></p>
-          <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={contact} onClick={this.handleClick}/>
+          <div className="contact-btn-container">
+            <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={ this.state.showContact ? this.props.host.email : contact } onClick={this.handleClick}/>
+          </div>
         </Col>
       </Row>
     )
