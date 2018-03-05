@@ -6,9 +6,12 @@ class HostListing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showContact: false
+      showContact: false,
+      style: {backgroundColor: 'white'}
     };
     this.handleClick = this.handleClick.bind(this);
+    this.mouseOut = this.mouseOut.bind(this);
+    this.mouseOver = this.mouseOver.bind(this);
   }
 
   handleClick(e) {
@@ -18,10 +21,18 @@ class HostListing extends React.Component {
     });
   }
 
+  mouseOut() {
+    this.setState({style: {backgroundColor: 'white'}});
+  }
+  
+  mouseOver() {
+    this.setState({style: {backgroundColor: 'azure'}});
+  }
+
   render() {
     let contact = 'Contact ' + this.props.host.username;
     return (
-      <Row className="host-listing">
+      <Row className="host-listing" style={this.state.style} onMouseLeave={this.mouseOut} onMouseEnter={this.mouseOver} >
         <Col md={5}>
           <img style={{ width: '300px', height: '250px'}} className="" src={this.props.host.profileUrl}/>
         </Col>
