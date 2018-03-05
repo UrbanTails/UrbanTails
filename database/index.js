@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator'); //adds pre-save validation for unique fields within a Mongoose schema.
 const passportLocalMongoose = require('passport-local-mongoose'); //simplifies building username and password login with Passport.
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); // handles password hashing in the database
 const saltRounds = 5;
 let Schema = mongoose.Schema;
 let uristring = process.env.MONGODB_URI || 'mongodb://localhost:27017/users';
@@ -80,7 +80,7 @@ module.exports = {
   //save user data
   saveUser: (data, callback) => {
     let plainTextPassword = data.password;
-    //bcrypt passward before save it to database
+    //bcrypt password before saving it to database
     bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
       let user = new User ({
       username: data.username,
@@ -102,7 +102,7 @@ module.exports = {
       });
     });
   },
-
+  // retrieve host listings by a specific location
   getListings: (data, callback) => {
     User.find({type: 'host'})
       .where('location').equals(data.query)
@@ -115,7 +115,7 @@ module.exports = {
         }
       });
   },
-
+  // retrieve all host listings in the database
   getAllListings: (callback) => {
     User.find({type: 'host'})
       .sort({location:1})
@@ -128,10 +128,10 @@ module.exports = {
         }
       });
   },
-
+  // utilized by seed.js file to drop database when re-seeding
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
   },
-
+  // exports mongoose connection for server to reference
   connection: mongoose.connection
 };
