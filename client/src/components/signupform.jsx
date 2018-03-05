@@ -77,7 +77,7 @@ class SignupForm extends React.Component {
         return (<Redirect to={{ pathname: '/listings', state: this.state }}/>)
       }
     }
-    
+
     return (
       <div>
         <Navbar link="Login" linkurl="/login"/>
@@ -104,7 +104,7 @@ class SignupForm extends React.Component {
               <TextField floatingLabelText="ImageUrl" name="profileUrl" onChange={this.handleChange} value={this.state.profileUrl} errorText={ this.state.errors.profileUrl }/>
             </div>
             <div className="field-line">
-              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} value={this.state.description} errorText={ this.state.errors.description}/>
+              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} onChange={this.handleChange} value={this.state.description} errorText={ this.state.errors.description }/>
             </div>
             <RaisedButton type="submit" label="Submit" primary={true} fullWidth={true} />
           </form>

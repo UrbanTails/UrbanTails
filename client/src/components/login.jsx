@@ -4,6 +4,7 @@ import { TextField, RaisedButton } from 'material-ui';
 import { Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
+import Footer from './footer.jsx';
 
 
 class Login extends React.Component {
@@ -36,7 +37,7 @@ class Login extends React.Component {
     });
   }
 
-  onChange (e) {
+  onChange(e) {
     let target = e.target.name;
     this.setState ({
       [ target ]: e.target.value,
@@ -44,7 +45,7 @@ class Login extends React.Component {
     });
   }
 
-  handleClick (e) {
+  handleClick(e) {
     e.preventDefault();
     $.ajax({
       type: 'POST',
@@ -54,7 +55,9 @@ class Login extends React.Component {
         password: this.state.password
       },
       success: (data) => {
+        console.log(data.errors);
         if (data.errors) {
+          console.log(data.errors)
           this.setState({
             errors: data.errors
           });
@@ -63,19 +66,15 @@ class Login extends React.Component {
         }
       },
       error: (data) => {
+        console.log(data);
         this.setState({
-          errors: { password: data.responseText }
+          errors: data.responseJSON.errors
         });
       }
     });
-
-    this.setState({
-      username: '',
-      password: ''
-    });
   }
 
-  render () {
+  render() {
     const redirectToProfile = this.state.redirectToProfile;
     if (redirectToProfile) {
       if (this.state.user.type === 'host') {
@@ -110,6 +109,7 @@ class Login extends React.Component {
             </Col>
           </Row>
         </div>
+        <Footer />
       </div>
     )
   }

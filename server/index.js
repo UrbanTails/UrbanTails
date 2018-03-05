@@ -59,9 +59,6 @@ passport.use(new LocalStrategy((username, password, done) => {
 }));
 
 app.use((req, res, next) => {
-  console.log('req.session:', req.session);
-  console.log('==========');
-  console.log('req.session.user', req.session.user);
   next();
 });
 
@@ -70,7 +67,8 @@ app.post('/login', (req, res) => {
     if (result.success) {
       db.getUser(req.body, (err, result) => {
         if (err) {
-          res.send(err);
+          console.log(err);
+          res.status(500).send(err);
         } else {
           req.session.user = result[0];
           res.send(result);
@@ -124,14 +122,22 @@ app.post('/signup', (req, res) => {
   });
 });
 
-app.get('/pet-profile', passport.authenticate('local'), (req, res) => {
-    console.log('pet profile authenticated');
-    return res.status(200).send(req.user);
+app.get('/pet-profile', (req, res, next) => {
+  passport.authenticate('local', function(err, user, info) {
+    if (err || !user) { return res.redirect('/login'); }
+    else {
+      return res.send(req.user);
+    }
+  })(req, res, next);
 });
 
-app.get('/host-profile', passport.authenticate('local'), (req, res) => {
-    console.log('host profile authenticated');
-    return res.status(200).send(req.user);
+app.get('/host-profile', (req, res, next) => {
+  passport.authenticate('local', function(err, user, info) {
+    if (err || !user) { return res.redirect('/login'); }
+    else {
+      return res.send(req.user);
+    }
+  })(req, res, next);
 });
 
 app.get('/getlistings', (req, res) => {
@@ -171,9 +177,8 @@ passport.deserializeUser((user_id, done) => {
   // done(null, user_id);
 });
 
-app.route('/*')
-   .get((req, res) => {
-    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.listen(PORT, function() {
