@@ -91,7 +91,7 @@ class Login extends React.Component {
             <Col md={5}>
               <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
             </Col>
-            <Col md={7}>
+            <Col md={7} className="form-container">
               <form onSubmit={this.handleClick}>
                 <h2 className="form-signin-heading">Login</h2>
                 <div className="field-line">
