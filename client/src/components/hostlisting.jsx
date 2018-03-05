@@ -24,9 +24,9 @@ class HostListing extends React.Component {
   mouseOut() {
     this.setState({style: {backgroundColor: 'white'}});
   }
-  
+
   mouseOver() {
-    this.setState({style: {backgroundColor: 'azure'}});
+    this.setState({style: {backgroundColor: '#f7f7f7'}});
   }
 
   render() {

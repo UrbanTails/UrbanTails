@@ -80,6 +80,12 @@ app.post('/login', (req, res) => {
   });
 });
 
+app.get('/logout', function (req, res){
+  req.logOut();
+  res.clearCookie('connect.sid', {path: '/'}).send('cleared');
+});
+
+
 app.post('/checkuser', (req, res) => {
   db.checkUser(req.body, function(err, result) {
     if (err) {
