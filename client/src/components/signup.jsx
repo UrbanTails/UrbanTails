@@ -4,6 +4,7 @@ import { TextField, RaisedButton } from 'material-ui';
 import { Row, Col } from 'react-bootstrap';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
+import Footer from './footer.jsx';
 
 
 class Signup extends React.Component {
@@ -41,8 +42,8 @@ class Signup extends React.Component {
           username: this.state.username,
           password: this.state.password
         },
-        success: (data) => {
-          if (data) {
+        success: (userexists) => {
+          if (userexists) {
             this.setState({
               error: 'Username taken, please retry'
             });
@@ -62,9 +63,7 @@ class Signup extends React.Component {
         user: {
           username: this.state.username,
           password: this.state.password
-        },
-        username: '',
-        password: ''
+        }
       });
     }
   }
@@ -102,6 +101,7 @@ class Signup extends React.Component {
             </Col>
           </Row>
         </div>
+        <Footer />
       </div>
     )
   }

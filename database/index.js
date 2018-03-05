@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 5;
 let Schema = mongoose.Schema;
 let uristring = process.env.MONGODB_URI || 'mongodb://localhost:27017/users';
-//establish connection 
+//establish connection
 mongoose.connect(uristring, (err) => {
   if (err) { console.log('mongodb not connected', err); }
   else {
@@ -24,12 +24,12 @@ let UserSchema = new Schema({
   description: String
 });
 
-//compile schema into a model 
+//compile schema into a model
 let User = mongoose.model('User', UserSchema);
 
 
 module.exports = {
-//database search function to ID whether uniq user exist in the db returns boolean 
+//database search function to ID whether uniq user exist in the db returns boolean
   checkUser: (data, callback) => {
     User.find({})
       .where('username').equals(data.username)
@@ -45,37 +45,39 @@ module.exports = {
         }
       });
   },
-//database search function to get user information 
+//database search function to get user information
   getUser: (data, callback) => {
     let attemptedPassword = data.password;
 
     User.find({})
       .where('username').equals(data.username)
       .exec((err, user) => {
-      if (err) {
-         console.log('Error retrieving user from database', err);
-         callback(err, null);
-      }
-      else if (user[0]) {
-        let message = { errors: { password: 'Incorrect submission, try again'} };
+        if (user.length === 0) {
+          err = {
+            errors: { username: 'User does not exist' }
+          };
+          callback(err, null);
+        }
+        else if (user[0]) {
+          let message = { errors: { password: 'Incorrect submission, try again'} };
 
-        bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
-          if (err) { callback(err, null); }
-          if (isMatch) {
-            return callback(null, user);
-          } else if (!isMatch) {
-            callback(message, null);
-          }
-        });
-      }
+          bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
+            if (err) { callback(err, null); }
+            if (isMatch) {
+              return callback(null, user);
+            } else if (!isMatch) {
+              callback(message, null);
+            }
+          });
+        }
     });
   },
-  //get user by id to feed deserialize user. 
+  //get user by id to feed deserialize user.
   getUserById: (id, callback) => {
     User.findById(id, callback);
   },
 
-  //save user data 
+  //save user data
   saveUser: (data, callback) => {
     let plainTextPassword = data.password;
     //bcrypt passward before save it to database
@@ -100,7 +102,7 @@ module.exports = {
       });
     });
   },
-  
+
   getListings: (data, callback) => {
     User.find({type: 'host'})
       .where('location').equals(data.query)

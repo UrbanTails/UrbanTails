@@ -25,9 +25,17 @@ class HostProfile extends React.Component {
           </div>
           <div style={{ paddingLeft: '10%' }} className='col-md-5'>
             <h3>{this.state.username}</h3>
-            <p><b>Email:</b> {this.state.email}</p>
-            <p><b>Location:</b> {this.state.location}</p>
-            <p><b>Description:</b></p>
+            <p>
+              <b>Host Rating: </b>
+              <i className="material-icons md-24 ratings">pets</i>
+              <i className="material-icons md-24 ratings">pets</i>
+              <i className="material-icons md-24 ratings">pets</i>
+              <i className="material-icons md-24 ratings">pets</i>
+              <i className="material-icons md-24 ratings">pets</i>
+            </p>
+            <p><b>Email: </b>{this.state.email}</p>
+            <p><b>Location: </b>{this.state.location}</p>
+            <p><b>Description: </b></p>
             <p className="description">{this.state.description}</p>
           </div>
         </div><br/>

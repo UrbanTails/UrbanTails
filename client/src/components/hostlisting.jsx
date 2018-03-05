@@ -7,11 +7,16 @@ class HostListing extends React.Component {
     super(props);
   }
 
+  handleClick(e) {
+    alert(this.props.host);
+  }
+
   render() {
-    let contact = "Contact " + this.props.host.username;
+    let contact = `Contact
+    ` + this.props.host.username;
     return (
       <Row className="host-listing">
-        <Col md={4}>
+        <Col md={5}>
           <img style={{ width: '300px', height: '250px'}} className="" src={this.props.host.profileUrl}/>
         </Col>
         <Col md={5} className="host-content" >
@@ -25,9 +30,8 @@ class HostListing extends React.Component {
             <i className="material-icons md-24 ratings">pets</i>
             <i className="material-icons md-24 ratings">pets</i>
           </div>
-        </Col>
-        <Col md={2}>
-          <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={contact} />
+          <p></p>
+          <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={contact} onClick={this.handleClick}/>
         </Col>
       </Row>
     )
