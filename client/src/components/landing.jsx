@@ -51,7 +51,7 @@ class Landing extends React.Component {
               <p>Lead Engineer</p>
             </Col>
             <Col md={3}>
-              <Avatar src="" size={100}/>
+              <Avatar src="https://i.pinimg.com/736x/97/27/a5/9727a533b8d35ec176155e92fd643477--pet-tattoos-wall-tattoo.jpg" size={100}/>
               <h4>Michael Shin</h4>
               <p>Scrum Master</p>
             </Col>
