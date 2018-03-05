@@ -2,6 +2,13 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import Navbar from './navbar.jsx';
 
+/*
+  HostProfile Component:
+  Used after logging in or signing up as a host, it displays all the information about the host.
+  Currently this is a private profile, but it can potentially be public, have more functions
+  such as ratings and messaging, and can be shown by clicking on an individual listing on the listings page.
+*/
+
 class HostProfile extends React.Component {
   constructor(props) {
     super(props);

@@ -2,6 +2,14 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { RaisedButton } from 'material-ui';
 
+/*
+  HostListing Component:
+  Used on listings page
+  Individual listings that show a profile image, name, location,
+  description, and contact button
+  When contact button is clicked, the contact email is displayed
+*/
+
 class HostListing extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +32,7 @@ class HostListing extends React.Component {
   mouseOut() {
     this.setState({style: {backgroundColor: 'white'}});
   }
-  
+
   mouseOver() {
     this.setState({style: {backgroundColor: 'azure'}});
   }

@@ -1,5 +1,10 @@
 import React from 'react';
 
+/*
+  Footer Component:
+  Used on landing page, login page, and signup page
+*/
+
 const Footer = (props) => {
     return (
       <div className="navbar navbar-fixed-bottom footer">
