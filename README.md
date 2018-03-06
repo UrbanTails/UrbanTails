@@ -1,7 +1,5 @@
 # UrbanTails
 
->
-
 ## Team
 
   - __Product Owner__: Queenie Smith
@@ -89,6 +87,35 @@ From within the root directory: run npm install before running the app to instal
 ### Roadmap
 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+
+ROAD MAP
+0: server serves index
+* express backend that serves dummy data
+* frontend: react render index
+* server connects to client
+* database connected to server
+* database: schema for user (pet owner)
+
+1: deploy barebones
+*front-end: pages: signup, login
+* server routes: /login, /signup, /user
+* deploy successfully
+
+2: Users can login and see own profile page
+* create user profiles
+* create Host Schema
+* pet Owner/host toggle on signup -- todo
+
+3: user profiles rendered with data
+*seed database
+* petowner landing page renders with host listings
+* myAccount is accessible
+* minimal styling
+
+4: Users can search for hosts by location (LA/NY)
+* front-end: add search functionality
+* server: make targeted queries to db based on post from search
+
 
 
 ## Contributing
