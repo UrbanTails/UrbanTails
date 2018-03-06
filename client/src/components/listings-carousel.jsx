@@ -1,6 +1,12 @@
 import React from 'react';
 import { Carousel, Item, Caption } from 'react-bootstrap';
 
+/*
+  ListingCarousel Component:
+  Used on listings page
+  Shows top 3 listings, or less, given an array of listings from the listings page state
+*/
+
 class ListingCarousel extends React.Component {
   constructor(props) {
     super(props);
