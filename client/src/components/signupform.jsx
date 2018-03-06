@@ -4,6 +4,14 @@ import $ from 'jquery';
 import Navbar from './navbar.jsx';
 import { Card, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'material-ui';
 
+/*
+  SignupForm Component:
+  Used by signup component.
+  Validates all fields (server side).
+  On submit, user data is posted to database.
+  Redirects to appropriate user profile and passes all user data to profile.
+*/
+
 class SignupForm extends React.Component {
   constructor(props) {
     super(props);

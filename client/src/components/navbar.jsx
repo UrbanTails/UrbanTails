@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Searchbar from './searchbar.jsx';
 
+/*
+  Navbar Component:
+  Rendered on every page
+  Displays a link (via props) based on which page it's rendered on.
+  Displays search bar if property is set to true on the page that renders the navbar.
+  Clicking brand links to landing page.
+*/
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
