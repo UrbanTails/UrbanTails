@@ -1,6 +1,14 @@
 import React from 'react';
 import $ from 'jquery';
 
+/*
+  Searchbar Component:
+  Used by Listings component
+  Sends query to database based on input (currently limited)
+  Shows error message if query does not match 'New York' or 'Los Angeles'
+  Results are rendered to page
+*/
+
 class Searchbar extends React.Component {
   constructor(props) {
     super(props);

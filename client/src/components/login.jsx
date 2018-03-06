@@ -6,6 +6,12 @@ import $ from 'jquery';
 import Navbar from './navbar.jsx';
 import Footer from './footer.jsx';
 
+/*
+  Login Component:
+  Link on landing and signup pages
+  Redirects to user profile (host or owner) on successful post to server
+  Displays errors if form is not properly validated
+*/
 
 class Login extends React.Component {
   constructor(props) {

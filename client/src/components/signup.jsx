@@ -6,6 +6,15 @@ import $ from 'jquery';
 import Navbar from './navbar.jsx';
 import Footer from './footer.jsx';
 
+/*
+  Signup Component:
+  Linked to from login and landing components.
+  Accepts username and password.
+  Verifies that username is not already taken (database query).
+  Verifies that password length is acceptable.
+  Displays error if form does not pass validation.
+  Redirects to SignupForm passing along selected username and password.
+*/
 
 class Signup extends React.Component {
   constructor(props) {

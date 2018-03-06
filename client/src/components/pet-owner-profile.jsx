@@ -2,6 +2,12 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Navbar from './navbar.jsx';
 
+/*
+  PetProfile Component:
+  Used by login redirect and by clicking 'My Account' on listings page
+  Displays currently logged in user information.
+*/
+
 class PetProfile extends React.Component {
   constructor(props){
     super(props);
