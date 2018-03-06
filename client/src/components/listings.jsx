@@ -4,6 +4,13 @@ import HostListing from './hostlisting.jsx';
 import Navbar from './navbar.jsx';
 import $ from 'jquery';
 
+/*
+  Listings Component:
+  Used when pet owners log in
+  Shows all listings in the database. Also has a search (filter) function, and a link to the pet profile
+  Page includes the jumbletron and the hostlisting components
+*/
+
 class Listings extends React.Component {
   constructor(props){
     super(props);

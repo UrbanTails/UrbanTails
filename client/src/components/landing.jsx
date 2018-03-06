@@ -6,6 +6,12 @@ import $ from 'jquery';
 import Navbar from './navbar.jsx';
 import Footer from './footer.jsx';
 
+/*
+  Lading Component:
+  Used when the user first loads the website
+  It shows a jumbotron with a get started button, some footer sections, and a login button on the nav bar
+  Clicking Get Started routes to signup page, and clicking Login leads to login page
+*/
 
 class Landing extends React.Component {
   constructor(props) {
