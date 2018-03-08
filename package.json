@@ -6,7 +6,8 @@
   "scripts": {
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
     "start": "node server/index.js",
-    "test": "test"
+    "test": "test",
+    "webpack": "webpack -d --watch"
   },
   "repository": {
     "type": "git",

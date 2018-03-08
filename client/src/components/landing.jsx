@@ -21,7 +21,7 @@ class Landing extends React.Component {
   componentDidMount() {
     $.get('/logout');
   }
-
+  //Change Get started Button link to /listings to send user directly to listings
   render() {
     return (
       <div>
@@ -30,7 +30,7 @@ class Landing extends React.Component {
           <div className="content">
             <h1>Urban Tails</h1>
             <h3>Pet boarding wherever your adventure takes you</h3>
-            <Link to='/signup' className="btn btn-default btn-lg">Get Started</Link>
+            <Link to='/listings' className="btn btn-default btn-lg">Get Started</Link>
           </div>
         </Jumbotron>
         <div className="container">
