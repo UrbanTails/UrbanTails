@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { RaisedButton } from 'material-ui';
+import { Link } from 'react-router-dom';
 
 /*
   HostListing Component:
@@ -20,13 +21,18 @@ class HostListing extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.mouseOut = this.mouseOut.bind(this);
     this.mouseOver = this.mouseOver.bind(this);
+    this.handleSubmit = this.handleSubmit.bind()
   }
 
-  handleClick(e) {
+  handleClick() {
     console.log(this.props);
     this.setState({
       showContact: !this.state.showContact
     });
+  }
+
+    handleSubmit(){
+    this.props.history.push('/singleListView')
   }
 
   mouseOut() {
@@ -40,7 +46,7 @@ class HostListing extends React.Component {
   render() {
     let contact = 'Contact ' + this.props.host.username;
     return (
-      <Row className="host-listing" style={this.state.style} onMouseLeave={this.mouseOut} onMouseEnter={this.mouseOver} >
+      <Row className="host-listing" style={this.state.style} onMouseLeave={this.mouseOut} onMouseEnter={this.mouseOver} onClick={this.handleClick}>
         <Col md={5}>
           <img style={{ width: '300px', height: '250px'}} className="" src={this.props.host.profileUrl}/>
         </Col>
@@ -58,6 +64,7 @@ class HostListing extends React.Component {
           <p></p>
           <div className="contact-btn-container">
             <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={ this.state.showContact ? this.props.host.email : contact } onClick={this.handleClick}/>
+            <Link to='/singleListView'>view page</Link>
           </div>
         </Col>
       </Row>
