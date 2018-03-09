@@ -110,7 +110,7 @@ class HostProfile extends React.Component {
       type: 'POST',
       url: '/update-profile',
       data: {
-        username: component.props.state.location.username,
+        username: component.state.username,
         imageUrl: component.state.newImageUrl,
         location: component.state.newLocation,
         description: component.state.newDescription,
@@ -174,10 +174,10 @@ class HostProfile extends React.Component {
               {this.state.displayImageButton && <RaisedButton label="Update Image" onClick={this.revealImageInput}/>}
               {this.state.displayImageInput && <input style={style} value={this.state.newImageUrl} onChange={this.onDescriptionEntry} type="text"/>}
             </div>
-          </div>
-          <button style={style} class="ui button" onClick={this.updateProfile} >
+          <button style={style} className="ui button" onClick={this.updateProfile} >
             Update Profile
           </button>
+          </div>
         </div>
       </div>
     )

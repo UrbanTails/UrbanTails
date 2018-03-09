@@ -142,8 +142,10 @@ app.get('/host-profile', (req, res, next) => {
 
 //updates profile information for given user
 app.post('/update-profile', (req, res) => {
-  //update database here
-}
+  debugger;
+  console.log(req.body);
+  //db.updateUser();
+});
 
 // retrieves all host listings from the database
 app.get('/getlistings', (req, res) => {
@@ -154,7 +156,7 @@ app.get('/getlistings', (req, res) => {
       }
       else {
         console.log('retrieved all listings');
-        res.send(result)
+        res.send(result);
       }
     });
 });

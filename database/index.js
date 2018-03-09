@@ -178,7 +178,7 @@ module.exports = {
         callback(null, 'Success saving owner info');
       }
     });
-  }
+  },
 
 
 
