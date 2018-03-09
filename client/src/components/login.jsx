@@ -83,11 +83,7 @@ class Login extends React.Component {
   render() {
     const redirectToProfile = this.state.redirectToProfile;
     if (redirectToProfile) {
-      if (this.state.user.type === 'host') {
-        return(<Redirect to={{ pathname: '/host-profile', state: this.state.user }}/>)
-      } else {
-        return (<Redirect to={{ pathname: '/listings', state: this.state.user }}/>)
-      }
+      return (<Redirect to={{ pathname: '/listings', state: this.state.user }}/>)
     }
     return (
       <div>

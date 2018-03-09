@@ -1,6 +1,8 @@
 import React from 'react';
 import Calendar from 'react-calendar';
 import Navbar from './navbar.jsx';
+import { Link, Redirect } from 'react-router-dom';
+
 
 /*
   HostProfile Component:
@@ -25,6 +27,14 @@ class HostProfile extends React.Component {
     return (
       <div>
         <Navbar link="Logout" linkurl="/" />
+        <Link 
+          className="btn btn-default btn-lg"
+          to={{ 
+          pathname: '/listing',
+          state: { username: this.state.username}
+          }}>
+        Listing
+        </Link>
         <div className="well"></div>
         <div className='row'>
           <div style={{ paddingLeft: '10%' }} className='col-md-4'>
