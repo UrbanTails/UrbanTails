@@ -8,6 +8,7 @@ import PetProfile from './pet-owner-profile.jsx';
 import HostProfile from './hostprofile.jsx';
 import Listings from './listings.jsx';
 import singleListView from './singleListView.jsx'
+import Listing from './listing.jsx';
 
 /*
   App Component:
@@ -26,6 +27,7 @@ class App extends React.Component {
         <Route path='/host-profile' component={ HostProfile } />
         <Route path='/listings' component={ Listings } />
         <Route path='/singlelistview' component={ singleListView } />
+        <Route path='/listing' component={ Listing } />
       </div>
     )
   }

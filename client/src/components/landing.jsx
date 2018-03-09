@@ -6,6 +6,7 @@ import $ from 'jquery';
 import Navbar from './navbar.jsx';
 import Footer from './footer.jsx';
 
+
 /*
   Lading Component:
   Used when the user first loads the website
