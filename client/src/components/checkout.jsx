@@ -23,7 +23,7 @@ const onToken = (amount, description) => token =>
       description,
       source: token.id,
       currency: CURRENCY,
-      amount: fromEuroToCent(amount)
+      amount: fromDollarToCent(amount)
     })
     .then(successPayment)
     .catch(errorPayment);
