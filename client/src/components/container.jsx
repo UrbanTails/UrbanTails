@@ -14,6 +14,7 @@ class Container extends React.Component{
     return (
       <div>
         <Map google={this.props.google}/>
+
       </div>
     );
   }
