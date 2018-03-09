@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { RaisedButton } from 'material-ui';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 /*
   HostListing Component:
@@ -63,8 +63,7 @@ class HostListing extends React.Component {
           </div>
           <p></p>
           <div className="contact-btn-container">
-            <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={ this.state.showContact ? this.props.host.email : contact } onClick={this.handleClick}/>
-            <Link to='/singleListView'>view page</Link>
+            <Link to={{ pathname: '/listing', state: {hostName: this.props.host.username, location: this.props.host.location, description: this.props.host.description, profileUrl: this.props.host.profileUrl}}} className="btn btn-default btn-lg">View Listing</Link>
           </div>
         </Col>
       </Row>
@@ -73,3 +72,6 @@ class HostListing extends React.Component {
 }
 
 module.exports = HostListing;
+
+// <RaisedButton className="contact-btn" backgroundColor="#008080" labelColor="#fff" type="submit" label={ this.state.showContact ? this.props.host.email : contact } onClick={this.handleClick}/>
+// <Link to='/singleListView'>view page</Link>

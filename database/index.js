@@ -13,6 +13,7 @@ mongoose.connect(uristring, (err) => {
   }
 });
 
+
 //set schema
 let UserSchema = new Schema({
   username: { type: String, unique: true },
@@ -132,6 +133,41 @@ module.exports = {
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
   },
+
+  //takes in booking from listing page and saves to ownerBookings
+  addOwnerBook: (data, callback) => {
+    var ownerBooking = {
+      hostName: data.hostName,
+      startDate: data.startDate,
+      enddate: data.endDate
+    }
+    User.findOneAndUpdate({username: data.ownerName}, {$push: {ownerBookings: ownerBooking}}).exec((err, user) => {
+      if (err) {
+        callback('Error finding user');
+      } else {
+        callback(null, 'Success saving owner info');
+      }
+    });
+  },
+
+  //takes in booking from listing page and saves to hostBookings
+  addHostBook: (data, callback) => {
+    var ownerBooking = {
+      hostName: data.hostName,
+      startDate: data.startDate,
+      enddate: data.endDate
+    }
+    User.findOneAndUpdate({username: data.ownerName}, {$push: {ownerBookings: ownerBooking}}).exec((err, user) => {
+      if (err) {
+        callback('Error finding user');
+      } else {
+        callback(null, 'Success saving owner info');
+      }
+    });
+  }
+
+
+
   // exports mongoose connection for server to reference
   connection: mongoose.connection
 };
