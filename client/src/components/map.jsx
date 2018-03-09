@@ -23,7 +23,7 @@ class Map extends React.Component{
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
-      let zoom =14;
+      let zoom =13;
       let lat = 37.783684;
       let lng = -122.408986;
       const center = new maps.LatLng(lat, lng);
@@ -33,6 +33,11 @@ class Map extends React.Component{
       })
       this.map = new maps.Map(node, mapConfig);
       console.log(this.map);
+      const marker = new google.maps.Marker({
+        position: {lat: 37.783684, lng: -122.408986},
+        map: this.map,
+        title: 'home'
+      })
     }
   }
 
