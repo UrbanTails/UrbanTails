@@ -135,7 +135,7 @@ module.exports = {
   },
 
   //takes in booking from listing page and saves to ownerBookings
-  addOwnerBook: (data, callback) => {
+  saveOwnerBook: (data, callback) => {
     var ownerBooking = {
       hostName: data.hostName,
       startDate: data.startDate,
@@ -151,20 +151,20 @@ module.exports = {
   },
 
   //takes in booking from listing page and saves to hostBookings
-  addHostBook: (data, callback) => {
-    var ownerBooking = {
-      hostName: data.hostName,
+  saveHostBook: (data, callback) => {
+    var hostBooking = {
+      ownerName: data.ownerName,
       startDate: data.startDate,
       enddate: data.endDate
     }
-    User.findOneAndUpdate({username: data.ownerName}, {$push: {ownerBookings: ownerBooking}}).exec((err, user) => {
+    User.findOneAndUpdate({username: data.hostName}, {$push: {hostBookings: hostBooking}}).exec((err, user) => {
       if (err) {
         callback('Error finding user');
       } else {
         callback(null, 'Success saving owner info');
       }
     });
-  }
+  },
 
 
 
