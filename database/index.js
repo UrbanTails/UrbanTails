@@ -107,7 +107,13 @@ module.exports = {
   },
 
   updateUser: (data, callback) => {
-    //update user information here
+    User.findOne({ username: data.username }, function(err, doc) {
+      doc.imageUrl = data.imageUrl;
+      doc.location = data.location;
+      doc.description = data.description;
+      doc.email = data.email;
+      doc.save();
+    });
   },
 
 

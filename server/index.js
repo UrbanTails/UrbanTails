@@ -141,7 +141,7 @@ app.get('/host-profile', (req, res, next) => {
 });
 
 //updates profile information for given user
-app.post('/update-profile', (req, res, next) => {
+app.post('/update-profile', (req, res) => {
   //update database here
 }
 
@@ -205,5 +205,5 @@ app.post('/book', (req, res) => {
   })
   res.send(200)
 })
-  
+
 
