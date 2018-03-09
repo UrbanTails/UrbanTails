@@ -63,7 +63,7 @@ class HostListing extends React.Component {
           </div>
           <p></p>
           <div className="contact-btn-container">
-            <Link to={{ pathname: '/listing', state: {hostName: this.props.host.username, location: this.props.host.location, description: this.props.host.description, profileUrl: this.props.host.profileUrl}}} className="btn btn-default btn-lg">View Listing</Link>
+            <Link to={{ pathname: '/singlelistview', state: {hostName: this.props.host.username, location: this.props.host.location, description: this.props.host.description, profileUrl: this.props.host.profileUrl}}} className="btn btn-default btn-lg">View Listing</Link>
           </div>
         </Col>
       </Row>

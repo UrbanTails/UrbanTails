@@ -11,6 +11,13 @@ class ListingProfile extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      hostName: this.props.location.state.hostName,
+      location: this.props.location.state.location,
+      description: this.props.location.state.description,
+      ownerName: this.props.location.state.username,
+      style: {backgroundColor: 'white'},
+      profileUrl: this.props.location.state.profileUrl
+
     }
   }
 
@@ -21,11 +28,11 @@ class ListingProfile extends React.Component {
         <p><b>Email: </b>{}</p>
         <p><b>Location: </b>{}</p>
         <p><b>Description: </b></p>
-        <p className="description">{}</p>
+        <p className="description">{this.state.description}</p>
         <div className="card">
-          <img className="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLC01FdlSDkgdpP28PNUWxqSUbC_mQ7K04mamOmzC98RWMaoZK1A" alt="Card image cap" />
+          <img className="card-img-top" src={this.state.profileUrl} alt="Card image cap" />
           <div className="card-block">
-          <h4 className="card-title">Animal Test</h4>
+          <h4 className="card-title">{this.state.hostName}</h4>
           <p className="card-text">PLACE HOLDER BLAH BLAH BLAH</p>
           <a href="#" className="btn btn-primary">Go somewhere</a>
           </div>
