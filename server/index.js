@@ -139,12 +139,6 @@ app.get('/host-profile', (req, res, next) => {
     }
   })(req, res, next);
 });
-
-//updates profile information for given user
-app.post('/update-profile', (req, res, next) => {
-  //update database here
-}
-
 // retrieves all host listings from the database
 app.get('/getlistings', (req, res) => {
     db.getAllListings((err, result) => {
