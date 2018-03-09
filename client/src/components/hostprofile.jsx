@@ -2,8 +2,7 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import Navbar from './navbar.jsx';
 import { Link, Redirect } from 'react-router-dom';
-
-
+import $ from 'jquery';
 import { RaisedButton } from 'material-ui';
 
 /*
@@ -48,6 +47,7 @@ class HostProfile extends React.Component {
     this.revealLocationInput = this.revealLocationInput.bind(this);
     this.revealDescriptionInput = this.revealDescriptionInput.bind(this);
     this.revealEmailInput = this.revealEmailInput.bind(this);
+    this.updateProfile = this.updateProfile.bind(this);
   }
 
   onImageEntry(e) {
@@ -103,6 +103,28 @@ class HostProfile extends React.Component {
     });
   }
 
+  updateProfile(e) {
+    e.preventDefault();
+    var component = this;
+    $.ajax({
+      type: 'POST',
+      url: '/update-profile',
+      data: {
+        username: component.props.state.location.username,
+        imageUrl: component.state.newImageUrl,
+        location: component.state.newLocation,
+        description: component.state.newDescription,
+        email: component.state.newEmail
+      },
+      success: (data) => {
+        console.log('Profile updated!');
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
   render () {
     return (
       <div>
@@ -153,6 +175,9 @@ class HostProfile extends React.Component {
               {this.state.displayImageInput && <input style={style} value={this.state.newImageUrl} onChange={this.onDescriptionEntry} type="text"/>}
             </div>
           </div>
+          <button style={style} class="ui button" onClick={this.updateProfile} >
+            Update Profile
+          </button>
         </div>
       </div>
     )
