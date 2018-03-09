@@ -16,6 +16,7 @@ class Map extends React.Component{
   }
 
   loadMap(){
+    console.log(this.props)
     if(this.props && this.props.google){
       const {google} = this.props;
       const maps = google.maps;
