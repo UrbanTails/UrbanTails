@@ -108,7 +108,7 @@ module.exports = {
 
   updateUser: (data, callback) => {
     User.findOne({ username: data.username }, function(err, user) {
-      if (data.imageUrl) user.imageUrl = data.imageUrl;
+      if (data.imageUrl) user.profileUrl = data.imageUrl;
       if (data.location) user.location = data.location;
       if (data.description) user.description = data.description;
       if (data.email) user.email = data.email;

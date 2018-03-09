@@ -85,6 +85,11 @@
   height: 55px;
 }
 
+.update-view {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
 /*=== LANDING ===*/
 .landing-content {
   margin-top: 20px;
