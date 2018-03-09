@@ -185,7 +185,7 @@ app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
 });
 
-//sends booking information with host, owner, and dates
+//sends booking information with host, owner, dates
 app.post('/book', (req, res) => {
   db.saveOwnerBook(req.body, (err, result) => {
     if (err) {
