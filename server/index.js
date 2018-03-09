@@ -142,9 +142,16 @@ app.get('/host-profile', (req, res, next) => {
 
 //updates profile information for given user
 app.post('/update-profile', (req, res) => {
-  debugger;
-  console.log(req.body);
-  //db.updateUser();
+  db.updateUser(req.body, function(err, result) {
+    debugger;
+    if (err) {
+      console.log('error updating profile information:', err);
+      res.status(500).send({ error: 'Could not update user profile information '});
+    } else {
+      console.log('User profile updated');
+      res.status(200).send(result);
+    }
+  });
 });
 
 // retrieves all host listings from the database

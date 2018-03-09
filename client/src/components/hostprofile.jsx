@@ -172,7 +172,7 @@ class HostProfile extends React.Component {
           <div style={{ paddingLeft: '10%' }} className='col-md-4' className="host-content">
             <div style= {{ maxWidth: '300px' }}>
               {this.state.displayImageButton && <RaisedButton label="Update Image" onClick={this.revealImageInput}/>}
-              {this.state.displayImageInput && <input style={style} value={this.state.newImageUrl} onChange={this.onDescriptionEntry} type="text"/>}
+              {this.state.displayImageInput && <input style={style} value={this.state.newImageUrl} onChange={this.onImageEntry} type="text"/>}
             </div>
           <button style={style} className="ui button" onClick={this.updateProfile} >
             Update Profile
