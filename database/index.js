@@ -107,13 +107,14 @@ module.exports = {
   },
 
   updateUser: (data, callback) => {
-    User.findOne({ username: data.username }, function(err, doc) {
+    User.findOne({ username: data.username }, function(err, user) {
       debugger;
-      if (data.imageUrl) doc.imageUrl = data.imageUrl;
-      if (data.location) doc.location = data.location;
-      if (data.description) doc.description = data.description;
-      if (data.email) doc.email = data.email;
-      doc.save();
+      if (data.imageUrl) user.imageUrl = data.imageUrl;
+      if (data.location) user.location = data.location;
+      if (data.description) user.description = data.description;
+      if (data.email) user.email = data.email;
+      user.save();
+      callback(null, user);
     });
   },
 

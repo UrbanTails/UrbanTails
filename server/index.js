@@ -142,14 +142,20 @@ app.get('/host-profile', (req, res, next) => {
 
 //updates profile information for given user
 app.post('/update-profile', (req, res) => {
-  db.updateUser(req.body, function(err, result) {
-    debugger;
-    if (err) {
-      console.log('error updating profile information:', err);
-      res.status(500).send({ error: 'Could not update user profile information '});
+  auth.validateUpdateForm(req.body, (result) => {
+    if (result.success) {
+      db.updateUser(req.body, function(err, userData) {
+        debugger;
+        if (err) {
+          console.log('error updating profile information:', err);
+          res.status(500).send({ error: 'Could not update user profile information '});
+        } else {
+          console.log('User profile updated');
+          res.send(userData);
+        }
+      });
     } else {
-      console.log('User profile updated');
-      res.status(200).send(result);
+      res.status(500).send(result);
     }
   });
 });

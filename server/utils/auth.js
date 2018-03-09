@@ -72,5 +72,42 @@ function validateLoginForm(formData, callback) {
   callback(result);
 }
 
+function validateUpdateForm(formData, callback) {
+  const errors = {};
+  let isFormValid = true;
+  let message = '';
+
+  if (formData.email) {
+    if (!formData || typeof formData.email !== 'string' || !validator.isEmail(formData.email)) {
+      isFormValid = false;
+      errors.email = 'Please provide a correct email address.';
+    }
+  }
+
+  if (formData.profileUrl) {
+    if (!formData || typeof formData.profileUrl !== 'string' || !validator.isURL(formData.profileUrl)) {
+      isFormValid = false;
+      errors.profileUrl = 'Please provide a correct url.';
+    }
+  }
+
+  if (formData.location) {
+    if (!formData || typeof formData.location !== 'string' || formData.location.trim().length === 0) {
+      isFormValid = false;
+      errors.location = 'Please provide a location.';
+    }
+  }
+
+  let result = {
+    success: isFormValid,
+    message,
+    errors
+  };
+
+  callback(result);
+
+}
+
+module.exports.validateUpdateForm = validateUpdateForm;
 module.exports.validateLoginForm = validateLoginForm;
 module.exports.validateSignupForm = validateSignupForm;

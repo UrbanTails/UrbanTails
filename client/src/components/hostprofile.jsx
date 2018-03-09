@@ -20,6 +20,7 @@ class HostProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      errors: {},
       username: this.props.location.state.username,
       imageUrl: this.props.location.state.profileUrl,
       location: this.props.location.state.location,
@@ -116,8 +117,13 @@ class HostProfile extends React.Component {
         description: component.state.newDescription,
         email: component.state.newEmail
       },
-      success: (data) => {
-        console.log('Profile updated!');
+      success: (userData) => {
+        debugger;
+        if (data.errors) {
+          this.setState({
+            errors: userData.errors
+          });
+        }
       },
       error: (err) => {
         console.log(err);
