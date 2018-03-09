@@ -21,8 +21,14 @@ class Landing extends React.Component {
   componentDidMount() {
     $.get('/logout');
   }
+
+  handleSubmit(){
+    this.props.history.push('/listings')
+  }
+
   //Change Get started Button link to /listings to send user directly to listings
   render() {
+
     return (
       <div>
         <Navbar link="Login" linkurl="/login"/>
@@ -30,7 +36,22 @@ class Landing extends React.Component {
           <div className="content">
             <h1>Urban Tails</h1>
             <h3>Pet boarding wherever your adventure takes you</h3>
-            <Link to='/listings' className="btn btn-default btn-lg">Get Started</Link>
+            <div className="container">
+              <div className="row">
+                    <div className="col-sm-6 col-sm-offset-3">
+                        <div id="imaginary_container">
+                            <div className="input-group large stylish-input-group">
+                                <input type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" />
+                                <span className="input-group-addon">
+                                    <button type="submit" onClick={() => this.handleSubmit()}>
+                                        <span className="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </div>
           </div>
         </Jumbotron>
         <div className="container">
