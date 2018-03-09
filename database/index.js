@@ -105,6 +105,12 @@ module.exports = {
       });
     });
   },
+
+  updateUser: (data, callback) => {
+    //update user information here
+  },
+
+
   // retrieve host listings by a specific location
   getListings: (data, callback) => {
     User.find({type: 'host'})
