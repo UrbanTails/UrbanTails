@@ -21,7 +21,7 @@ class HostListing extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.mouseOut = this.mouseOut.bind(this);
     this.mouseOver = this.mouseOver.bind(this);
-    this.handleSubmit = this.handleSubmit.bind()
+    this.handleSubmit = this.handleSubmit.bind();
   }
 
   handleClick() {
@@ -31,8 +31,8 @@ class HostListing extends React.Component {
     });
   }
 
-    handleSubmit(){
-    this.props.history.push('/singleListView')
+  handleSubmit(){
+    this.props.history.push('/singleListView');
   }
 
   mouseOut() {

@@ -22,7 +22,9 @@ let UserSchema = new Schema({
   profileUrl: String,
   type: String,
   location: String,
-  description: String
+  description: String,
+  ownerBookings: Array,
+  hostBookings: Array
 });
 
 //compile schema into a model
@@ -103,6 +105,19 @@ module.exports = {
       });
     });
   },
+
+  updateUser: (data, callback) => {
+    User.findOne({ username: data.username }, function(err, user) {
+      if (data.imageUrl) user.imageUrl = data.imageUrl;
+      if (data.location) user.location = data.location;
+      if (data.description) user.description = data.description;
+      if (data.email) user.email = data.email;
+      user.save();
+      callback(null, user);
+    });
+  },
+
+
   // retrieve host listings by a specific location
   getListings: (data, callback) => {
     User.find({type: 'host'})
@@ -164,7 +179,7 @@ module.exports = {
         callback(null, 'Success saving owner info');
       }
     });
-  }
+  },
 
 
 

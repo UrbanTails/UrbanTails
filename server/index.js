@@ -139,6 +139,26 @@ app.get('/host-profile', (req, res, next) => {
     }
   })(req, res, next);
 });
+
+//updates profile information for given user
+app.post('/update-profile', (req, res) => {
+  auth.validateUpdateForm(req.body, (result) => {
+    if (result.success) {
+      db.updateUser(req.body, function(err, userData) {
+        if (err) {
+          console.log('error updating profile information:', err);
+          res.status(500).send({ error: 'Could not update user profile information '});
+        } else {
+          console.log('User profile updated');
+          res.send(userData);
+        }
+      });
+    } else {
+      res.status(500).send(result);
+    }
+  });
+});
+
 // retrieves all host listings from the database
 app.get('/getlistings', (req, res) => {
     db.getAllListings((err, result) => {
@@ -148,7 +168,7 @@ app.get('/getlistings', (req, res) => {
       }
       else {
         console.log('retrieved all listings');
-        res.send(result)
+        res.send(result);
       }
     });
 });
@@ -199,5 +219,5 @@ app.post('/book', (req, res) => {
   })
   res.send(200)
 })
-  
+
 
