@@ -1,7 +1,8 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Navbar from './navbar.jsx';
-
+import Searchbar from './searchbar.jsx';
+import Footer from './footer.jsx';
 /*
   Single Listing View:
   Used by login redirect and by clicking 'My Account' on listings page
@@ -15,8 +16,8 @@ class ListingProfile extends React.Component {
       location: this.props.location.state.location,
       description: this.props.location.state.description,
       ownerName: this.props.location.state.username,
-      style: {backgroundColor: 'white'},
-      profileUrl: this.props.location.state.profileUrl
+      profileUrl: this.props.location.state.profileUrl,
+      email: this.props.location.state.email
 
     }
   }
@@ -24,17 +25,18 @@ class ListingProfile extends React.Component {
    render() {
     return (
       <div>
-      <h1>hello</h1>
-        <p><b>Email: </b>{}</p>
-        <p><b>Location: </b>{}</p>
-        <p><b>Description: </b></p>
-        <p className="description">{this.state.description}</p>
+        <Navbar user={this.state.user} search={true}/>
+        <h1>Your Pet's adventure awaits.</h1>
+        <h3>Location: {this.state.location}</h3>
+        <p><h3>Description: </h3></p>
+        <p className="description"><h4>{this.state.description}</h4></p>
         <div className="card">
           <img className="card-img-top" src={this.state.profileUrl} alt="Card image cap" />
           <div className="card-block">
-          <h4 className="card-title">{this.state.hostName}</h4>
-          <p className="card-text">PLACE HOLDER BLAH BLAH BLAH</p>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
+            <h4 className="card-title">{this.state.hostName}</h4>
+            <p><b>Email: </b>{this.state.email}</p>
+            <p className="card-text">We only accept Cash</p>
+            <a href="#" className="btn-lg btn-primary">Book</a>
           </div>
         </div>
         <div>
@@ -44,6 +46,8 @@ class ListingProfile extends React.Component {
             <i className="material-icons md-24 ratings">pets</i>
             <i className="material-icons md-24 ratings">pets</i>
         </div>
+        <br/>
+        <Footer/>
       </div>
     )
   }
