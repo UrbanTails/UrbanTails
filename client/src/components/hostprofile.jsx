@@ -2,10 +2,7 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import Navbar from './navbar.jsx';
 import { Link, Redirect } from 'react-router-dom';
-
-
 import { RaisedButton } from 'material-ui';
-
 /*
   HostProfile Component:
   Used after logging in or signing up as a host, it displays all the information about the host.
