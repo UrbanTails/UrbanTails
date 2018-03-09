@@ -105,7 +105,6 @@ class HostProfile extends React.Component {
   }
 
   updateProfile(e) {
-    e.preventDefault();
     var component = this;
     $.ajax({
       type: 'POST',
@@ -118,10 +117,16 @@ class HostProfile extends React.Component {
         email: component.state.newEmail
       },
       success: (userData) => {
-        debugger;
-        if (data.errors) {
+        if (userData.errors) {
           this.setState({
             errors: userData.errors
+          });
+        } else {
+          this.setState({
+            imageUrl: userData.profileUrl,
+            location: userData.location,
+            description: userData.description,
+            email: userData.email
           });
         }
       },

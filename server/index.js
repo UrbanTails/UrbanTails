@@ -145,7 +145,6 @@ app.post('/update-profile', (req, res) => {
   auth.validateUpdateForm(req.body, (result) => {
     if (result.success) {
       db.updateUser(req.body, function(err, userData) {
-        debugger;
         if (err) {
           console.log('error updating profile information:', err);
           res.status(500).send({ error: 'Could not update user profile information '});
