@@ -22,7 +22,9 @@ let UserSchema = new Schema({
   profileUrl: String,
   type: String,
   location: String,
-  description: String
+  description: String,
+  ownerBookings: Array,
+  hostBookings: Array
 });
 
 //compile schema into a model
