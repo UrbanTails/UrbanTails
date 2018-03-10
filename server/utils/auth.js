@@ -26,11 +26,6 @@ function validateSignupForm(formData, callback) {
     errors.profileUrl = 'Please provide a correct url.';
   }
 
-  if (!formData || typeof formData.location !== 'string' || formData.location.trim().length === 0) {
-    isFormValid = false;
-    errors.location = 'Please provide a location.';
-  }
-
   if (!isFormValid) {
     message = 'Check the form for errors.';
   }
@@ -88,13 +83,6 @@ function validateUpdateForm(formData, callback) {
     if (!formData || typeof formData.profileUrl !== 'string' || !validator.isURL(formData.profileUrl)) {
       isFormValid = false;
       errors.profileUrl = 'Please provide a correct url.';
-    }
-  }
-
-  if (formData.location) {
-    if (!formData || typeof formData.location !== 'string' || formData.location.trim().length === 0) {
-      isFormValid = false;
-      errors.location = 'Please provide a location.';
     }
   }
 
