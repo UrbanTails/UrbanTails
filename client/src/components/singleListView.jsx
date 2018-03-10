@@ -48,22 +48,23 @@ class ListingProfile extends React.Component {
 
             <div class = "row">
 
-              <div class="col-xs-7">
+              <div class="col-xs-7" >
                 <h2>{this.state.location}</h2>
                 <h4>{this.state.description}</h4>
                 <div>
                   <h3>{this.state.hostName}</h3>
-                  <h4><b>Email: </b>{this.state.email}</h4>
+                  <h5>Email: {this.state.email}</h5>
                 </div>
 
                 <div className="cardButton">
-                  <Checkout
+                  {/*<Checkout
                     classname= "checkout"
                     name={'Your Freedom Awaits'}
                     description={'Ask about becoming a host'}
                     amount={1}
                   />
                   <p className="card-text">We only accept Cash</p>
+                */}
                 </div> 
               </div>
 

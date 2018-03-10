@@ -31,6 +31,8 @@ export default class Calendar extends React.Component {
       userName: this.props.userName,
       startDate: startDate,
       endDate: endDate,
+      available: false,
+      buttonText: "Check Availability"
     };
     this.handleChangestartDate = this.handleChangestartDate.bind(this);
     this.handleChangeendDate = this.handleChangeendDate.bind(this);
@@ -39,17 +41,18 @@ export default class Calendar extends React.Component {
 
   handleChangestartDate (event, date) {
     this.setState({
-      startDate: date,
+      startDate: date
     });
   };
 
   handleChangeendDate (event, date) {
     this.setState({
-      endDate: date,
+      endDate: date
     });
   };
 
   handleBookClick () {
+    var component = this;
     $.ajax({
       type: 'POST',
       url: '/book',
@@ -62,12 +65,16 @@ export default class Calendar extends React.Component {
       },
       success: (res) => {
         console.log('Success!')
+        component.setState({
+          available: true
+        });
       },
       error: () => {
         console.log('Error!')
       }
     });
   }
+
 
   render() {
     return (
@@ -90,15 +97,20 @@ export default class Calendar extends React.Component {
             />
           </div>
 
-          <div
-            style= {{backgroundColor: "#008080", color: "white", marginBottom: '5px'}}
-            className="btn btn-default btn-lg"
-            onClick = {this.handleBookClick}>
-            Check Availability
+          <div>
+            {this.state.available ? (<Checkout/>) : (
+              <div
+              style= {{backgroundColor: "#008080", color: "white", marginBottom: '5px'}}
+              className="btn btn-default btn-lg"
+              onClick = {this.handleBookClick}>
+              {this.state.buttonText}
+              </div> 
+            )}
+  
           </div>
-
-
+    
         </div>
+
 
       </div>
     );
