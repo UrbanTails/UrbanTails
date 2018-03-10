@@ -18,6 +18,15 @@
     "description":"Located in the heart of Santa Monica, your pet will love the social scene with tons of people and pets to meet."
   },
   {
+    "username":"Jeff",
+    "email": "jeffginla@gmail.com",
+    "password": "coolbeans",
+    "profileUrl":"https://source.unsplash.com/VeqqYifwhLU",
+    "type": "host",
+    "location": "Denver",
+    "description":"Located in the heart of Santa Monica, your pet will love the social scene with tons of people and pets to meet."
+  },
+  {
     "username":"Mira",
     "email": "mirasol@skybird.net",
     "password": "superflash",
