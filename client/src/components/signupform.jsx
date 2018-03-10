@@ -24,7 +24,7 @@ class SignupForm extends React.Component {
     this.state = {
       username: this.props.location.state.username,
       password: this.props.location.state.password,
-      type: 'petOwner',
+      type: 'host',
       email: '',
       street: '',
       city: '',
@@ -36,7 +36,6 @@ class SignupForm extends React.Component {
       redirectToProfile: false
     };
     this.handleChange = this.handleChange.bind(this);
-    this.onSelect = this.onSelect.bind(this);
   }
 
   handleSubmit(e) {
@@ -77,13 +76,6 @@ class SignupForm extends React.Component {
     });
   }
 
-  onSelect(e) {
-    console.log(e.target.value)
-    this.setState({
-      type: e.target.value
-    });
-  }
-
   render () {
     const redirectToProfile = this.state.redirectToProfile;
     if (redirectToProfile) {
@@ -100,10 +92,6 @@ class SignupForm extends React.Component {
         <Card className="container signupform">
           <form action="/" onSubmit={this.handleSubmit.bind(this)} >
             <h2>Create Your Profile</h2>
-            <RadioButtonGroup name="Usertype" defaultSelected="petOwner" onChange={this.onSelect}>
-              <RadioButton value="host" label="Host"/>
-              <RadioButton value="petOwner" label="Pet Owner"/>
-            </RadioButtonGroup>
             <div className="field-line">
               <TextField floatingLabelText="Username" name="username" onChange={this.handleChange} value={this.state.username} errorText={ this.state.errors.username}/>
             </div>
