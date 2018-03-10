@@ -73,6 +73,7 @@ class SingleListView extends React.Component {
                 location= {this.state.location}
                 description= {this.state.description}
                 userName= {this.state.userName}
+                profileUrl= {this.state.profileUrl}
                 />
 
               </div>
