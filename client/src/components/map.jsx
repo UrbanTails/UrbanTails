@@ -10,11 +10,12 @@ class Map extends React.Component{
   }
   componentDidMount(){
     var parsedAddress = this.props.address.split(' ').join('+')
+    console.log(`https://maps.googleapis.com/maps/api/geocode/json?address=${parsedAddress}&key=AIzaSyBoHnvNEFxjZ-EyIDQ-cKRYpnDD4y0GEmQ`)
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${parsedAddress}&key=AIzaSyBoHnvNEFxjZ-EyIDQ-cKRYpnDD4y0GEmQ`)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log('Location for map fetched successfully');
+          console.log('geocode result', result);
           this.setState({
             loc: {
               lat: result.results[0].geometry.location.lat,
@@ -26,7 +27,7 @@ class Map extends React.Component{
         },
 
         (error) => {
-          console.log('Failed to load map.')
+          console.log("That address is'nt real")
         }
       )
 

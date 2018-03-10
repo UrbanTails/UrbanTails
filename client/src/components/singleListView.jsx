@@ -4,10 +4,12 @@ import Navbar from './navbar.jsx';
 import Searchbar from './searchbar.jsx';
 import Footer from './footer.jsx';
 
+
 import Checkout from './checkout.jsx';
 import Calendar from './calendar.jsx';
 
 import Container from './container.jsx'
+
 
 /*
   Single Listing View:
@@ -41,13 +43,6 @@ class ListingProfile extends React.Component {
 
           <img style={{ width: '1000px', height: '400px'}} className="card-img-top" src={this.state.profileUrl} alt="Card image cap" />
 
-          <div style={{marginBottom: '20px'}}>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-          </div>
 
           <div class = "container">
 
@@ -94,10 +89,11 @@ class ListingProfile extends React.Component {
           </div>
 
         <div>Map
-          <Container address={'891 Uinta Way, Denver, CO'}/>
+          <Container address={this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state}/>
           </div>
 
         </Col>
+
 
 
 
