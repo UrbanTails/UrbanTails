@@ -3,6 +3,7 @@ import ListingsCarousel from './listings-carousel.jsx';
 import HostListing from './hostlisting.jsx';
 import Navbar from './navbar.jsx';
 import $ from 'jquery';
+import Footer from './footer.jsx';
 
 /*
   Listings Component:
@@ -66,6 +67,7 @@ class Listings extends React.Component {
         <div className="container">
           { hostList }
         </div>
+        <Footer />
       </div>
     )
   }
