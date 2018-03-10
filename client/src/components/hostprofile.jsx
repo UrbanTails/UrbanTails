@@ -221,8 +221,50 @@ class HostProfile extends React.Component {
             </div>
             <div style={{ margin: '15px' }}>
               <label style={{ margin: '5px' }}>Address</label>
-
+              <label style={{ margin: '5px' }}>Street Address</label>
               <input style={style} className="form-control" value={this.state.newLocation} onChange={this.onLocationEntry} type="text"/>
+            </div>
+            <div>
+              <label style={{ margin: '5px' }}>City</label>
+              <input style={style} className="form-control" value={this.state.newLocation} onChange={this.onLocationEntry} type="text"/>
+              <label style={{ margin: '5px' }}>State</label>
+              <select multiple class="form-control">
+                <option>AL</option>
+                <option>AK</option>
+                <option>AZ</option>
+                <option>AR</option>
+                <option>CA</option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+                <option></option>
+              </select>
             </div>
             <div style={{ margin: '15px' }}>
               <label>Description</label>
