@@ -150,5 +150,10 @@
 
 /*=== CALENDAR ===*/
 .calendar {
-  box-sizing: border-box;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.card-text {
+  margin-bottom: 100px;
 }
