@@ -31,7 +31,7 @@ export default class Listing extends React.Component {
       hostName: this.props.location.state.hostName,
       location: this.props.location.state.location,
       description: this.props.location.state.description,
-      ownerName: this.props.location.state.username,
+      userName: this.props.location.state.userName,
       startDate: startDate,
       endDate: endDate,
       style: {backgroundColor: 'white'},
@@ -55,21 +55,18 @@ export default class Listing extends React.Component {
   };
 
   handleBookClick () {
-    console.log(this.state.ownerName);
-    console.log(this.state.hostName);
-    console.log(this.state.startDate);
-    console.log(this.state.endDate);
     $.ajax({
       type: 'POST',
       url: '/book',
       data: {
-        ownerName: this.state.ownerName,
+        location: this.state.location,
+        userName: this.state.userName,
         hostName: this.state.hostName,
         startDate: this.state.startDate,
         endDate: this.state.endDate
       },
       success: (res) => {
-        console.log(res)
+        console.log('Success!')
       },
       error: () => {
         console.log('Error!')
@@ -115,7 +112,7 @@ export default class Listing extends React.Component {
             defaultDate={this.state.endDate}
           />
         </div>
-          My Profile: {this.state.ownerName}
+          Currently logged in as: {this.state.userName}
         <div>
         </div>
 

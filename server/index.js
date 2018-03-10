@@ -207,14 +207,14 @@ app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
 });
 
-//sends booking information with host, owner, dates
+//sends booking information with host, user, dates
 app.post('/book', (req, res) => {
   console.log(req.body);
-  // db.saveOwnerBook(req.body, (err, result) => {
-  //   if (err) {
-  //     res.status(500).send({ error: 'Could not save owner info' });
-  //   }
-  // });
+  db.saveUserBook(req.body, (err, result) => {
+    if (err) {
+      res.status(500).send({ error: 'Could not save user info' });
+    }
+  });
   db.saveHostBook(req.body, (err, result) => {
     if (err) {
       res.status(500).send({ error: 'Cound not save host info'});

@@ -23,9 +23,9 @@ let UserSchema = new Schema({
   type: String,
   location: Object,
   description: String,
-  ownerBookings: Array,
-  hostBookings: Array,
-  price: Number
+  price: Number,
+  userBookings: Array,
+  hostBookings: Array
 });
 
 //compile schema into a model
@@ -152,26 +152,30 @@ module.exports = {
     mongoose.connection.dropDatabase();
   },
 
-  //takes in booking from listing page and saves to ownerBookings
-  saveOwnerBook: (data, callback) => {
-    var ownerBooking = {
+  //takes in booking from listing page and saves info to userBookings
+  saveUserBook: (data, callback) => {
+    var userBooking = {
+      userName: data.userName,
       hostName: data.hostName,
+      location: data.location,
       startDate: data.startDate,
       enddate: data.endDate
     }
-    User.findOneAndUpdate({username: data.ownerName}, {$push: {ownerBookings: ownerBooking}}).exec((err, user) => {
+    User.findOneAndUpdate({username: data.userName}, {$push: {userBookings: userBooking}}).exec((err, user) => {
       if (err) {
         callback('Error finding user');
       } else {
-        callback(null, 'Success saving owner info');
+        callback(null, 'Success saving user info');
       }
     });
   },
 
-  //takes in booking from listing page and saves to hostBookings
+  //takes in booking from listing page and saves info to hostBookings
   saveHostBook: (data, callback) => {
     var hostBooking = {
-      ownerName: data.ownerName,
+      userName: data.userName,
+      hostName: data.hostName,
+      location: data.location,
       startDate: data.startDate,
       enddate: data.endDate
     }
@@ -179,7 +183,7 @@ module.exports = {
       if (err) {
         callback('Error finding user');
       } else {
-        callback(null, 'Success saving owner info');
+        callback(null, 'Success saving user info');
       }
     });
   },

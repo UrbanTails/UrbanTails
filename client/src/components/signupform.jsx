@@ -100,10 +100,6 @@ class SignupForm extends React.Component {
         <Card className="container signupform">
           <form action="/" onSubmit={this.handleSubmit.bind(this)} >
             <h2>Create Your Profile</h2>
-            <RadioButtonGroup name="Usertype" defaultSelected="petOwner" onChange={this.onSelect}>
-              <RadioButton value="host" label="Host"/>
-              <RadioButton value="petOwner" label="Pet Owner"/>
-            </RadioButtonGroup>
             <div className="field-line">
               <TextField floatingLabelText="Username" name="username" onChange={this.handleChange} value={this.state.username} errorText={ this.state.errors.username}/>
             </div>

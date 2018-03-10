@@ -15,6 +15,7 @@ class HostListing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: props.userName,
       showContact: false,
       style: {backgroundColor: 'white'}
     };
@@ -55,15 +56,19 @@ class HostListing extends React.Component {
           <h5>{this.props.host.location.street + ', ' + this.props.host.location.city + ', ' + this.props.host.location.state + ', ' + this.props.host.location.zipCode}</h5>
           <p>{this.props.host.description}</p>
           <div>
+          </div>
+          <div>
             <i className="material-icons md-24 ratings">pets</i>
             <i className="material-icons md-24 ratings">pets</i>
             <i className="material-icons md-24 ratings">pets</i>
             <i className="material-icons md-24 ratings">pets</i>
             <i className="material-icons md-24 ratings">pets</i>
           </div>
+          <div>
+          </div>
           <p></p>
           <div className="contact-btn-container">
-            <Link to={{ pathname: '/singlelistview', state: {hostName: this.props.host.username, location: this.props.host.location, description: this.props.host.description, profileUrl: this.props.host.profileUrl, email: this.props.host.email}}} className="btn btn-default btn-lg">View Listing</Link>
+            <Link to={{ pathname: '/singlelistview', state: {hostName: this.props.host.username, location: this.props.host.location, description: this.props.host.description, profileUrl: this.props.host.profileUrl, email: this.props.host.email, userName: this.state.userName}}} className="btn btn-default btn-lg">View Listing</Link>
           </div>
         </Col>
       </Row>
