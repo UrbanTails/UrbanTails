@@ -146,7 +146,7 @@ module.exports = {
       });
   },
   getCityListings: (city, callback) => {
-    User.find({type:'host', location: city})
+    User.find({type:'host', 'location.city': city})
       .sort({username: 1})
       .exec((err, listings) => {
         if (err) {
