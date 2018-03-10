@@ -6,7 +6,6 @@ import Map from './map.jsx';
 class Container extends React.Component{
 
   render(){
-    {console.log('container props', this.props)}
     return (
       <div>
         <Map 

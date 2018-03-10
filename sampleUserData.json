@@ -68,7 +68,7 @@
     "password": "hollywood",
     "profileUrl":"https://source.unsplash.com/mx4mSkK9zeo",
     "type": "host",
-    "location": {"street": "401 Devil's Highway", "city": "Austin", "state": "TX", "zipCode":"54124" },
+    "location": {"street": "Barton Springs Road", "city": "Austin", "state": "TX", "zipCode":"54124" },
     "description":"Nested in the Hollywood Hills, our home is the perfect spot for your pet on vacation. We have an enclosed garden with tons of pet toys."
   },
   {
@@ -95,7 +95,7 @@
     "password": "yorkiesforlife",
     "profileUrl":"https://source.unsplash.com/_-JR5TxKNSo",
     "type": "host",
-    "location": {"street": "392 Garfield Avenue", "city": "Myrtle Beach", "state": "SC", "zipCode":"42425" },
+    "location": {"street": "329 Garfield Avenue", "city": "Myrtle Beach", "state": "SC", "zipCode":"42425" },
     "description":"Super clean, smoke-free home. We have 2 playful shitzus that love having guests."
   },
   {

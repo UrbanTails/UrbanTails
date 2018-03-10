@@ -89,7 +89,7 @@ class ListingProfile extends React.Component {
           </div>
 
         <div>Map
-          <Container address={'891 Uinta Way, Denver, CO'}/>
+          <Container address={this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state}/>
           </div>
 
         </Col>
