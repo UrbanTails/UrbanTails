@@ -6,14 +6,13 @@ import Map from './map.jsx';
 class Container extends React.Component{
 
   render(){
-    // const style = {
-    //   width: '100vw',
-    //   height: '100vh'
-    // };
-
+    {console.log('container props', this.props)}
     return (
       <div>
-        <Map google={this.props.google}/>
+        <Map 
+          google={this.props.google}
+          address={this.props.address}
+        />
 
       </div>
     );
