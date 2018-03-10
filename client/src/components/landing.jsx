@@ -81,7 +81,7 @@ class Landing extends React.Component {
             </Col>
           </Row>
           <hr/>
-          <h2 className="heading-landing">About Us</h2>
+          <h2 className="heading-landing">Where would you like to go?</h2>
           <Row className="landing-content padded">
             <Col md={3} className="landing-box">
               <Avatar src="https://avatars3.githubusercontent.com/u/22921336?s=460&v=4" size={100}/>

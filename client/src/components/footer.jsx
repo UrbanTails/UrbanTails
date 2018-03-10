@@ -15,7 +15,7 @@ const Footer = (size) => {
 
           <a href="http://www.urbantails.info" className="navbar-btn btn-danger btn pull-right">
           <span className="glyphicon glyphicon-star"></span>  Urban Tails 2018</a>
-          <img src="http://www.hayfordmarketing.com/uploads/1/3/6/6/13660621/untitled-design-1_13_orig.png"  style={{height:"45px", width:"250px"}}/>
+          <a href="https://www.facebook.com/urbantails123"><img src="http://www.hayfordmarketing.com/uploads/1/3/6/6/13660621/untitled-design-1_13_orig.png"  style={{height:"45px", width:"220px"}}/></a>
 
         </div>
 
