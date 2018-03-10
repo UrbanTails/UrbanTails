@@ -158,7 +158,12 @@
   border-width: 1px;
   border-color: #D3D3D3;
   width: fit-content;
-    margin-bottom: 100px;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+
+.col-xs-6 {
+  margin-bottom: 100px;
 }
 
 .cardButton {
@@ -168,3 +173,4 @@
 .md-datepicker-input-container {
     width: 300px;
 }
+
