@@ -216,7 +216,12 @@ class HostProfile extends React.Component {
                     <i className="material-icons md-24 ratings">pets</i>
                   </p>
                   <p><b>Email: </b>{this.state.email}</p>
-                  <p><b>Location: </b>{this.state.location.street + ', ' + this.state.location.city + ', ' + this.state.location.state + ', ' + this.state.zipCode}</p>
+                  <p><b><p>Location:</p></b>
+                    <span>{this.state.location.street}<br/></span>
+                    <span>{this.state.location.city}</span>
+                    <span>{', ' + this.state.location.state}</span>
+                    <span>{', ' + this.state.location.zipCode}</span>
+                    </p>
                   <p><b>Description: </b></p>
                   <p className="description">{this.state.description}</p>
                 </div>

@@ -94,6 +94,7 @@ app.post('/signup', (req, res) => {
     if (result.success) {
       console.log(result);
       db.saveUser(req.body, (err, result) => {
+        debugger;
         if (err) {
           console.log('error saving user data to db:', err);
           res.status(500).send({ error: 'User already exists' });

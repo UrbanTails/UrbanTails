@@ -83,6 +83,7 @@ module.exports = {
 
   //save user data
   saveUser: (data, callback) => {
+    debugger;
     let plainTextPassword = data.password;
     //bcrypt password before saving it to database
     bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
@@ -97,6 +98,7 @@ module.exports = {
       });
 
       user.save((err, user) => {
+        debugger;
         if (err) {
           console.log('database error saving user, duplicate key');
           callback('User already exists', null);
