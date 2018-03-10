@@ -20,9 +20,14 @@ const styles = {
 };
 
 const tilesData = [
+ {
+    img: 'https://media.giphy.com/media/exuCt4FA3Wxuo/giphy.gif',
+    title: "Greg's house of sunshine",
+    description: 'A magical pet experience, your pet will become enlightened by the wonders that await.',
+  },
   {
-    profileUrl: 'https://www.thepoke.co.uk/wp-content/uploads/2016/09/spooky-house.jpg',
-    title: "Chuckies house of sunshine",
+    img: 'http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg',
+    title: "Chuckie's colorado pad",
     description: 'A magical pet experience, your pet will become enlightened by the wonders that await.',
   },
   {
@@ -32,17 +37,17 @@ const tilesData = [
   },
   {
     img: 'http://homesoftherich.net/wp-content/uploads/2013/10/Screen-shot-2013-10-18-at-10.44.09-AM.png',
-    title: 'Robin Kim pet spa',
+    title: 'Thee Robin Kim pet spa',
     description: 'A magical pet experience, your pet will become enlightened by the wonders that await.',
   },
   {
-    img: 'https://orogoldcosmetics.files.wordpress.com/2014/11/luxury-homes-pool-yard.jpg',
+    img: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/4873925/Screen_20Shot_202014-07-02_20at_2010.20.23_20PM.0.png',
     title: 'The Norbie Adventure',
     description: 'A magical pet experience, your pet will become enlightened by the wonders that await.',
   },
   {
     img: 'https://images.adsttc.com/media/images/5947/7fd4/b22e/383a/5900/0178/newsletter/Malan_Vorster_Treehouse_011_Adam_Letch.jpg?1497857964',
-    title: 'Dog only haven by Glen',
+    title: 'Paula by Paula',
     description: 'A magical pet experience, your pet will become enlightened by the wonders that await.',
   },
   {
@@ -50,17 +55,13 @@ const tilesData = [
     title: 'John and Joe pet adventure',
     description: 'A magical pet experience, your pet will become enlightened by the wonders that await.',
   },
-  {
-    img: 'http://mtdata.ru/u17/photo2A19/20399748791-0/original.jpg',
-    title: 'Paula and Greg Cat Castle',
-    description: 'A magical pet experience, your pet will become enlightened by the wonders that await.',
-  },
+
 
 ];
 
 const LandingGridList = () => (
   <div style={styles.root}>
-    <GridList style={styles.gridList} cols={2.2}>
+    <GridList style={styles.gridList} cellHeight={180}>
       {tilesData.map((tile) => (
         <GridTile
           key={tile.img}
