@@ -4,6 +4,8 @@ import Navbar from './navbar.jsx';
 import { Link, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import { RaisedButton } from 'material-ui';
+import ProfileHostBookings from './profileHostBookings.jsx';
+import ProfileOwnerBookings from './profileOwnerBookings.jsx';
 
 /*
   HostProfile Component:
@@ -26,6 +28,8 @@ class HostProfile extends React.Component {
       location: this.props.location.state.location,
       description: this.props.location.state.description,
       email: this.props.location.state.email,
+      hostBookings: this.props.location.state.hostBookings,
+      ownerBookings: this.props.location.state.ownerBookings,
       newImageUrl: '',
       newLocation: '',
       newStreet: '',
@@ -230,6 +234,12 @@ class HostProfile extends React.Component {
                 <div style={{ paddingLeft: '10%' }} className='col-md-4' className="host-content">
                 </div>
               </div>
+              <div>
+                <ProfileHostBookings hostBookings={this.state.hostBookings} user={this.state.username}/>
+              </div>
+              <div>
+                <ProfileOwnerBookings ownerBookings={this.state.ownerBookings} user={this.state.username}/>
+              </div>
             </div>
           )
     } else if (this.state.page === 'Update') {
@@ -263,7 +273,9 @@ class HostProfile extends React.Component {
             <div>
               <label style={{ margin: '5px' }}>City</label>
               <input style={style} className="form-control" value={this.state.newCity} onChange={this.onCityEntry} type="text"/>
-              <label style={{ margin: '5px' }}>State</label>
+            </div>
+            <div>
+              <label style={{ margin: '15px' }}>State</label>
               <select multiple class="form-control" onChange={this.onStateEntry}>
                 <option>AL</option>
                 <option>AK</option>
@@ -316,7 +328,9 @@ class HostProfile extends React.Component {
                 <option>WI</option>
                 <option>WY</option>
               </select>
-              <label style={{ margin: '5px' }}>Zip Code</label>
+            </div>
+            <div>
+              <label style={{ margin: '10px' }}>Zip Code</label>
               <input style={style} className="form-control" value={this.state.newZipCode} onChange={this.onZipCodeEntry} type="text"/>
             </div>
             </div>

@@ -83,7 +83,6 @@ module.exports = {
 
   //save user data
   saveUser: (data, callback) => {
-    debugger;
     let plainTextPassword = data.password;
     //bcrypt password before saving it to database
     bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
@@ -98,7 +97,6 @@ module.exports = {
       });
 
       user.save((err, user) => {
-        debugger;
         if (err) {
           console.log('database error saving user, duplicate key');
           callback('User already exists', null);
@@ -160,7 +158,7 @@ module.exports = {
       location: data.location,
       startDate: data.startDate,
       enddate: data.endDate
-    }
+    };
     User.findOneAndUpdate({username: data.userName}, {$push: {userBookings: userBooking}}).exec((err, user) => {
       if (err) {
         callback('Error finding user');
@@ -178,7 +176,7 @@ module.exports = {
       location: data.location,
       startDate: data.startDate,
       enddate: data.endDate
-    }
+    };
     User.findOneAndUpdate({username: data.hostName}, {$push: {hostBookings: hostBooking}}).exec((err, user) => {
       if (err) {
         callback('Error finding user');
