@@ -33,14 +33,11 @@ class Searchbar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.query === 'Los Angeles' || this.state.query === 'New York') {
+    if (this.state.query) {
       this.toggleError('');
       $.ajax({
-        type: 'POST',
-        url: '/getlistings',
-        data: {
-          query: this.state.query
-        },
+        type: 'GET',
+        url: `/getlistings?city=${this.state.query}`,
         success: (data) => {
           console.log('ajax posting data', data);
           this.props.setresults(data);
