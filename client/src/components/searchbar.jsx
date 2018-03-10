@@ -47,7 +47,7 @@ class Searchbar extends React.Component {
         }
       });
     } else {
-      this.toggleError('Search only available for "Los Angeles" and "New York" locations');
+      this.toggleError('Please enter a city name');
     }
 
     this.setState({
