@@ -24,7 +24,9 @@ class Landing extends React.Component {
   }
 
   handleSubmit(){
-    this.props.history.push('/listings')
+    this.props.history.push({
+      pathname:'/listings', state: {user: { username: 'Anonymous'}}
+    });
   }
 
   //Change Get started Button link to /listings to send user directly to listings

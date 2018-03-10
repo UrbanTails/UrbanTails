@@ -22,7 +22,7 @@ class Listings extends React.Component {
           "username":"Maria",
           "profileUrl":"https://source.unsplash.com/3wylDrjxH-E",
           "type": "host",
-          "location": "Los Angeles",
+          "location": {"street": "123 S Ohio", "city": "Kansas City", "state": "MO", "zipCode":"80526"},
           "description":"I've got a wonderful patio and serve meals outside when the weather is nice."
         }
       ]

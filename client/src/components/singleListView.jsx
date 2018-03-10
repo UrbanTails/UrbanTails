@@ -49,7 +49,7 @@ class ListingProfile extends React.Component {
             <div class = "row">
 
               <div class="col-xs-7" >
-                <h2>{this.state.location}</h2>
+                <h2>{this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state + ', ' + this.props.location.state.location.zipCode}</h2>
                 <h4>{this.state.description}</h4>
                 <div>
                   <h3>{this.state.hostName}</h3>
@@ -65,7 +65,7 @@ class ListingProfile extends React.Component {
                   />
                   <p className="card-text">We only accept Cash</p>
                 */}
-                </div> 
+                </div>
               </div>
 
               <div class="col-xs-5">
