@@ -125,7 +125,7 @@
     "location": {"street": "6442 S Bellweather", "city": "Boston", "state": "MA", "zipCode":"46234"},
     "description":"I'm a super intelligent social gal who loves to play at the dog park with new friends. Very obedient and well-behaved."
   },
-  {
+    {
     "username":"Millie",
     "email": "eleven@strangerthings.com",
     "password": "gamesforever",
@@ -180,12 +180,66 @@
     "description":"I'll entertain myself for hours chasing my tail or rolling around on the floor. I love playing outside when I can."
   },
   {
-    "username":"Buddy",
-    "email": "sportsfan@gmail.com",
-    "profileUrl":"https://i.imgur.com/6vM0UID.jpg",
+    "username":"Greg's house of sunshine",
+    "email": "Gregsn@strangerthings.com",
+    "password": "gamesforever",
+    "profileUrl":"https://orig00.deviantart.net/a15d/f/2010/339/4/9/spooky_house__matte_paintin___by_ryujin2490-d34br6a.jpg",
+    "type": "host",
+    "location": {"street": "4688 W Beliar Pkwy", "city": "Santa Fe", "state": "NM", "zipCode":"83466"},
+    "description":"A magical pet experience, your pet will become enlightened by the wonders that await."
+  },
+  {
+    "username":"Chuckie's colorado pad",
+    "email": "summesrsun@hamptons.com",
+    "password": "waterbaby",
+    "profileUrl":"http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg",
+    "type": "host",
+    "location": {"street": "482 W Davidson Lane", "city": "Columbus", "state": "OH", "zipCode":"82398"},
+    "description":"A magical pet experience, your pet will become enlightened by the wonders that await!"
+  },
+  {
+    "username":"Morrow Cat Palace",
+    "email": "thefasce@dice.com",
+    "password": "hiphop",
+    "profileUrl":"http://static4.uk.businessinsider.com/image/593fbdd1bf2fba1f008b4ade-960/blenheim-credit-by-fulcanelli.jpg",
+    "type": "host",
+    "location": {"street": "4688 W Beliar Pkwy", "city": "Santa Fe", "state": "NM", "zipCode":"83466"},
+    "description":"A magical pet experience, your pet will become enlightened by the wonders that await."
+  },
+  {
+    "username":"Thee Robin Kim pet spa",
+    "email": "spookykim@baates.com",
+    "password": "naptime",
+    "profileUrl":"http://homesoftherich.net/wp-content/uploads/2013/10/Screen-shot-2013-10-18-at-10.44.09-AM.png",
+    "type": "host",
+    "location": {"street": "6464 E Temp Lane", "city": "Honolulu", "state": "HI", "zipCode":"33442"},
+    "description":"A magical pet experience, your pet will become enlightened by the wonders that await.."
+  },
+  {
+    "username":"The Norbie Adventure",
+    "email": "yoga@ledmon.org",
+    "password": "booklover",
+    "profileUrl":"https://cdn.vox-cdn.com/uploads/chorus_asset/file/4873925/Screen_20Shot_202014-07-02_20at_2010.20.23_20PM.0.png",
+    "type": "host",
+    "location": {"street": "482 W Davidson Lane", "city": "Columbus", "state": "OH", "zipCode":"82398"},
+    "description":"A magical pet experience, your pet will become enlightened by the wonders that await."
+  },
+  {
+    "username":"Paula by Paula",
+    "email": "maddog@tshunderdome.net",
+    "password": "supersecret",
+    "profileUrl":"https://images.adsttc.com/media/images/5947/7fd4/b22e/383a/5900/0178/newsletter/Malan_Vorster_Treehouse_011_Adam_Letch.jpg?1497857964",
+    "type": "host",
+    "location": {"street": "6464 E Temp Lane", "city": "Honolulu", "state": "HI", "zipCode":"33442"},
+    "description":"A magical pet experience, your pet will become enlightened by the wonders that await."
+  },
+  {
+    "username":"John and Joe pet adventure",
+    "email": "sportsfdan@gmail.com",
+    "profileUrl":"https://i.ytimg.com/vi/uZc0tw9C5vk/hqdefault.jpg",
     "password": "baseball",
     "type": "petOwner",
     "location": {"street": "482 W Davidson Lane", "city": "Columbus", "state": "OH", "zipCode":"82398"},
-    "description":"The best traveling pup you'll ever meet. I love making new friends everywhere."
+    "description":"A magical pet experience, your pet will become enlightened by the wonders that await.."
   }
 ]
