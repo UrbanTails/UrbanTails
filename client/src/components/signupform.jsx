@@ -24,7 +24,7 @@ class SignupForm extends React.Component {
     this.state = {
       username: this.props.location.state.username,
       password: this.props.location.state.password,
-      type: 'host',
+      type: 'petOwner',
       email: '',
       street: '',
       city: '',
@@ -36,6 +36,7 @@ class SignupForm extends React.Component {
       redirectToProfile: false
     };
     this.handleChange = this.handleChange.bind(this);
+    this.onSelect = this.onSelect.bind(this);
   }
 
   handleSubmit(e) {
@@ -73,6 +74,13 @@ class SignupForm extends React.Component {
     const target = e.target.name;
     this.setState({
       [ target ]: e.target.value
+    });
+  }
+
+  onSelect(e) {
+    console.log(e.target.value)
+    this.setState({
+      type: e.target.value
     });
   }
 

@@ -150,10 +150,21 @@
 
 /*=== CALENDAR ===*/
 .calendar {
-  margin-bottom: 25px;
   margin-top: 25px;
 }
 
-.card-text {
-  margin-bottom: 100px;
+.col-xs-5 {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #D3D3D3;
+  width: fit-content;
+    margin-bottom: 100px;
+}
+
+.cardButton {
+  padding-top: 20px;
+}
+
+.md-datepicker-input-container {
+    width: 300px;
 }

@@ -4,6 +4,8 @@ import Toggle from 'material-ui/Toggle';
 import $ from 'jquery';
 import { Row, Col } from 'react-bootstrap';
 import { TextField, RaisedButton } from 'material-ui';
+import Checkout from './checkout.jsx';
+
 
 const optionsStyle = {
   maxWidth: 255,
@@ -73,32 +75,28 @@ export default class Calendar extends React.Component {
 
       <div style={optionsStyle}>
 
-        <div>
-        Choose the dates of your stay:
-        </div>
+        <h4>$64 per night</h4>
 
           <div>
-            <DatePicker container="inline" mode="landscape"
+            <DatePicker container="inline" mode="landscape" textFieldStyle={{width: '100%'}}
               onChange={this.handleChangestartDate}
-              floatingLabelText="Start Date"
+              floatingLabelText="Check In"
               defaultDate={this.state.startDate}
             />
             <DatePicker container="inline" mode="landscape"
               onChange={this.handleChangeendDate}
-              floatingLabelText="End Date"
+              floatingLabelText="Check Out"
               defaultDate={this.state.endDate}
             />
           </div>
 
-          <div>
-            Currently logged in as: {this.state.userName}
-          </div>
-
           <div
+            style= {{backgroundColor: "#008080", color: "white", marginBottom: '5px'}}
             className="btn btn-default btn-lg"
             onClick = {this.handleBookClick}>
-            Book Now
+            Check Availability
           </div>
+
 
         </div>
 
