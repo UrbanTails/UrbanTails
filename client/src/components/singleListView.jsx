@@ -20,7 +20,7 @@ class ListingProfile extends React.Component {
       profileUrl: this.props.location.state.profileUrl,
       email: this.props.location.state.email
 
-    }
+    };
   }
 
    render() {
@@ -28,7 +28,7 @@ class ListingProfile extends React.Component {
       <div>
         <Navbar user={this.state.user} search={true}/>
         <h1>Your Pet's adventure awaits.</h1>
-        <h3>Location: {this.state.location}</h3>
+        <h3>Location: {this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state + ', ' + this.props.location.state.location.zipCode}</h3>
         <h3><p>Description: </p></h3>
         <h4><p className="description">{this.state.description}</p></h4>
         <div className="card">

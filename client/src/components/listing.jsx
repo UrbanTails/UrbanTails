@@ -86,7 +86,7 @@ export default class Listing extends React.Component {
         </Col>
         <Col md={5} className="host-content" >
           <h2>{this.state.hostName}</h2>
-          <h5>{this.state.location}</h5>
+          <h5>{this.props.host.location.street + ', ' + this.props.host.location.city + ', ' + this.props.host.location.state + ', ' + this.props.host.location.zipCode}</h5>
           <p>{this.state.description}</p>
           <div>
             <i className="material-icons md-24 ratings">pets</i>

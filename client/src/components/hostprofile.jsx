@@ -28,6 +28,10 @@ class HostProfile extends React.Component {
       email: this.props.location.state.email,
       newImageUrl: '',
       newLocation: '',
+      newStreet: '',
+      newCity: '',
+      newState: '',
+      newZipCode: '',
       newDescription: '',
       newEmail: '',
       displayImageButton: true,
@@ -52,6 +56,10 @@ class HostProfile extends React.Component {
     this.updateProfile = this.updateProfile.bind(this);
     this.onUpdateProfileClick = this.onUpdateProfileClick.bind(this);
     this.onViewProfileClick = this.onViewProfileClick.bind(this);
+    this.onStreetEntry = this.onStreetEntry.bind(this);
+    this.onCityEntry = this.onCityEntry.bind(this);
+    this.onStateEntry = this.onStateEntry.bind(this);
+    this.onZipCodeEntry = this.onZipCodeEntry.bind(this);
   }
 
   onImageEntry(e) {
@@ -63,6 +71,30 @@ class HostProfile extends React.Component {
   onLocationEntry(e) {
     this.setState({
       newLocation: e.target.value
+    });
+  }
+
+  onStreetEntry(e) {
+    this.setState({
+      newStreet: e.target.value
+    });
+  }
+
+  onCityEntry(e) {
+    this.setState({
+      newCity: e.target.value
+    });
+  }
+
+  onStateEntry(e) {
+    this.setState({
+      newState: e.target.value
+    });
+  }
+
+  onZipCodeEntry(e) {
+    this.setState({
+      newZipCode: e.target.value
     });
   }
 
@@ -120,13 +152,14 @@ class HostProfile extends React.Component {
   }
 
   updateProfile(e) {
+    var component = this;
     $.ajax({
       type: 'POST',
       url: '/update-profile',
       data: {
         username: this.state.username,
         imageUrl: this.state.newImageUrl,
-        location: this.state.newLocation,
+        location: {street: component.state.newStreet, city: component.state.newCity, state: component.state.newState, zipCode: component.state.newZipCode},
         description: this.state.newDescription,
         email: this.state.newEmail
       },
@@ -183,7 +216,7 @@ class HostProfile extends React.Component {
                     <i className="material-icons md-24 ratings">pets</i>
                   </p>
                   <p><b>Email: </b>{this.state.email}</p>
-                  <p><b>Location: </b>{this.state.location}</p>
+                  <p><b>Location: </b>{this.state.location.street + ', ' + this.state.location.city + ', ' + this.state.location.state + ', ' + this.state.zipCode}</p>
                   <p><b>Description: </b></p>
                   <p className="description">{this.state.description}</p>
                 </div>
@@ -216,55 +249,71 @@ class HostProfile extends React.Component {
           </div>
           <div className="form-group" style={{ maxWidth: '300px', margin: '15px'}}>
             <div style={{ margin: '15px' }}>
-              <label>Email address</label>
+              <label>Email</label>
               <input style={style} className="form-control" value={this.state.newEmail} onChange={this.onEmailEntry} type="text" placeholder="name@example.com"/>
             </div>
             <div style={{ margin: '15px' }}>
-              <label style={{ margin: '5px' }}>Address</label>
-              <label style={{ margin: '5px' }}>Street Address</label>
-              <input style={style} className="form-control" value={this.state.newLocation} onChange={this.onLocationEntry} type="text"/>
-            </div>
+              <label style={{ margin: '5px' }}>Street</label>
+              <input style={style} className="form-control" value={this.state.newStreet} onChange={this.onStreetEntry} type="text"/>
             <div>
               <label style={{ margin: '5px' }}>City</label>
-              <input style={style} className="form-control" value={this.state.newLocation} onChange={this.onLocationEntry} type="text"/>
+              <input style={style} className="form-control" value={this.state.newCity} onChange={this.onCityEntry} type="text"/>
               <label style={{ margin: '5px' }}>State</label>
-              <select multiple class="form-control">
+              <select multiple class="form-control" onChange={this.onStateEntry}>
                 <option>AL</option>
                 <option>AK</option>
                 <option>AZ</option>
                 <option>AR</option>
                 <option>CA</option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
+                <option>CO</option>
+                <option>CT</option>
+                <option>DE</option>
+                <option>FL</option>
+                <option>GA</option>
+                <option>HI</option>
+                <option>ID</option>
+                <option>IL</option>
+                <option>IN</option>
+                <option>IA</option>
+                <option>KS</option>
+                <option>KY</option>
+                <option>LA</option>
+                <option>ME</option>
+                <option>MD</option>
+                <option>MA</option>
+                <option>MI</option>
+                <option>MN</option>
+                <option>MS</option>
+                <option>MO</option>
+                <option>MT</option>
+                <option>NE</option>
+                <option>NV</option>
+                <option>NH</option>
+                <option>NJ</option>
+                <option>NM</option>
+                <option>NY</option>
+                <option>NC</option>
+                <option>ND</option>
+                <option>OH</option>
+                <option>OK</option>
+                <option>OR</option>
+                <option>PA</option>
+                <option>RI</option>
+                <option>SC</option>
+                <option>SD</option>
+                <option>TN</option>
+                <option>TX</option>
+                <option>UT</option>
+                <option>VT</option>
+                <option>VA</option>
+                <option>WA</option>
+                <option>WV</option>
+                <option>WI</option>
+                <option>WY</option>
               </select>
+              <label style={{ margin: '5px' }}>Zip Code</label>
+              <input style={style} className="form-control" value={this.state.newZipCode} onChange={this.onZipCodeEntry} type="text"/>
+            </div>
             </div>
             <div style={{ margin: '15px' }}>
               <label>Description</label>

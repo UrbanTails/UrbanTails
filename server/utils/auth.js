@@ -91,13 +91,6 @@ function validateUpdateForm(formData, callback) {
     }
   }
 
-  if (formData.location) {
-    if (!formData || typeof formData.location !== 'string' || formData.location.trim().length === 0) {
-      isFormValid = false;
-      errors.location = 'Please provide a location.';
-    }
-  }
-
   let result = {
     success: isFormValid,
     message,

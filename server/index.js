@@ -142,6 +142,7 @@ app.get('/host-profile', (req, res, next) => {
 
 //updates profile information for given user
 app.post('/update-profile', (req, res) => {
+  debugger;
   auth.validateUpdateForm(req.body, (result) => {
     if (result.success) {
       db.updateUser(req.body, function(err, userData) {

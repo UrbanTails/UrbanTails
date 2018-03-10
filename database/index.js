@@ -21,10 +21,11 @@ let UserSchema = new Schema({
   password: String,
   profileUrl: String,
   type: String,
-  location: String,
+  location: Object,
   description: String,
   ownerBookings: Array,
-  hostBookings: Array
+  hostBookings: Array,
+  price: Number
 });
 
 //compile schema into a model
