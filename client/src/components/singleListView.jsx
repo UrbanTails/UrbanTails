@@ -4,14 +4,14 @@ import Navbar from './navbar.jsx';
 import Searchbar from './searchbar.jsx';
 import Footer from './footer.jsx';
 
+
 import { Link, Redirect } from 'react-router-dom';
-
-
 
 
 import Checkout from './checkout.jsx';
 import Calendar from './calendar.jsx';
 import Container from './container.jsx'
+
 
 /*
   Single Listing View:
