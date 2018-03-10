@@ -58,7 +58,14 @@ class ListingProfile extends React.Component {
                 <h4>{this.state.description}</h4>
                 <div>
                   <h3>{this.state.hostName}</h3>
-                  <h5>Email: {this.state.email}</h5>
+                  <h5>Email: {this.state.email}</h5>        
+                  <div>
+                      <i className="material-icons md-24 ratings">pets</i>
+                      <i className="material-icons md-24 ratings">pets</i>
+                      <i className="material-icons md-24 ratings">pets</i>
+                      <i className="material-icons md-24 ratings">pets</i>
+                      <i className="material-icons md-24 ratings">pets</i>
+                  </div>
                 </div>
 
                 <div className="cardButton">
@@ -86,20 +93,15 @@ class ListingProfile extends React.Component {
 
           </div>
 
+        <div>Map
+          <Container address={'891 Uinta Way, Denver, CO'}/>
+          </div>
 
         </Col>
 
 
 
-        <div>
-            <i className="material-icons md-24 ratings">pets</i>
-            <i className="material-icons md-24 ratings">pets</i>
-            <i className="material-icons md-24 ratings">pets</i>
-            <i className="material-icons md-24 ratings">pets</i>
-            <i className="material-icons md-24 ratings">pets</i>
-        </div>
-        <div>Map</div>
-          <Container address={'891 Uinta Way, Denver, CO'}/>
+
         <br/>
 
         <Footer/>
