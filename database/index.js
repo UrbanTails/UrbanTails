@@ -23,7 +23,7 @@ let UserSchema = new Schema({
   type: String,
   location: Object,
   description: String,
-  price: Number
+  price: Number,
   userBookings: Array,
   hostBookings: Array
 });
