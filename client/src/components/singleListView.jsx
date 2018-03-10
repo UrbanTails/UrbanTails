@@ -18,7 +18,7 @@ import Container from './container.jsx'
 */
 
 
-class ListingProfile extends React.Component {
+class SingleListView extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -107,4 +107,4 @@ class ListingProfile extends React.Component {
   }
 }
 
-module.exports = ListingProfile;
+module.exports = SingleListView;
