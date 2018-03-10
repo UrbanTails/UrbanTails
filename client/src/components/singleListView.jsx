@@ -43,13 +43,6 @@ class ListingProfile extends React.Component {
 
           <img style={{ width: '1000px', height: '400px'}} className="card-img-top" src={this.state.profileUrl} alt="Card image cap" />
 
-          <div style={{marginBottom: '20px'}}>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-            <i className="material-icons md-5 ratings">pets</i>
-          </div>
 
           <div class = "container">
 
