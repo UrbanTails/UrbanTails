@@ -5,21 +5,30 @@ import React from 'react';
   Used on landing page, login page, and signup page
 */
 
-const Footer = (props) => {
+const Footer = (size) => {
     return (
-      <div className="navbar navbar-fixed-bottom footer">
+      <div className="navbar navbar-default navbar-fixed-bottom">
         <div className="container">
-          <div className="row">
-            <div className="col-sm-8">
-              <p>© {new Date().getFullYear()} | Annah Patterson | Queenie Smith | Michael Shin | Yufan Wang |</p>
-            </div>
-            <div className="col-sm-4 footer-right">
-              <a href="https://github.com/UrbanTails/UrbanTails">Github Repository</a>
-            </div>
-          </div>
+
+          <p className="navbar-text pull-left">© 2018 - Site Built by Sorrel Labs
+          </p>
+
+          <a href="http://www.urbantails.info" className="navbar-btn btn-danger btn pull-right">
+          <span className="glyphicon glyphicon-star"></span>  Urban Tails 2018</a>
+          <img src="http://www.hayfordmarketing.com/uploads/1/3/6/6/13660621/untitled-design-1_13_orig.png"  style={{height:"45px", width:"250px"}}/>
+
         </div>
+
+
       </div>
+
     )
 }
 
 export default Footer;
+
+
+
+
+
+
