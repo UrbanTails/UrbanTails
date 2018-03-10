@@ -5,6 +5,7 @@ import { Avatar } from 'material-ui';
 import $ from 'jquery';
 import Navbar from './navbar.jsx';
 import Footer from './footer.jsx';
+import LandingGridList from './landingGridList.jsx';
 
 /*
   Lading Component:
@@ -22,7 +23,15 @@ class Landing extends React.Component {
     $.get('/logout');
   }
 
+  handleSubmit(){
+    this.props.history.push({
+      pathname:'/listings', state: {user: { username: 'Anonymous'}}
+    });
+  }
+
+  //Change Get started Button link to /listings to send user directly to listings
   render() {
+
     return (
       <div>
         <Navbar link="Login" linkurl="/login"/>
@@ -30,12 +39,31 @@ class Landing extends React.Component {
           <div className="content">
             <h1>Urban Tails</h1>
             <h3>Pet boarding wherever your adventure takes you</h3>
-            <Link to='/signup' className="btn btn-default btn-lg">Get Started</Link>
+            <div className="container">
+              <div className="row">
+                    <div className="col-sm-6 col-sm-offset-3">
+                        <div id="imaginary_container">
+                            <div className="input-group large stylish-input-group">
+                                <input style={{width: "500px",height: "75px"}}type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" />
+                                <span className="input-group-addon">
+                                    <button style={{width: "50px",height: "62px"}} type="submit" onClick={() => this.handleSubmit()}>
+                                        <span className="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+            </div>
           </div>
         </Jumbotron>
+          <div className="row">
+            <LandingGridList />
+          </div>
+
         <div className="container">
-          <h2 className="heading-landing">How it works</h2>
           <Row className="landing-content">
+
             <Col md={3}>
               <i className="material-icons md-36">face</i>
               <h3>Start</h3>
@@ -59,34 +87,12 @@ class Landing extends React.Component {
             </Col>
           </Row>
           <hr/>
-          <h2 className="heading-landing">About Us</h2>
-          <Row className="landing-content padded">
-            <Col md={3} className="landing-box">
-              <Avatar src="https://avatars3.githubusercontent.com/u/22921336?s=460&v=4" size={100}/>
-              <h4>Annah Patterson</h4>
-              <p>Lead Engineer</p>
-            </Col>
-            <Col md={3}>
-              <Avatar src="https://i.pinimg.com/736x/97/27/a5/9727a533b8d35ec176155e92fd643477--pet-tattoos-wall-tattoo.jpg" size={100}/>
-              <h4>Michael Shin</h4>
-              <p>Scrum Master</p>
-            </Col>
-            <Col md={3}>
-              <Avatar src="https://avatars0.githubusercontent.com/u/28540710?s=460&v=4" size={100}/>
-              <h4>Queenie Smith</h4>
-              <p>Product Owner</p>
-            </Col>
-            <Col md={3}>
-              <Avatar src="https://avatars2.githubusercontent.com/u/31011353?s=400&v=4" size={100}/>
-              <h4>Yufan Wang</h4>
-              <p>Lead Engineer</p>
-            </Col>
-          </Row>
         </div>
         <Footer />
       </div>
     )
   }
 }
+
 
 module.exports = Landing;

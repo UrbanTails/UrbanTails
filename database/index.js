@@ -13,6 +13,7 @@ mongoose.connect(uristring, (err) => {
   }
 });
 
+
 //set schema
 let UserSchema = new Schema({
   username: { type: String, unique: true },
@@ -20,8 +21,11 @@ let UserSchema = new Schema({
   password: String,
   profileUrl: String,
   type: String,
-  location: String,
-  description: String
+  location: Object,
+  description: String,
+  price: Number,
+  userBookings: Array,
+  hostBookings: Array
 });
 
 //compile schema into a model
@@ -102,6 +106,19 @@ module.exports = {
       });
     });
   },
+
+  updateUser: (data, callback) => {
+    User.findOne({ username: data.username }, function(err, user) {
+      if (data.imageUrl) user.profileUrl = data.imageUrl;
+      if (data.location) user.location = data.location;
+      if (data.description) user.description = data.description;
+      if (data.email) user.email = data.email;
+      user.save();
+      callback(null, user);
+    });
+  },
+
+
   // retrieve host listings by a specific location
   getListings: (data, callback) => {
     User.find({type: 'host'})
@@ -128,10 +145,62 @@ module.exports = {
         }
       });
   },
+  getCityListings: (city, callback) => {
+    User.find({type:'host', 'location.city': city})
+      .sort({username: 1})
+      .exec((err, listings) => {
+        if (err) {
+          console.log('Error getting all listings');
+          callback('Error getting all listings');
+        } else {
+          callback(null, listings);
+        }
+      });
+  },
   // utilized by seed.js file to drop database when re-seeding
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
   },
+
+  //takes in booking from listing page and saves info to userBookings
+  saveUserBook: (data, callback) => {
+    var userBooking = {
+      userName: data.userName,
+      hostName: data.hostName,
+      location: data.location,
+      startDate: data.startDate,
+      enddate: data.endDate
+    };
+    User.findOneAndUpdate({username: data.userName}, {$push: {userBookings: userBooking}}).exec((err, user) => {
+      if (err) {
+        callback('Error finding user');
+      } else {
+        callback(null, 'Success saving user info');
+      }
+    });
+  },
+
+  //takes in booking from listing page and saves info to hostBookings
+  saveHostBook: (data, callback) => {
+    var hostBooking = {
+      userName: data.userName,
+      hostName: data.hostName,
+      location: data.location,
+      startDate: data.startDate,
+      enddate: data.endDate
+    };
+    User.findOneAndUpdate({username: data.hostName}, {$push: {hostBookings: hostBooking}}).exec((err, user) => {
+      if (err) {
+        callback('Error finding user');
+      } else {
+        callback(null, 'Success saving user info');
+      }
+    });
+  },
+
+
+
   // exports mongoose connection for server to reference
   connection: mongoose.connection
 };
+

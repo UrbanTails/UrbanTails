@@ -3,6 +3,7 @@ import ListingsCarousel from './listings-carousel.jsx';
 import HostListing from './hostlisting.jsx';
 import Navbar from './navbar.jsx';
 import $ from 'jquery';
+import Footer from './footer.jsx';
 
 /*
   Listings Component:
@@ -21,7 +22,7 @@ class Listings extends React.Component {
           "username":"Maria",
           "profileUrl":"https://source.unsplash.com/3wylDrjxH-E",
           "type": "host",
-          "location": "Los Angeles",
+          "location": {"street": "123 S Ohio", "city": "Kansas City", "state": "MO", "zipCode":"80526"},
           "description":"I've got a wonderful patio and serve meals outside when the weather is nice."
         }
       ]
@@ -57,15 +58,16 @@ class Listings extends React.Component {
   render() {
     let listings = this.state.listings.reverse();
     let hostList = listings.map((hostsummary, index) => {
-      return <HostListing key ={ index } host={ hostsummary }/>
+      return <HostListing key ={ index } host={ hostsummary } userName={this.state.user.username}/>
     });
     return (
       <div>
-        <Navbar link="My Account" linkurl="/pet-profile" user={this.state.user} setresults={this.setResults} search={true}/>
+        <Navbar link="My Account" linkurl="/host-profile" user={this.state.user} setresults={this.setResults} search={true}/>
         <ListingsCarousel listings={this.state.listings}/>
         <div className="container">
           { hostList }
         </div>
+        <Footer />
       </div>
     )
   }

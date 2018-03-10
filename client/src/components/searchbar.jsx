@@ -33,14 +33,11 @@ class Searchbar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.query === 'Los Angeles' || this.state.query === 'New York') {
+    if (this.state.query) {
       this.toggleError('');
       $.ajax({
-        type: 'POST',
-        url: '/getlistings',
-        data: {
-          query: this.state.query
-        },
+        type: 'GET',
+        url: `/getlistings?city=${this.state.query}`,
         success: (data) => {
           console.log('ajax posting data', data);
           this.props.setresults(data);
@@ -50,7 +47,7 @@ class Searchbar extends React.Component {
         }
       });
     } else {
-      this.toggleError('Search only available for "Los Angeles" and "New York" locations');
+      this.toggleError('Please enter a city name');
     }
 
     this.setState({
@@ -62,12 +59,13 @@ class Searchbar extends React.Component {
   render() {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
     return (
+
       <div className="col-sm-8 searchbar">
-        <form className="navbar-form" role="search" onSubmit={this.handleSubmit.bind(this)}>
+        <form className="navbar-form navbar-left" role="search" onSubmit={this.handleSubmit.bind(this)}>
           <div className="input-group">
-            <input style={{ width: '225px' }} type="text" className="form-control" placeholder="Search" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
+            <input style={{ width: '400px',height:'55px' }} type="text" className="form-control" placeholder="Try Greg's cat haven" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
             <div className="input-group-btn">
-              <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+              <button style={{ width: '59px',height:'55px' }}className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
             </div>
           </div>
         </form>
