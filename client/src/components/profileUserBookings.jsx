@@ -1,12 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
-import {List, ListItem} from 'material-ui';
+import {List, ListItem, Avatar} from 'material-ui';
 
 const style = {
   margin: 12,
 };
 
 var ProfileUserBookings = (props) => {
+  {console.log(props)}
   if (props.userBookings.length === 0) {
     return(
       <div>
@@ -20,7 +21,7 @@ var ProfileUserBookings = (props) => {
         <h3 style={style}>{"Bookings for " + props.user + "'s pet:"}:</h3>
         <List>
         {props.userBookings.map((booking, index) =>
-          <ListItem leftAvatar={<Avatar src={booking.profileUrl}/>} primaryText={"Booking for" + booking.userName} secondaryText={"Start Date: " + booking.startDate + " / " + "End Date: " + booking.endDate}/>
+          <ListItem primaryText={"Booking for " + booking.userName} secondaryText={"Start Date: " + booking.startDate + " / " + "End Date: " + booking.enddate}/>
         )}
         </List>
       </div>
