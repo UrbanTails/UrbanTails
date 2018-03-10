@@ -189,6 +189,7 @@ class HostProfile extends React.Component {
   }
 
   render () {
+    {console.log(this.state)}
     if (this.state.page === "View") {
       return (
             <div>
@@ -199,7 +200,7 @@ class HostProfile extends React.Component {
                 pathname: '/listing',
                 state: { username: this.state.username}
                 }}>
-              Listing
+              Listings
               </Link>
               <button onClick={this.onUpdateProfileClick} className='btn btn-default btn-lg'>
                 Update Profile

@@ -7,6 +7,7 @@ const style = {
 };
 
 var ProfileHostBookings = (props) => {
+  {console.log(props)}
   if (props.hostBookings.length === 0) {
     return(
       <div>
@@ -19,7 +20,7 @@ var ProfileHostBookings = (props) => {
       <div>
         <h3 style={style}>Bookings {props.user} is hosting:</h3>
         <List>
-        {props.ownerBookings.map((booking, index) =>
+        {props.hostBookings.map((booking, index) =>
           <ListItem leftAvatar={<Avatar src={booking.profileUrl}/>} primaryText={"Booking for" + booking.userName} secondaryText={"Start Date: " + booking.startDate + " / " + "End Date: " + booking.endDate}/>
         )}
         </List>

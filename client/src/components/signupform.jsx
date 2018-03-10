@@ -26,6 +26,7 @@ class SignupForm extends React.Component {
       password: this.props.location.state.password,
       type: 'petOwner',
       email: '',
+      price: '',
       street: '',
       city: '',
       state: '',
@@ -50,6 +51,7 @@ class SignupForm extends React.Component {
         password: this.state.password,
         type: this.state.type,
         email: this.state.email,
+        price: this.state.price,
         location: { street: this.state.street, city: this.state.city, state: this.state.state, zipCode: this.state.zipCode },
         profileUrl: this.state.profileUrl,
         description: this.state.description
@@ -63,7 +65,7 @@ class SignupForm extends React.Component {
       error: (data) => {
         this.setState({
           errors: data.responseJSON.errors
-        })
+        });
       }
     });
 
@@ -78,7 +80,7 @@ class SignupForm extends React.Component {
   }
 
   onSelect(e) {
-    console.log(e.target.value)
+    console.log(e.target.value);
     this.setState({
       type: e.target.value
     });
@@ -108,6 +110,9 @@ class SignupForm extends React.Component {
             </div>
             <div className="field-line">
               <TextField floatingLabelText="Email" name="email" onChange={this.handleChange} value={this.state.email} errorText={ this.state.errors.email }/>
+            </div>
+            <div className="field-line">
+              <TextField floatingLabelText="Asking Price:" name="price" onChange={this.handleChange} value={this.state.price} errorText={ this.state.errors.email }/>
             </div>
             <div className="field-line">
               <TextField floatingLabelText="Street" name="street" onChange={this.handleChange} value={this.state.street} errorText={ this.state.errors.location}/>

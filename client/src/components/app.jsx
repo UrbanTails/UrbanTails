@@ -9,6 +9,7 @@ import HostProfile from './hostprofile.jsx';
 import Listings from './listings.jsx';
 import SingleListView from './singleListView.jsx'
 import gregListView from './gregListView.jsx'
+import Listing from './listing.jsx'
 
 /*
   App Component:
@@ -28,6 +29,7 @@ class App extends React.Component {
         <Route path='/listings' component={ Listings } />
         <Route path='/singlelistview' component={ SingleListView } />
         <Route path='/greglistview' component={ gregListView } />
+        <Route path='/listing' component={ Listing } />
       </div>
     )
   }
