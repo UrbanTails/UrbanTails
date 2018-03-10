@@ -190,6 +190,34 @@ app.get('/getlistings', (req, res) => {
     }
 });
 
+// app.get('/getlistings', (req, res) => {
+//     var city = req.query.city
+//     console.log(city)
+//     if (!city) {
+//       db.getAllListings((err, result) => {
+//         if (err) {
+//           console.log('error getting all listings from db:', err);
+//           res.status(500).send({ error: 'Could not retrieve all listings' });
+//         }
+//         else {
+//           console.log('retrieved all listings');
+//           res.send(result);
+//         }
+//       });
+//     } else {
+//       db.getCityListings(city, (err, result) => {
+//         if (err) {
+//           console.log('error getting all listings from db:', err);
+//           res.status(500).send({ error: 'Could not retrieve city listings' });
+//         }
+//         else {
+//           console.log('retrieved all listings');
+//           res.send(result);
+//         }
+//       })
+//     }
+// });
+
 // retrieves one host listing based on a string search query for either 'Los Angeles' or 'New York'.  Could be substituted with Google Search API.
 app.post('/getlistings', (req, res) => {
     db.getListings(req.body, (err, result) => {
