@@ -11,9 +11,8 @@ import Container from './container.jsx'
 class ListingProfile extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-    }
   }
+
 
    render() {
     return (
@@ -40,7 +39,7 @@ class ListingProfile extends React.Component {
         </div>
         <div>
           <div>Map</div>
-          <Container/>
+          <Container address={'891 Uinta Way, Denver, CO'}/>
         </div>
       </div>
     )

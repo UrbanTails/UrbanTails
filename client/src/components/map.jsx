@@ -2,10 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class Map extends React.Component{
-
+  constructor(props){
+    super(props);
+    this.state = {
+      loc: 'hey'
+    }
+  }
   componentDidMount(){
-    this.loadMap();
-    this.forceUpdate();
+    var parsedAddress = this.props.address.split(' ').join('+')
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${parsedAddress}&key=AIzaSyBoHnvNEFxjZ-EyIDQ-cKRYpnDD4y0GEmQ`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log('Location for map fetched successfully');
+          this.setState({
+            loc: {
+              lat: result.results[0].geometry.location.lat,
+              lng: result.results[0].geometry.location.lng
+            }
+          });
+          this.loadMap();
+          this.forceUpdate();
+        },
+
+        (error) => {
+          console.log('Failed to load map.')
+        }
+      )
+
   }
 
   componentDidUpdate(prevProps, prevState){
@@ -16,7 +40,7 @@ class Map extends React.Component{
   }
 
   loadMap(){
-    console.log(this.props)
+    console.log('map', this.props)
     if(this.props && this.props.google){
       const {google} = this.props;
       const maps = google.maps;
@@ -25,8 +49,8 @@ class Map extends React.Component{
       const node = ReactDOM.findDOMNode(mapRef);
 
       let zoom =13;
-      let lat = 37.783684;
-      let lng = -122.408986;
+      let lat = this.state.loc.lat;
+      let lng = this.state.loc.lng;
       const center = new maps.LatLng(lat, lng);
       const mapConfig = Object.assign({}, {
         center: center,
@@ -35,7 +59,7 @@ class Map extends React.Component{
       this.map = new maps.Map(node, mapConfig);
       console.log(this.map);
       const marker = new google.maps.Marker({
-        position: {lat: 37.783684, lng: -122.408986},
+        position: {lat: this.state.loc.lat, lng: this.state.loc.lng},
         map: this.map,
         title: 'home'
       })
