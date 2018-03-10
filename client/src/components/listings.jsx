@@ -61,7 +61,7 @@ class Listings extends React.Component {
     });
     return (
       <div>
-        <Navbar link="My Account" linkurl="/signup" user={this.state.user} setresults={this.setResults} search={true}/>
+        <Navbar link="My Account" linkurl="/host-profile" user={this.state.user} setresults={this.setResults} search={true}/>
         <ListingsCarousel listings={this.state.listings}/>
         <div className="container">
           { hostList }

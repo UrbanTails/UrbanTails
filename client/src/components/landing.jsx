@@ -42,9 +42,9 @@ class Landing extends React.Component {
                     <div className="col-sm-6 col-sm-offset-3">
                         <div id="imaginary_container">
                             <div className="input-group large stylish-input-group">
-                                <input type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" />
+                                <input style={{width: "500px",height: "75px"}}type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" />
                                 <span className="input-group-addon">
-                                    <button type="submit" onClick={() => this.handleSubmit()}>
+                                    <button style={{width: "50px",height: "62px"}} type="submit" onClick={() => this.handleSubmit()}>
                                         <span className="glyphicon glyphicon-search"></span>
                                     </button>
                                 </span>

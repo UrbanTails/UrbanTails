@@ -22,7 +22,9 @@ let UserSchema = new Schema({
   profileUrl: String,
   type: String,
   location: String,
-  description: String
+  description: String,
+  ownerBookings: Array,
+  hostBookings: Array
 });
 
 //compile schema into a model
@@ -103,6 +105,19 @@ module.exports = {
       });
     });
   },
+
+  updateUser: (data, callback) => {
+    User.findOne({ username: data.username }, function(err, user) {
+      if (data.imageUrl) user.imageUrl = data.imageUrl;
+      if (data.location) user.location = data.location;
+      if (data.description) user.description = data.description;
+      if (data.email) user.email = data.email;
+      user.save();
+      callback(null, user);
+    });
+  },
+
+
   // retrieve host listings by a specific location
   getListings: (data, callback) => {
     User.find({type: 'host'})
@@ -135,7 +150,7 @@ module.exports = {
   },
 
   //takes in booking from listing page and saves to ownerBookings
-  addOwnerBook: (data, callback) => {
+  saveOwnerBook: (data, callback) => {
     var ownerBooking = {
       hostName: data.hostName,
       startDate: data.startDate,
@@ -151,20 +166,20 @@ module.exports = {
   },
 
   //takes in booking from listing page and saves to hostBookings
-  addHostBook: (data, callback) => {
-    var ownerBooking = {
-      hostName: data.hostName,
+  saveHostBook: (data, callback) => {
+    var hostBooking = {
+      ownerName: data.ownerName,
       startDate: data.startDate,
       enddate: data.endDate
     }
-    User.findOneAndUpdate({username: data.ownerName}, {$push: {ownerBookings: ownerBooking}}).exec((err, user) => {
+    User.findOneAndUpdate({username: data.hostName}, {$push: {hostBookings: hostBooking}}).exec((err, user) => {
       if (err) {
         callback('Error finding user');
       } else {
         callback(null, 'Success saving owner info');
       }
     });
-  }
+  },
 
 
 

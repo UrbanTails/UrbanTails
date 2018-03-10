@@ -21,7 +21,7 @@ class HostListing extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.mouseOut = this.mouseOut.bind(this);
     this.mouseOver = this.mouseOver.bind(this);
-    this.handleSubmit = this.handleSubmit.bind()
+    this.handleSubmit = this.handleSubmit.bind();
   }
 
   handleClick() {
@@ -31,8 +31,8 @@ class HostListing extends React.Component {
     });
   }
 
-    handleSubmit(){
-    this.props.history.push('/singleListView')
+  handleSubmit(){
+    this.props.history.push('/singleListView');
   }
 
   mouseOut() {
@@ -63,7 +63,7 @@ class HostListing extends React.Component {
           </div>
           <p></p>
           <div className="contact-btn-container">
-            <Link to={{ pathname: '/listing', state: {hostName: this.props.host.username, location: this.props.host.location, description: this.props.host.description, profileUrl: this.props.host.profileUrl}}} className="btn btn-default btn-lg">View Listing</Link>
+            <Link to={{ pathname: '/singlelistview', state: {hostName: this.props.host.username, location: this.props.host.location, description: this.props.host.description, profileUrl: this.props.host.profileUrl, email: this.props.host.email}}} className="btn btn-default btn-lg">View Listing</Link>
           </div>
         </Col>
       </Row>
