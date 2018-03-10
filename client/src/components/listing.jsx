@@ -55,8 +55,8 @@ export default class Listing extends React.Component {
   };
 
   handleBookClick () {
-    console.log('owner', this.state.ownerName);
-    console.log('host', this.state.hostName);
+    console.log(this.state.ownerName);
+    console.log(this.state.hostName);
     console.log(this.state.startDate);
     console.log(this.state.endDate);
     $.ajax({
