@@ -23,9 +23,9 @@ let UserSchema = new Schema({
   type: String,
   location: Object,
   description: String,
-  ownerBookings: Array,
-  hostBookings: Array,
-  price: Number
+  price: Number,
+  userBookings: Array,
+  hostBookings: Array
 });
 
 //compile schema into a model
@@ -83,7 +83,6 @@ module.exports = {
 
   //save user data
   saveUser: (data, callback) => {
-    debugger;
     let plainTextPassword = data.password;
     //bcrypt password before saving it to database
     bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
@@ -98,7 +97,6 @@ module.exports = {
       });
 
       user.save((err, user) => {
-        debugger;
         if (err) {
           console.log('database error saving user, duplicate key');
           callback('User already exists', null);
@@ -147,39 +145,55 @@ module.exports = {
         }
       });
   },
+  getCityListings: (city, callback) => {
+    User.find({type:'host', 'location.city': city})
+      .sort({username: 1})
+      .exec((err, listings) => {
+        if (err) {
+          console.log('Error getting all listings');
+          callback('Error getting all listings');
+        } else {
+          callback(null, listings);
+        }
+      });
+  },
   // utilized by seed.js file to drop database when re-seeding
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
   },
 
-  //takes in booking from listing page and saves to ownerBookings
-  saveOwnerBook: (data, callback) => {
-    var ownerBooking = {
+  //takes in booking from listing page and saves info to userBookings
+  saveUserBook: (data, callback) => {
+    var userBooking = {
+      userName: data.userName,
       hostName: data.hostName,
+      location: data.location,
       startDate: data.startDate,
       enddate: data.endDate
-    }
-    User.findOneAndUpdate({username: data.ownerName}, {$push: {ownerBookings: ownerBooking}}).exec((err, user) => {
+    };
+    User.findOneAndUpdate({username: data.userName}, {$push: {userBookings: userBooking}}).exec((err, user) => {
       if (err) {
         callback('Error finding user');
       } else {
-        callback(null, 'Success saving owner info');
+        callback(null, 'Success saving user info');
       }
     });
   },
 
-  //takes in booking from listing page and saves to hostBookings
+  //takes in booking from listing page and saves info to hostBookings
   saveHostBook: (data, callback) => {
     var hostBooking = {
-      ownerName: data.ownerName,
+      userName: data.userName,
+      hostName: data.hostName,
+      location: data.location,
       startDate: data.startDate,
       enddate: data.endDate
-    }
+    };
     User.findOneAndUpdate({username: data.hostName}, {$push: {hostBookings: hostBooking}}).exec((err, user) => {
       if (err) {
         callback('Error finding user');
       } else {
-        callback(null, 'Success saving owner info');
+        callback(null, 'Success saving user info');
       }
     });
   },
@@ -189,3 +203,4 @@ module.exports = {
   // exports mongoose connection for server to reference
   connection: mongoose.connection
 };
+

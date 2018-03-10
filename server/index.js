@@ -163,17 +163,33 @@ app.post('/update-profile', (req, res) => {
 
 // retrieves all host listings from the database
 app.get('/getlistings', (req, res) => {
-    db.getAllListings((err, result) => {
-      if (err) {
-        console.log('error getting all listings from db:', err);
-        res.status(500).send({ error: 'Could not retrieve all listings' });
-      }
-      else {
-        console.log('retrieved all listings');
-        res.send(result);
-      }
-    });
+    var city = req.query.city
+    console.log(city)
+    if (!city) {
+      db.getAllListings((err, result) => {
+        if (err) {
+          console.log('error getting all listings from db:', err);
+          res.status(500).send({ error: 'Could not retrieve all listings' });
+        }
+        else {
+          console.log('retrieved all listings');
+          res.send(result);
+        }
+      });
+    } else {
+      db.getCityListings(city, (err, result) => {
+        if (err) {
+          console.log('error getting all listings from db:', err);
+          res.status(500).send({ error: 'Could not retrieve city listings' });
+        }
+        else {
+          console.log('retrieved all listings');
+          res.send(result);
+        }
+      })
+    }
 });
+
 // retrieves one host listing based on a string search query for either 'Los Angeles' or 'New York'.  Could be substituted with Google Search API.
 app.post('/getlistings', (req, res) => {
     db.getListings(req.body, (err, result) => {
@@ -187,6 +203,7 @@ app.post('/getlistings', (req, res) => {
       }
     });
 });
+
 // creates passport session for user by serialized ID
 passport.serializeUser((user_id, done) => {
   done(null, user_id);
@@ -207,14 +224,14 @@ app.listen(PORT, function() {
   console.log(`listening on port ${PORT}`);
 });
 
-//sends booking information with host, owner, dates
+//sends booking information with host, user, dates
 app.post('/book', (req, res) => {
   console.log(req.body);
-  // db.saveOwnerBook(req.body, (err, result) => {
-  //   if (err) {
-  //     res.status(500).send({ error: 'Could not save owner info' });
-  //   }
-  // });
+  db.saveUserBook(req.body, (err, result) => {
+    if (err) {
+      res.status(500).send({ error: 'Could not save user info' });
+    }
+  });
   db.saveHostBook(req.body, (err, result) => {
     if (err) {
       res.status(500).send({ error: 'Cound not save host info'});
