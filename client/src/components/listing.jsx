@@ -118,8 +118,8 @@ export default class Listing extends React.Component {
           My Profile: {this.state.ownerName}
         <div>
         </div>
-        
-        <div 
+
+        <div
           className="btn btn-default btn-lg"
           onClick = {this.handleBookClick}
           >Book Now
