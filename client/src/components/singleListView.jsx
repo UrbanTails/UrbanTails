@@ -3,8 +3,12 @@ import { Row, Col } from 'react-bootstrap';
 import Navbar from './navbar.jsx';
 import Searchbar from './searchbar.jsx';
 import Footer from './footer.jsx';
+
 import Checkout from './checkout.jsx';
 import Calendar from './calendar.jsx';
+
+import Container from './container.jsx'
+
 /*
   Single Listing View:
   Used by login redirect and by clicking 'My Account' on listings page
@@ -27,6 +31,7 @@ class ListingProfile extends React.Component {
   }
 
    render() {
+    {console.log(this.props)}
     return (
       <div>
         <Navbar user={this.state.user} search={true}/>
@@ -81,10 +86,25 @@ class ListingProfile extends React.Component {
 
           </div>
 
+
         </Col>
+
+
+
+        <div>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+            <i className="material-icons md-24 ratings">pets</i>
+        </div>
+        <div>Map</div>
+          <Container address={'891 Uinta Way, Denver, CO'}/>
+        <br/>
 
         <Footer/>
       </div>
+      
     )
   }
 }
