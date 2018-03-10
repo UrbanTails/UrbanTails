@@ -57,10 +57,11 @@ class Landing extends React.Component {
             </div>
           </div>
         </Jumbotron>
-        <div className="container">
-                  <Row className="landing-content padded">
+          <div className="row">
             <LandingGridList />
-          </Row>
+          </div>
+
+        <div className="container">
           <Row className="landing-content">
 
             <Col md={3}>
@@ -92,5 +93,6 @@ class Landing extends React.Component {
     )
   }
 }
+
 
 module.exports = Landing;
