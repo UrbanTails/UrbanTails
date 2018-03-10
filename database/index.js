@@ -21,10 +21,11 @@ let UserSchema = new Schema({
   password: String,
   profileUrl: String,
   type: String,
-  location: String,
+  location: Object,
   description: String,
   ownerBookings: Array,
-  hostBookings: Array
+  hostBookings: Array,
+  price: Number
 });
 
 //compile schema into a model
@@ -82,6 +83,7 @@ module.exports = {
 
   //save user data
   saveUser: (data, callback) => {
+    debugger;
     let plainTextPassword = data.password;
     //bcrypt password before saving it to database
     bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
@@ -96,6 +98,7 @@ module.exports = {
       });
 
       user.save((err, user) => {
+        debugger;
         if (err) {
           console.log('database error saving user, duplicate key');
           callback('User already exists', null);
@@ -108,7 +111,7 @@ module.exports = {
 
   updateUser: (data, callback) => {
     User.findOne({ username: data.username }, function(err, user) {
-      if (data.imageUrl) user.imageUrl = data.imageUrl;
+      if (data.imageUrl) user.profileUrl = data.imageUrl;
       if (data.location) user.location = data.location;
       if (data.description) user.description = data.description;
       if (data.email) user.email = data.email;
