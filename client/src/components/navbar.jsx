@@ -31,7 +31,7 @@ class Navbar extends React.Component {
                 <i className="material-icons">pets</i>Urban Tails
               </a>
             </div>
-            { this.props.search ? <Searchbar setresults={this.state.setresults}/> : null }
+
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="nav navbar-nav navbar-right mr-auto">
 

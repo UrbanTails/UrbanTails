@@ -145,6 +145,18 @@ module.exports = {
         }
       });
   },
+  getCityListings: (city, callback) => {
+    User.find({type:'host', location: city})
+      .sort({username: 1})
+      .exec((err, listings) => {
+        if (err) {
+          console.log('Error getting all listings');
+          callback('Error getting all listings');
+        } else {
+          callback(null, listings);
+        }
+      });
+  },
   // utilized by seed.js file to drop database when re-seeding
   dropDatabase: () => {
     mongoose.connection.dropDatabase();
@@ -191,3 +203,4 @@ module.exports = {
   // exports mongoose connection for server to reference
   connection: mongoose.connection
 };
+
