@@ -90,10 +90,13 @@ module.exports = {
       username: data.username,
       email: data.email,
       password: hash,
+      price: data.price,
       profileUrl: data.profileUrl,
       type: data.type,
       location: data.location,
-      description: data.description
+      description: data.description,
+      userBookings: [],
+      hostBookings: []
       });
 
       user.save((err, user) => {
