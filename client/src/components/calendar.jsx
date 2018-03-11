@@ -30,6 +30,7 @@ export default class Calendar extends React.Component {
       available: false,
       buttonText: "Check Availability",
       price: 64,
+      profileUrl: this.props.profileUrl
     };
     this.handleChangestartDate = this.handleChangestartDate.bind(this);
     this.handleChangeendDate = this.handleChangeendDate.bind(this);
@@ -62,7 +63,8 @@ export default class Calendar extends React.Component {
         hostName: this.state.hostName,
         startDate: this.state.startDate,
         endDate: this.state.endDate,
-        price: 64
+        price: 64,
+        profileUrl: this.state.profileUrl
       },
       success: (res) => {
         console.log('Success!')
