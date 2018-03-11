@@ -21,7 +21,7 @@ var ProfileUserBookings = (props) => {
         <h3 style={style}>{"Bookings for " + props.user + "'s pet:"}</h3>
         <List>
         {props.userBookings.map((booking, index) =>
-          <ListItem leftAvatar={<Avatar src={booking.profileUrl}/>} primaryText={"Booking for " + booking.userName} secondaryText={"Start Date: " + booking.startDate + " / " + "End Date: " + booking.enddate}/>
+          <ListItem leftAvatar={<Avatar src={booking.profileUrl}/>} primaryText={"Booked with " + booking.hostName + "!"} secondaryText={"Start Date: " + JSON.stringify(booking.startDate).slice(1, 16) + " / " + "End Date: " + JSON.stringify(booking.enddate).slice(1, 16)}/>
         )}
         </List>
       </div>
