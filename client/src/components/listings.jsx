@@ -40,7 +40,7 @@ class Listings extends React.Component {
 
   componentDidMount() {
     console.log('making AJAX call')
-    if(this.props.location.state.query === '') {
+    if(!this.props.location.state.query) {
       $.ajax({
         type: 'GET',
         url: '/getlistings',
