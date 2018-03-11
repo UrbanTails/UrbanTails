@@ -90,10 +90,13 @@ module.exports = {
       username: data.username,
       email: data.email,
       password: hash,
+      price: data.price,
       profileUrl: data.profileUrl,
       type: data.type,
       location: data.location,
-      description: data.description
+      description: data.description,
+      userBookings: [],
+      hostBookings: []
       });
 
       user.save((err, user) => {
@@ -169,7 +172,8 @@ module.exports = {
       hostName: data.hostName,
       location: data.location,
       startDate: data.startDate,
-      enddate: data.endDate
+      enddate: data.endDate,
+      profileUrl: data.profileUrl
     };
     User.findOneAndUpdate({username: data.userName}, {$push: {userBookings: userBooking}}).exec((err, user) => {
       if (err) {
@@ -187,7 +191,8 @@ module.exports = {
       hostName: data.hostName,
       location: data.location,
       startDate: data.startDate,
-      enddate: data.endDate
+      enddate: data.endDate,
+      profileUrl: data.profileUrl
     };
     User.findOneAndUpdate({username: data.hostName}, {$push: {hostBookings: hostBooking}}).exec((err, user) => {
       if (err) {

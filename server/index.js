@@ -94,7 +94,6 @@ app.post('/signup', (req, res) => {
     if (result.success) {
       console.log(result);
       db.saveUser(req.body, (err, result) => {
-        debugger;
         if (err) {
           console.log('error saving user data to db:', err);
           res.status(500).send({ error: 'User already exists' });
@@ -143,7 +142,6 @@ app.get('/host-profile', (req, res, next) => {
 
 //updates profile information for given user
 app.post('/update-profile', (req, res) => {
-  debugger;
   auth.validateUpdateForm(req.body, (result) => {
     if (result.success) {
       db.updateUser(req.body, function(err, userData) {
@@ -203,7 +201,6 @@ app.post('/getlistings', (req, res) => {
       }
     });
 });
-
 // creates passport session for user by serialized ID
 passport.serializeUser((user_id, done) => {
   done(null, user_id);
@@ -226,18 +223,20 @@ app.listen(PORT, function() {
 
 //sends booking information with host, user, dates
 app.post('/book', (req, res) => {
-  console.log(req.body);
+  console.log('body:', req.body);
   db.saveUserBook(req.body, (err, result) => {
     if (err) {
       res.status(500).send({ error: 'Could not save user info' });
-    }
+    } else {
+      db.saveHostBook(req.body, (err, result) => {
+        if (err) {
+          res.status(500).send({ error: 'Cound not save host info'});
+        } else {
+          res.send(200);
+        }
+      });
+    } 
   });
-  db.saveHostBook(req.body, (err, result) => {
-    if (err) {
-      res.status(500).send({ error: 'Cound not save host info'});
-    }
-  })
-  res.send(200)
-})
+});
 
 

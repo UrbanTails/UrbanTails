@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import $ from 'jquery';
 import { RaisedButton } from 'material-ui';
 import ProfileHostBookings from './profileHostBookings.jsx';
-import ProfileOwnerBookings from './profileOwnerBookings.jsx';
+import ProfileUserBookings from './profileUserBookings.jsx';
 
 /*
   HostProfile Component:
@@ -29,7 +29,7 @@ class HostProfile extends React.Component {
       description: this.props.location.state.description,
       email: this.props.location.state.email,
       hostBookings: this.props.location.state.hostBookings,
-      ownerBookings: this.props.location.state.ownerBookings,
+      userBookings: this.props.location.state.userBookings,
       newImageUrl: '',
       newLocation: '',
       newStreet: '',
@@ -189,6 +189,7 @@ class HostProfile extends React.Component {
   }
 
   render () {
+    {console.log(this.state)}
     if (this.state.page === "View") {
       return (
             <div>
@@ -199,7 +200,7 @@ class HostProfile extends React.Component {
                 pathname: '/listing',
                 state: { username: this.state.username}
                 }}>
-              Listing
+              Listings
               </Link>
               <button onClick={this.onUpdateProfileClick} className='btn btn-default btn-lg'>
                 Update Profile
@@ -238,7 +239,7 @@ class HostProfile extends React.Component {
                 <ProfileHostBookings hostBookings={this.state.hostBookings} user={this.state.username}/>
               </div>
               <div>
-                <ProfileOwnerBookings ownerBookings={this.state.ownerBookings} user={this.state.username}/>
+                <ProfileUserBookings userBookings={this.state.userBookings} user={this.state.username}/>
               </div>
             </div>
           )

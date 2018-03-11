@@ -7,7 +7,6 @@ import Footer from './footer.jsx';
 
 import Checkout from './checkout.jsx';
 import Calendar from './calendar.jsx';
-
 import Container from './container.jsx'
 
 
@@ -43,17 +42,15 @@ class SingleListView extends React.Component {
 
           <img style={{ width: '1000px', height: '400px'}} className="card-img-top" src={this.state.profileUrl} alt="Card image cap" />
 
-
           <div class = "container">
 
             <div class = "row">
 
-              <div class="col-xs-7" >
+              <div class="col-xs-6" >
                 <h2>{this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state + ', ' + this.props.location.state.location.zipCode}</h2>
                 <h4>{this.state.description}</h4>
                 <div>
-                  <h3>{this.state.hostName}</h3>
-                  <h5>Email: {this.state.email}</h5>        
+                        
                   <div>
                       <i className="material-icons md-24 ratings">pets</i>
                       <i className="material-icons md-24 ratings">pets</i>
@@ -63,41 +60,27 @@ class SingleListView extends React.Component {
                   </div>
                 </div>
 
-                <div className="cardButton">
-                  {/*<Checkout
-                    classname= "checkout"
-                    name={'Your Freedom Awaits'}
-                    description={'Ask about becoming a host'}
-                    amount={1}
-                  />
-                  <p className="card-text">We only accept Cash</p>
-                */}
+                <div>
+                  <Container address={this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state}/>
                 </div>
+
               </div>
 
-              <div class="col-xs-5">
+              <div class="col-xs-5 col-md-offset-1">
                 <Calendar
+                email= {this.state.email}
                 hostName= {this.state.hostName}
                 location= {this.state.location}
                 description= {this.state.description}
                 userName= {this.state.userName}
+                profileUrl= {this.state.profileUrl}
                 />
+
               </div>
-
             </div>
-
-          </div>
-
-        <div>Map
-          <Container address={this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state}/>
           </div>
 
         </Col>
-
-
-
-
-
         <br/>
 
         <Footer/>
