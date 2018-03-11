@@ -13,7 +13,7 @@ class Searchbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: this.props.query || '',
+      query: '',
       results: [],
       error: ''
     }
@@ -32,33 +32,36 @@ class Searchbar extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    if (this.state.query) {
-      this.toggleError('');
-      $.ajax({
-        type: 'GET',
-        url: `/getlistings?city=${this.state.query}`,
-        success: (data) => {
-          console.log('ajax posting data', data);
-          this.props.setresults(data);
-        },
-        error: (data) => {
-          console.log('error posting data', data);
-        }
-      });
-    } else {
-      this.toggleError('Please enter a city name');
-    }
+      console.log('handling Sumbit')
+      e.preventDefault();
+      if (this.state.query) {
+        this.toggleError('');
+        $.ajax({
+          type: 'GET',
+          url: `/getlistings?city=${this.state.query}`,
+          success: (data) => {
+            console.log('ajax posting data', data);
+            this.props.setresults(data);
+          },
+          error: (data) => {
+            console.log('error posting data', data);
+          }
+        });
+      } else {
+        this.toggleError('Please enter a city name');
+      }
 
-    this.setState({
-      query: ''
-    });
+      this.setState({
+        query: ''
+      });
+
+
   }
 
 
   render() {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
-    {console.log(this.props)}
+    {console.log('Search Bar', this.props.place)}
     return (
 
 

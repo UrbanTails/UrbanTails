@@ -22,6 +22,7 @@ class Navbar extends React.Component {
   }
 
   render() {
+    {console.log('nav', this.props.place)}
     return (
       <div>
         <nav className="navbar navbar-light">
@@ -31,7 +32,7 @@ class Navbar extends React.Component {
                 <i className="material-icons">pets</i>Urban Tails
               </Link>
             </div>
-            <div className="nav navbar-nav" >{ this.props.search ? <Searchbar setresults={this.state.setresults}/> : null }</div>
+            <div className="nav navbar-nav" >{ this.props.place ? <Searchbar setresults={this.state.setresults} place={this.props.place}/> : null }</div>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="nav navbar-nav navbar-right">
 
