@@ -13,7 +13,7 @@ class Searchbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
+      query: this.props.query || '',
       results: [],
       error: ''
     }
@@ -58,7 +58,9 @@ class Searchbar extends React.Component {
 
   render() {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
+    {console.log(this.props)}
     return (
+
 
       <div className="col-sm-8 searchbar">
         <form className="navbar-form navbar-left" role="search" onSubmit={this.handleSubmit.bind(this)}>
