@@ -38,6 +38,7 @@ class HostProfile extends React.Component {
       newZipCode: '',
       newDescription: '',
       newEmail: '',
+      newPrice: '',
       displayImageButton: true,
       displayLocationButton: true,
       displayDescriptionButton: true,
@@ -64,6 +65,7 @@ class HostProfile extends React.Component {
     this.onCityEntry = this.onCityEntry.bind(this);
     this.onStateEntry = this.onStateEntry.bind(this);
     this.onZipCodeEntry = this.onZipCodeEntry.bind(this);
+    this.onPriceEntry = this.onPriceEntry.bind(this);
   }
 
   onImageEntry(e) {
@@ -114,6 +116,12 @@ class HostProfile extends React.Component {
     });
   }
 
+  onPriceEntry(e) {
+    this.setState({
+      newPrice: e.target.value
+    });
+  }
+
   revealImageInput() {
     this.setState({
       displayImageButton: false,
@@ -157,6 +165,7 @@ class HostProfile extends React.Component {
 
   updateProfile(e) {
     var component = this;
+    var price = this.state.newPrice * 100;
     $.ajax({
       type: 'POST',
       url: '/update-profile',
@@ -165,7 +174,8 @@ class HostProfile extends React.Component {
         imageUrl: this.state.newImageUrl,
         location: {street: component.state.newStreet, city: component.state.newCity, state: component.state.newState, zipCode: component.state.newZipCode},
         description: this.state.newDescription,
-        email: this.state.newEmail
+        email: this.state.newEmail,
+        price: price
       },
       success: (userData) => {
         if (userData.errors) {
@@ -267,6 +277,10 @@ class HostProfile extends React.Component {
             <div style={{ margin: '15px' }}>
               <label>Email</label>
               <input style={style} className="form-control" value={this.state.newEmail} onChange={this.onEmailEntry} type="text" placeholder="name@example.com"/>
+            </div>
+            <div style={{ margin: '15px' }}>
+              <label>Price</label>
+              <input style={style} className="form-control" value={this.state.newPrice} onChange={this.onPriceEntry} type="text" placeholder="$0.00"/>
             </div>
             <div style={{ margin: '15px' }}>
               <label style={{ margin: '5px' }}>Street</label>
