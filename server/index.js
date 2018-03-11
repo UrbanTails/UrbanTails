@@ -235,7 +235,7 @@ app.post('/book', (req, res) => {
           res.send(200);
         }
       });
-    } 
+    }
   });
 });
 

@@ -42,7 +42,6 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    var price = this.state.price * 100;
     let clearedState = {};
     $.ajax({
       type: 'POST',
@@ -52,7 +51,7 @@ class SignupForm extends React.Component {
         password: this.state.password,
         type: this.state.type,
         email: this.state.email,
-        price: price,
+        price: this.state.price,
         location: { street: this.state.street, city: this.state.city, state: this.state.state, zipCode: this.state.zipCode },
         profileUrl: this.state.profileUrl,
         description: this.state.description
@@ -93,7 +92,7 @@ class SignupForm extends React.Component {
       if (this.state.type === 'host') {
         return(<Redirect to={{ pathname: '/host-profile', state: this.state }}/>)
       } else {
-        return (<Redirect to={{ pathname: '/listings', state: this.state }}/>)
+        return (<Redirect to={{ pathname: '/login'}}/>)
       }
     }
 

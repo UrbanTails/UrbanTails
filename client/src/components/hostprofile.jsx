@@ -6,6 +6,7 @@ import $ from 'jquery';
 import { RaisedButton } from 'material-ui';
 import ProfileHostBookings from './profileHostBookings.jsx';
 import ProfileUserBookings from './profileUserBookings.jsx';
+import { Grid, Col, Row } from 'react-bootstrap';
 
 /*
   HostProfile Component:
@@ -165,7 +166,6 @@ class HostProfile extends React.Component {
 
   updateProfile(e) {
     var component = this;
-    var price = this.state.newPrice * 100;
     $.ajax({
       type: 'POST',
       url: '/update-profile',
@@ -175,7 +175,7 @@ class HostProfile extends React.Component {
         location: {street: component.state.newStreet, city: component.state.newCity, state: component.state.newState, zipCode: component.state.newZipCode},
         description: this.state.newDescription,
         email: this.state.newEmail,
-        price: price
+        price: this.state.newPrice
       },
       success: (userData) => {
         if (userData.errors) {
@@ -245,12 +245,16 @@ class HostProfile extends React.Component {
                 <div style={{ paddingLeft: '10%' }} className='col-md-4' className="host-content">
                 </div>
               </div>
-              <div>
-                <ProfileHostBookings hostBookings={this.state.hostBookings} user={this.state.username}/>
-              </div>
-              <div>
-                <ProfileUserBookings userBookings={this.state.userBookings} user={this.state.username}/>
-              </div>
+              <Grid>
+                <Row className="show-grid">
+                  <Col xs={12} md={6}>
+                    <ProfileHostBookings hostBookings={this.state.hostBookings} user={this.state.username}/>
+                  </Col>
+                  <Col xs={12} md={6}>
+                    <ProfileUserBookings userBookings={this.state.userBookings} user={this.state.username}/>
+                  </Col>
+                </Row>
+              </Grid>
             </div>
           )
     } else if (this.state.page === 'Update') {

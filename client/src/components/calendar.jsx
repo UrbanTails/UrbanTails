@@ -100,7 +100,7 @@ export default class Calendar extends React.Component {
         <h5>${this.state.price} x {numNights} nights = ${total}</h5>
 
           <div>
-            <DatePicker 
+            <DatePicker
               style={{calendarYearBackgroundColor: 'black'}}
               container="inline" mode="landscape" textFieldStyle={{width: '100%'}}
               onChange={this.handleChangestartDate}
@@ -127,7 +127,7 @@ export default class Calendar extends React.Component {
                     classname= "checkout"
                     name={'Your Freedom Awaits'}
                     amount={total}
-                  /> 
+                  />
                 </div>
               </div>) : (
 
@@ -136,11 +136,11 @@ export default class Calendar extends React.Component {
                 className="btn btn-default btn-lg"
                 onClick = {this.handleBookClick}>
                 {this.state.buttonText}
-              </div> 
+              </div>
               )}
-  
+
           </div>
-    
+
         </div>
 
       </div>
