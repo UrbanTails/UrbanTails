@@ -42,7 +42,8 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let clearedState = {}
+    var price = this.state.price * 100;
+    let clearedState = {};
     $.ajax({
       type: 'POST',
       url: '/signup',
@@ -51,7 +52,7 @@ class SignupForm extends React.Component {
         password: this.state.password,
         type: this.state.type,
         email: this.state.email,
-        price: this.state.price,
+        price: price,
         location: { street: this.state.street, city: this.state.city, state: this.state.state, zipCode: this.state.zipCode },
         profileUrl: this.state.profileUrl,
         description: this.state.description

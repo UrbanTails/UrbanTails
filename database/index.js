@@ -116,6 +116,7 @@ module.exports = {
       if (data.location) user.location = data.location;
       if (data.description) user.description = data.description;
       if (data.email) user.email = data.email;
+      if (data.price) user.price = data.price;
       user.save();
       callback(null, user);
     });
