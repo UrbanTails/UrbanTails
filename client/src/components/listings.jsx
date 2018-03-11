@@ -4,6 +4,8 @@ import HostListing from './hostlisting.jsx';
 import Navbar from './navbar.jsx';
 import $ from 'jquery';
 import Footer from './footer.jsx';
+import ListingsMapped from './listingsMapped.jsx';
+
 
 /*
   Listings Component:
@@ -56,21 +58,24 @@ class Listings extends React.Component {
   }
 
   render() {
-    let listings = this.state.listings.reverse();
-    let hostList = listings.map((hostsummary, index) => {
-      return <HostListing key ={ index } host={ hostsummary } userName={this.state.user.username}/>
-    });
+
     return (
       <div>
         <Navbar link="My Account" linkurl="/host-profile" user={this.state.user} setresults={this.setResults} search={true}/>
         <ListingsCarousel listings={this.state.listings}/>
         <div className="container">
-          { hostList }
+        <br/>
+          <ListingsMapped listings={this.state.listings} userName={this.state.user.username}/>
         </div>
         <Footer />
       </div>
     )
   }
 }
+
+//let listings = this.state.listings.reverse();
+ //   let hostList = listings.map((hostsummary, index) => {
+ //     return <HostListing key ={ index } host={ hostsummary } userName={this.state.user.username}/>
+ //   });
 
 module.exports = Listings;
