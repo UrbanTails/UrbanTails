@@ -19,7 +19,6 @@ import Container from './container.jsx'
   Displays currently logged in user information.
 */
 
-
 class SingleListView extends React.Component {
   constructor(props){
     super(props);
@@ -30,11 +29,12 @@ class SingleListView extends React.Component {
       userName: this.props.location.state.userName,
       profileUrl: this.props.location.state.profileUrl,
       email: this.props.location.state.email,
+      price: this.props.location.state.email,
       style: {backgroundColor: 'white'}
     };
   }
 
-   render() {
+  render() {
     return (
       <div>
         <Navbar user={this.state.user} search={true}/>
@@ -85,6 +85,7 @@ class SingleListView extends React.Component {
                 description= {this.state.description}
                 userName= {this.state.userName}
                 profileUrl= {this.state.profileUrl}
+                price={this.state.price}
                 />
 
               </div>

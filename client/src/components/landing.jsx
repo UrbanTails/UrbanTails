@@ -59,7 +59,6 @@ class Landing extends React.Component {
                                     <button style={{width: "50px",height: "62px"}} type="submit" onClick={() => this.handleSubmit()}>
                                         <span className="glyphicon glyphicon-search"></span>
                                     </button>
-
                                 </span>
 
                             </div>
