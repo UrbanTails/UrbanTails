@@ -1,5 +1,5 @@
 const db = require('./database/index.js');
-let sampleUserData = require('./sampleUserData.json');
+let sampleUserData = require('./sampleData.json');
 
 db.dropDatabase();
 
