@@ -3,6 +3,7 @@
     "email": "mariaparlata@forgione.com",
     "password": "secret",
     "profileUrl": "https://source.unsplash.com/R-LK3sqLiBw",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "123 S Ohio",
@@ -17,6 +18,7 @@
     "email": "jginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -31,6 +33,7 @@
     "email": "jeffginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -45,6 +48,7 @@
     "email": "mirasol@skybird.net",
     "password": "superflash",
     "profileUrl": "https://source.unsplash.com/KgoYGXDEQvs",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "2424 N George Washington",
@@ -59,6 +63,7 @@
     "email": "hopseeee@homebrewery.com",
     "password": "moonshine",
     "profileUrl": "https://source.unsplash.com/oTJ92KUXHls",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6428 Terrain Blvd",
@@ -73,6 +78,7 @@
     "email": "fernandogonz@aol.com",
     "password": "loveactually",
     "profileUrl": "https://source.unsplash.com/OrhRN2yhlos",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "391 N Jordan Drive",
@@ -87,6 +93,7 @@
     "email": "gatesfamily@msn.com",
     "password": "billions",
     "profileUrl": "https://source.unsplash.com/oY6Cw8R8fr8",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "3232 Maynard Drive",
@@ -101,6 +108,7 @@
     "email": "amandalove@gift.net",
     "password": "hollywood",
     "profileUrl": "https://source.unsplash.com/mx4mSkK9zeo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "Barton Springs Road",
@@ -115,6 +123,7 @@
     "email": "bob.g.tunes@bbkings.com",
     "password": "jazzfan",
     "profileUrl": "https://source.unsplash.com/IndbOxCrVio",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "9292 Battle Parkway",
@@ -129,6 +138,7 @@
     "email": "lilyofthevalley@thepatch.com",
     "password": "flowerpatch",
     "profileUrl": "https://source.unsplash.com/3wylDrjxH-E",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "364 Terrace Drive",
@@ -143,6 +153,7 @@
     "email": "dogshows4life@yahoo.com",
     "password": "yorkiesforlife",
     "profileUrl": "https://source.unsplash.com/_-JR5TxKNSo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "329 Garfield Avenue",
@@ -157,6 +168,7 @@
     "email": "birdman@audubon.com",
     "password": "birdman",
     "profileUrl": "https://i.imgur.com/MU2dD8E.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "1124 Goddard Way",
@@ -171,6 +183,7 @@
     "email": "stagescat@gmail.com",
     "password": "limelight",
     "profileUrl": "https://i.imgur.com/AEXmzIM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "3636 E Trellis Street",
@@ -185,6 +198,7 @@
     "email": "lucyinthesky@diamonds.com",
     "password": "starsplash",
     "profileUrl": "https://i.imgur.com/StzL6S3.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6442 S Bellweather",
@@ -199,6 +213,7 @@
     "email": "eleven@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://i.imgur.com/uW27yjz.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "2614 N Fortress Ct",
@@ -213,6 +228,7 @@
     "email": "summersun@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "https://i.imgur.com/BPs11lG.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Sphere Dr",
@@ -227,6 +243,7 @@
     "email": "theface@dice.com",
     "password": "hiphop",
     "profileUrl": "https://i.imgur.com/H9b1Mcv.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -241,6 +258,7 @@
     "email": "spooky@bates.com",
     "password": "naptime",
     "profileUrl": "https://i.imgur.com/WBbD3Fm.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6464 E Temp Lane",
@@ -255,6 +273,7 @@
     "email": "yoga@lemon.org",
     "password": "booklover",
     "profileUrl": "https://i.imgur.com/AEUVYtM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "8812 W Louiseville St",
@@ -269,6 +288,7 @@
     "email": "maddog@thunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://i.imgur.com/vyIOsUO.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "9333 S Goldam Road",
@@ -283,6 +303,7 @@
     "email": "Gregsn@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://orig00.deviantart.net/a15d/f/2010/339/4/9/spooky_house__matte_paintin___by_ryujin2490-d34br6a.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -297,6 +318,7 @@
     "email": "summesrrsun@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -311,6 +333,7 @@
     "email": "thefasce@dice.com",
     "password": "hiphop",
     "profileUrl": "http://static4.uk.businessinsider.com/image/593fbdd1bf2fba1f008b4ade-960/blenheim-credit-by-fulcanelli.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -325,6 +348,7 @@
     "email": "spookykim@baates.com",
     "password": "naptime",
     "profileUrl": "http://homesoftherich.net/wp-content/uploads/2013/10/Screen-shot-2013-10-18-at-10.44.09-AM.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -339,6 +363,7 @@
     "email": "yoga@ledmon.org",
     "password": "booklover",
     "profileUrl": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/4873925/Screen_20Shot_202014-07-02_20at_2010.20.23_20PM.0.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -353,6 +378,7 @@
     "email": "maddog@tshunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://images.adsttc.com/media/images/5947/7fd4/b22e/383a/5900/0178/newsletter/Malan_Vorster_Treehouse_011_Adam_Letch.jpg?1497857964",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -367,6 +393,7 @@
     "email": "sportsfdan@gmail.com",
     "profileUrl": "https://i.ytimg.com/vi/uZc0tw9C5vk/hqdefault.jpg",
     "password": "baseball",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "482 W Davidson Lane",
@@ -381,6 +408,7 @@
     "email": "jillparlata@forgione.com",
     "password": "secret",
     "profileUrl": "https://source.unsplash.com/R-LK3sqLiBw",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "123 S Ohio",
@@ -395,6 +423,7 @@
     "email": "jdginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -409,6 +438,7 @@
     "email": "jeffyginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -423,6 +453,7 @@
     "email": "cirasol@skybird.net",
     "password": "superflash",
     "profileUrl": "https://source.unsplash.com/KgoYGXDEQvs",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "2424 N George Washington",
@@ -437,6 +468,7 @@
     "email": "hopgs@homebrewery.com",
     "password": "moonshine",
     "profileUrl": "https://source.unsplash.com/oTJ92KUXHls",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6428 Terrain Blvd",
@@ -451,6 +483,7 @@
     "email": "fernandologonz@aol.com",
     "password": "loveactually",
     "profileUrl": "https://source.unsplash.com/OrhRN2yhlos",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "391 N Jordan Drive",
@@ -465,6 +498,7 @@
     "email": "batesfamily@msn.com",
     "password": "billions",
     "profileUrl": "https://source.unsplash.com/oY6Cw8R8fr8",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "3232 Maynard Drive",
@@ -479,6 +513,7 @@
     "email": "amandalolove@gift.net",
     "password": "hollywood",
     "profileUrl": "https://source.unsplash.com/mx4mSkK9zeo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "Barton Springs Road",
@@ -493,6 +528,7 @@
     "email": "bobbo.g.tunes@bbkings.com",
     "password": "jazzfan",
     "profileUrl": "https://source.unsplash.com/IndbOxCrVio",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "9292 Battle Parkway",
@@ -507,6 +543,7 @@
     "email": "lilyyofthevalley@thepatch.com",
     "password": "flowerpatch",
     "profileUrl": "https://source.unsplash.com/3wylDrjxH-E",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "364 Terrace Drive",
@@ -521,6 +558,7 @@
     "email": "dogshows2life@yahoo.com",
     "password": "yorkiesforlife",
     "profileUrl": "https://source.unsplash.com/_-JR5TxKNSo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "329 Garfield Avenue",
@@ -535,6 +573,7 @@
     "email": "birdmano@audubon.com",
     "password": "birdman",
     "profileUrl": "https://i.imgur.com/MU2dD8E.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "1124 Goddard Way",
@@ -549,6 +588,7 @@
     "email": "stageacats@gmail.com",
     "password": "limelight",
     "profileUrl": "https://i.imgur.com/AEXmzIM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "3636 E Trellis Street",
@@ -563,6 +603,7 @@
     "email": "lucieinthesky@diamonds.com",
     "password": "starsplash",
     "profileUrl": "https://i.imgur.com/StzL6S3.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6442 S Bellweather",
@@ -577,6 +618,7 @@
     "email": "elevens@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://i.imgur.com/uW27yjz.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "2614 N Fortress Ct",
@@ -591,6 +633,7 @@
     "email": "summersuns@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "https://i.imgur.com/BPs11lG.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Sphere Dr",
@@ -605,6 +648,7 @@
     "email": "thefaces@dice.com",
     "password": "hiphop",
     "profileUrl": "https://i.imgur.com/H9b1Mcv.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -619,6 +663,7 @@
     "email": "spookya@bates.com",
     "password": "naptime",
     "profileUrl": "https://i.imgur.com/WBbD3Fm.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6464 E Temp Lane",
@@ -633,6 +678,7 @@
     "email": "yogaee@lemon.org",
     "password": "booklover",
     "profileUrl": "https://i.imgur.com/AEUVYtM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "8812 W Louiseville St",
@@ -647,6 +693,7 @@
     "email": "maddoge@thunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://i.imgur.com/vyIOsUO.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "9333 S Goldam Road",
@@ -661,6 +708,7 @@
     "email": "Greggysn@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://orig00.deviantart.net/a15d/f/2010/339/4/9/spooky_house__matte_paintin___by_ryujin2490-d34br6a.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -675,6 +723,7 @@
     "email": "summesrsunc@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -689,6 +738,7 @@
     "email": "thefasces@dice.com",
     "password": "hiphop",
     "profileUrl": "http://static4.uk.businessinsider.com/image/593fbdd1bf2fba1f008b4ade-960/blenheim-credit-by-fulcanelli.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -703,6 +753,7 @@
     "email": "spookykims@baates.com",
     "password": "naptime",
     "profileUrl": "http://homesoftherich.net/wp-content/uploads/2013/10/Screen-shot-2013-10-18-at-10.44.09-AM.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -717,6 +768,7 @@
     "email": "yoga@ledmosn.org",
     "password": "booklover",
     "profileUrl": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/4873925/Screen_20Shot_202014-07-02_20at_2010.20.23_20PM.0.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -731,6 +783,7 @@
     "email": "maddogp@tshunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://images.adsttc.com/media/images/5947/7fd4/b22e/383a/5900/0178/newsletter/Malan_Vorster_Treehouse_011_Adam_Letch.jpg?1497857964",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -745,6 +798,7 @@
     "email": "sportsffdanss@gmail.com",
     "profileUrl": "https://i.ytimg.com/vi/uZc0tw9C5vk/hqdefault.jpg",
     "password": "baseball",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "482 W Davidson Lane",
@@ -759,6 +813,7 @@
     "email": "beverlyparlata@forgione.com",
     "password": "secret",
     "profileUrl": "https://source.unsplash.com/R-LK3sqLiBw",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "123 S Ohio",
@@ -773,6 +828,7 @@
     "email": "jcrginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -787,6 +843,7 @@
     "email": "jeffoginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -801,6 +858,7 @@
     "email": "Cyirasol@skybird.net",
     "password": "superflash",
     "profileUrl": "https://source.unsplash.com/KgoYGXDEQvs",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "2424 N George Washington",
@@ -815,6 +873,7 @@
     "email": "hopsga@homebrewery.com",
     "password": "moonshine",
     "profileUrl": "https://source.unsplash.com/oTJ92KUXHls",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6428 Terrain Blvd",
@@ -829,6 +888,7 @@
     "email": "fernandolagonz@aol.com",
     "password": "loveactually",
     "profileUrl": "https://source.unsplash.com/OrhRN2yhlos",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "391 N Jordan Drive",
@@ -843,6 +903,7 @@
     "email": "Tatesfamily@msn.com",
     "password": "billions",
     "profileUrl": "https://source.unsplash.com/oY6Cw8R8fr8",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "3232 Maynard Drive",
@@ -857,6 +918,7 @@
     "email": "amandalalove@gift.net",
     "password": "hollywood",
     "profileUrl": "https://source.unsplash.com/mx4mSkK9zeo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "Barton Springs Road",
@@ -871,6 +933,7 @@
     "email": "bobba.g.tunes@bbkings.com",
     "password": "jazzfan",
     "profileUrl": "https://source.unsplash.com/IndbOxCrVio",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "9292 Battle Parkway",
@@ -885,6 +948,7 @@
     "email": "lilaofthevalley@thepatch.com",
     "password": "flowerpatch",
     "profileUrl": "https://source.unsplash.com/3wylDrjxH-E",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "364 Terrace Drive",
@@ -899,6 +963,7 @@
     "email": "dogshowsnolife@yahoo.com",
     "password": "yorkiesforlife",
     "profileUrl": "https://source.unsplash.com/_-JR5TxKNSo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "329 Garfield Avenue",
@@ -913,6 +978,7 @@
     "email": "birdmans@audubon.com",
     "password": "birdman",
     "profileUrl": "https://i.imgur.com/MU2dD8E.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "1124 Goddard Way",
@@ -927,6 +993,7 @@
     "email": "stagejcat@gmail.com",
     "password": "limelight",
     "profileUrl": "https://i.imgur.com/AEXmzIM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "3636 E Trellis Street",
@@ -941,6 +1008,7 @@
     "email": "lucainthesky@diamonds.com",
     "password": "starsplash",
     "profileUrl": "https://i.imgur.com/StzL6S3.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6442 S Bellweather",
@@ -955,6 +1023,7 @@
     "email": "elevena@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://i.imgur.com/uW27yjz.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "2614 N Fortress Ct",
@@ -969,6 +1038,7 @@
     "email": "summersuna@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "https://i.imgur.com/BPs11lG.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Sphere Dr",
@@ -983,6 +1053,7 @@
     "email": "thefacea@dice.com",
     "password": "hiphop",
     "profileUrl": "https://i.imgur.com/H9b1Mcv.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -997,6 +1068,7 @@
     "email": "spookyie@bates.com",
     "password": "naptime",
     "profileUrl": "https://i.imgur.com/WBbD3Fm.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6464 E Temp Lane",
@@ -1011,6 +1083,7 @@
     "email": "yogas@lemon.org",
     "password": "booklover",
     "profileUrl": "https://i.imgur.com/AEUVYtM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "8812 W Louiseville St",
@@ -1025,6 +1098,7 @@
     "email": "maddogx@thunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://i.imgur.com/vyIOsUO.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "9333 S Goldam Road",
@@ -1039,6 +1113,7 @@
     "email": "Greggusn@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://orig00.deviantart.net/a15d/f/2010/339/4/9/spooky_house__matte_paintin___by_ryujin2490-d34br6a.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -1053,6 +1128,7 @@
     "email": "summessssrsunc@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -1067,6 +1143,7 @@
     "email": "thefascece@dice.com",
     "password": "hiphop",
     "profileUrl": "http://static4.uk.businessinsider.com/image/593fbdd1bf2fba1f008b4ade-960/blenheim-credit-by-fulcanelli.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -1081,6 +1158,7 @@
     "email": "spookysskim@baates.com",
     "password": "naptime",
     "profileUrl": "http://homesoftherich.net/wp-content/uploads/2013/10/Screen-shot-2013-10-18-at-10.44.09-AM.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -1095,6 +1173,7 @@
     "email": "yoga@ledmonss.org",
     "password": "booklover",
     "profileUrl": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/4873925/Screen_20Shot_202014-07-02_20at_2010.20.23_20PM.0.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -1109,6 +1188,7 @@
     "email": "maddogpp@tshunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://images.adsttc.com/media/images/5947/7fd4/b22e/383a/5900/0178/newsletter/Malan_Vorster_Treehouse_011_Adam_Letch.jpg?1497857964",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -1123,6 +1203,7 @@
     "email": "sportsffffdan@gmail.com",
     "profileUrl": "https://i.ytimg.com/vi/uZc0tw9C5vk/hqdefault.jpg",
     "password": "baseball",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "482 W Davidson Lane",
@@ -1137,6 +1218,7 @@
     "email": "margeparlata@forgione.com",
     "password": "secret",
     "profileUrl": "https://source.unsplash.com/R-LK3sqLiBw",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "123 S Ohio",
@@ -1151,6 +1233,7 @@
     "email": "jjgginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -1165,6 +1248,7 @@
     "email": "jeffeyginla@gmail.com",
     "password": "coolbeans",
     "profileUrl": "https://source.unsplash.com/VeqqYifwhLU",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "1432 Bell Drive",
@@ -1179,6 +1263,7 @@
     "email": "tirasol@skybird.net",
     "password": "superflash",
     "profileUrl": "https://source.unsplash.com/KgoYGXDEQvs",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "2424 N George Washington",
@@ -1193,6 +1278,7 @@
     "email": "hopsaa@homebrewery.com",
     "password": "moonshine",
     "profileUrl": "https://source.unsplash.com/oTJ92KUXHls",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6428 Terrain Blvd",
@@ -1207,6 +1293,7 @@
     "email": "fernandolusgonz@aol.com",
     "password": "loveactually",
     "profileUrl": "https://source.unsplash.com/OrhRN2yhlos",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "391 N Jordan Drive",
@@ -1221,6 +1308,7 @@
     "email": "Natesfamily@msn.com",
     "password": "billions",
     "profileUrl": "https://source.unsplash.com/oY6Cw8R8fr8",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "3232 Maynard Drive",
@@ -1235,6 +1323,7 @@
     "email": "amandaluslove@gift.net",
     "password": "hollywood",
     "profileUrl": "https://source.unsplash.com/mx4mSkK9zeo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "Barton Springs Road",
@@ -1249,6 +1338,7 @@
     "email": "bobbu.g.tunes@bbkings.com",
     "password": "jazzfan",
     "profileUrl": "https://source.unsplash.com/IndbOxCrVio",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "9292 Battle Parkway",
@@ -1263,6 +1353,7 @@
     "email": "lizzieofthevalley@thepatch.com",
     "password": "flowerpatch",
     "profileUrl": "https://source.unsplash.com/3wylDrjxH-E",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "364 Terrace Drive",
@@ -1277,6 +1368,7 @@
     "email": "dogshows1life@yahoo.com",
     "password": "yorkiesforlife",
     "profileUrl": "https://source.unsplash.com/_-JR5TxKNSo",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "329 Garfield Avenue",
@@ -1291,6 +1383,7 @@
     "email": "birdmanc@audubon.com",
     "password": "birdman",
     "profileUrl": "https://i.imgur.com/MU2dD8E.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "1124 Goddard Way",
@@ -1305,6 +1398,7 @@
     "email": "stagelcat@gmail.com",
     "password": "limelight",
     "profileUrl": "https://i.imgur.com/AEXmzIM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "3636 E Trellis Street",
@@ -1319,6 +1413,7 @@
     "email": "lucointhesky@diamonds.com",
     "password": "starsplash",
     "profileUrl": "https://i.imgur.com/StzL6S3.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6442 S Bellweather",
@@ -1333,6 +1428,7 @@
     "email": "eleveni@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://i.imgur.com/uW27yjz.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "2614 N Fortress Ct",
@@ -1347,6 +1443,7 @@
     "email": "summersunss@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "https://i.imgur.com/BPs11lG.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Sphere Dr",
@@ -1361,6 +1458,7 @@
     "email": "thefacei@dice.com",
     "password": "hiphop",
     "profileUrl": "https://i.imgur.com/H9b1Mcv.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -1375,6 +1473,7 @@
     "email": "spookyee@bates.com",
     "password": "naptime",
     "profileUrl": "https://i.imgur.com/WBbD3Fm.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "6464 E Temp Lane",
@@ -1389,6 +1488,7 @@
     "email": "yogass@lemon.org",
     "password": "booklover",
     "profileUrl": "https://i.imgur.com/AEUVYtM.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "8812 W Louiseville St",
@@ -1403,6 +1503,7 @@
     "email": "maddogxie@thunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://i.imgur.com/vyIOsUO.jpg",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "9333 S Goldam Road",
@@ -1417,6 +1518,7 @@
     "email": "Greglosn@strangerthings.com",
     "password": "gamesforever",
     "profileUrl": "https://orig00.deviantart.net/a15d/f/2010/339/4/9/spooky_house__matte_paintin___by_ryujin2490-d34br6a.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -1431,6 +1533,7 @@
     "email": "summeaasrsuncc@hamptons.com",
     "password": "waterbaby",
     "profileUrl": "http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -1445,6 +1548,7 @@
     "email": "thefascessss@dice.com",
     "password": "hiphop",
     "profileUrl": "http://static4.uk.businessinsider.com/image/593fbdd1bf2fba1f008b4ade-960/blenheim-credit-by-fulcanelli.jpg",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "4688 W Beliar Pkwy",
@@ -1459,6 +1563,7 @@
     "email": "spookykissssssm@baates.com",
     "password": "naptime",
     "profileUrl": "http://homesoftherich.net/wp-content/uploads/2013/10/Screen-shot-2013-10-18-at-10.44.09-AM.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -1473,6 +1578,7 @@
     "email": "yoga@ledmonaa.org",
     "password": "booklover",
     "profileUrl": "https://cdn.vox-cdn.com/uploads/chorus_asset/file/4873925/Screen_20Shot_202014-07-02_20at_2010.20.23_20PM.0.png",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "482 W Davidson Lane",
@@ -1487,6 +1593,7 @@
     "email": "maddogssss@tshunderdome.net",
     "password": "supersecret",
     "profileUrl": "https://images.adsttc.com/media/images/5947/7fd4/b22e/383a/5900/0178/newsletter/Malan_Vorster_Treehouse_011_Adam_Letch.jpg?1497857964",
+    "price": "164",
     "type": "host",
     "location": {
       "street": "6464 E Temp Lane",
@@ -1501,6 +1608,7 @@
     "email": "sportsfssssdan@gmail.com",
     "profileUrl": "https://i.ytimg.com/vi/uZc0tw9C5vk/hqdefault.jpg",
     "password": "baseball",
+    "price": "164",
     "type": "petOwner",
     "location": {
       "street": "482 W Davidson Lane",

@@ -13,7 +13,7 @@ const Footer = (size) => {
           <p className="navbar-text pull-left">© 2018 - Site Built by Sorrel Labs
           </p>
 
-          <a href="http://www.urbantails.info" className="navbar-btn btn-danger btn pull-right">
+          <a href="http://www.latlmes.com/world/your-sensational-news-article-headline-1" className="navbar-btn btn-danger btn pull-right">
           <span className="glyphicon glyphicon-star"></span>  Urban Tails 2018</a>
           <a href="https://www.facebook.com/urbantails123"><img src="http://www.hayfordmarketing.com/uploads/1/3/6/6/13660621/untitled-design-1_13_orig.png"  style={{height:"45px", width:"220px"}}/></a>
 

@@ -14,6 +14,17 @@ import ListingsMapped from './listingsMapped.jsx';
   Page includes the jumbletron and the hostlisting components
 */
 
+function shuffleArray(array) {
+  let i = array.length - 1;
+  for (; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
 class Listings extends React.Component {
   constructor(props){
     super(props);
@@ -24,6 +35,7 @@ class Listings extends React.Component {
           "username":"Maria",
           "profileUrl":"https://source.unsplash.com/3wylDrjxH-E",
           "type": "host",
+          "price": 545,
           "location": {"street": "123 S Ohio", "city": "Kansas City", "state": "MO", "zipCode":"80526"},
           "description":"I've got a wonderful patio and serve meals outside when the weather is nice."
         }
@@ -74,13 +86,14 @@ class Listings extends React.Component {
 
   render() {
     console.log('listings state', this.props.location.state.query)
+    const shuffledListings = shuffleArray(this.state.listings)
     return (
       <div>
         <Navbar link="My Account" linkurl="/host-profile" user={this.state.user} place={'/listings'} setresults={this.setResults} search={true}/>
-        <ListingsCarousel listings={this.state.listings}/>
+        <ListingsCarousel />
         <div className="container">
         <br/>
-          <ListingsMapped listings={this.state.listings} userName={this.state.user.username}/>
+          <ListingsMapped listings={shuffledListings} userName={this.state.user.username}/>
         </div>
         <Footer />
       </div>

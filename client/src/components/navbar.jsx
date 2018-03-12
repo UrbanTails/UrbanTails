@@ -36,8 +36,11 @@ class Navbar extends React.Component {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="nav navbar-nav navbar-right">
 
-                <li className="nav-item active"><a href="#">Become a Host</a></li>
-                <li className="nav-item active"><a href="#">Help</a></li>
+                <li className="nav-item active">
+                <Link to ='/signup'>Become a Host</Link></li>
+                <li className="nav-item active">
+                <Link to={{
+                pathname: '/listings',state: { username: this.state.username}}}>Listings</Link></li>
                 <li className="nav-item active"><a href="#">About Us</a></li>
                 <li className="nav-item active"><Link to={{ pathname: this.state.linkurl, state: this.state.user }}>{this.state.link}</Link></li>
               </ul>

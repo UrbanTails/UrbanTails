@@ -30,6 +30,7 @@ class SingleListView extends React.Component {
       userName: this.props.location.state.userName,
       profileUrl: this.props.location.state.profileUrl,
       email: this.props.location.state.email,
+      price: this.props.location.state.price,
       style: {backgroundColor: 'white'}
     };
   }
@@ -45,7 +46,7 @@ class SingleListView extends React.Component {
             pathname: '/listings',
             state: { username: this.state.username}
             }}>
-          Listings
+          Return to Listings
           </Link>
         </div>
         <Col md={5} className="host-content" >
@@ -85,6 +86,7 @@ class SingleListView extends React.Component {
                 description= {this.state.description}
                 userName= {this.state.userName}
                 profileUrl= {this.state.profileUrl}
+                price= {this.state.price}
                 />
 
               </div>
