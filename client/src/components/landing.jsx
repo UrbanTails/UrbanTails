@@ -54,12 +54,10 @@ class Landing extends React.Component {
                         <div id="imaginary_container">
                             <div className="input-group large stylish-input-group">
 
-                                <input style={{width: "500px",height: "75px"}}type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" value={this.state.query} onChange={this.handleChange.bind(this)}/>
-                                <span className="input-group-addon">
-                                    <button style={{width: "50px",height: "62px"}} type="submit" onClick={() => this.handleSubmit()}>
-                                        <span className="glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
+                                <input style={{width: "500px",height: "65px"}}type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" value={this.state.query} onChange={this.handleChange.bind(this)}/>
+                                <div className="input-group-btn">
+                                    <button onClick={() => this.handleSubmit()} style={{width: '65px',height:'65px' }} className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                                </div>
 
                             </div>
                         </div>
