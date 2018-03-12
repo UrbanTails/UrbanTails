@@ -20,7 +20,7 @@ class ListingCarousel extends React.Component {
     username:"Chuckie's colorado pad",
     email: "summersun@hamptons.com",
     password: "waterbaby",
-    profileUrl:"http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg",
+    profileUrl:"http://boulderhg.com/wp-content/uploads/2008/01/sculpturehouse-intro1.jpg",
     type: "host",
     location: {street: "6464 E Temp Lane", city: "Honolulu", state: "HI", zipCode:"33442"},
     description:"A magical pet experience, your pet will become enlightened by the wonders that await!"
