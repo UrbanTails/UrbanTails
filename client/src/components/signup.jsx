@@ -91,7 +91,7 @@ class Signup extends React.Component {
             <Col md={5}>
               <img src='http://www.freepngimg.com/download/dog/15-dog-png-image-picture-download-dogs.png'/>
             </Col>
-            <Col md={7} className="form-container">
+            <Col md={6} className="form-container" style={{marginLeft: "20px", marginTop: "50px"}}>
               <form onSubmit={this.handleClick}>
                 <h2 className="form-signin-heading">Signup</h2>
                 <div className="field-line">
@@ -101,7 +101,7 @@ class Signup extends React.Component {
                   <TextField floatingLabelText="Password" name="password" type="password" value={this.state.password} onChange={this.onChange} />
                 </div>
                 <div className="field-line">
-                  <RaisedButton type="submit" label="Sign Up" primary={true} />
+                  <RaisedButton style= {{marginTop: "10px", marginBottom: "10px"}} type="submit" label="Sign Up" primary={true} />
                   <small style={ show }>{ this.state.error }</small>
                   <br/>
                   <Link to="/login">Already have an account?</Link>

@@ -95,6 +95,7 @@ class Listings extends React.Component {
         <br/>
           <ListingsMapped listings={shuffledListings} userName={this.state.user.username}/>
         </div>
+        <br/>
         <Footer />
       </div>
     )

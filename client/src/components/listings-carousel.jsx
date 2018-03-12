@@ -66,7 +66,7 @@ class ListingCarousel extends React.Component {
     let featuresList = feature.map((feature, index) => {
       if (index < 4) {
         return (
-          <Carousel.Item key = {index}>
+          <Carousel.Item style={{height: "450px", backgroundPosition:"center"}}key = {index}>
             <img className="carousel-image" src={ feature.profileUrl} />
             <Carousel.Caption>
               <h3>Plan your next trip to {feature.location.city + ', ' + feature.location.state}</h3>

@@ -41,6 +41,7 @@ class Navbar extends React.Component {
                 <li className="nav-item active">
                 <Link to={{
                 pathname: '/listings',state: { username: this.state.username}}}>Listings</Link></li>
+
                 <li className="nav-item active"><a href="#">About Us</a></li>
                 <li className="nav-item active"><Link to={{ pathname: this.state.linkurl, state: this.state.user }}>{this.state.link}</Link></li>
               </ul>

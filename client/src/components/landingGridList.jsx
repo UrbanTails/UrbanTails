@@ -16,7 +16,7 @@ const styles = {
     overflowX: 'auto',
   },
   titleStyle: {
-    color: 'rgb(0, 188, 212)',
+    color: 'rgb(0, 188, 212)'
   },
 };
 
@@ -33,7 +33,7 @@ const tilesData = [
     description:"A magical pet experience, your pet will become enlightened by the wonders that await."
   },
   {
-    username:"Chuckie's colorado pad",
+    username:"Chucky's colorado pad",
     email: "summersun@hamptons.com",
     password: "waterbaby",
     price: 753,
@@ -53,7 +53,7 @@ const tilesData = [
     description:"A magical pet experience, your pet will become enlightened by the wonders that await."
   },
   {
-    username:"Thee Robin Kim pet spa",
+    username:"The Robin Kim pet spa",
     email: "spookykim@bates.com",
     password: "naptime",
     price: 253,
@@ -73,7 +73,7 @@ const tilesData = [
     description:"A magical pet experience, your pet will become enlightened by the wonders that await."
   },
   {
-    username:"Paula by Paula",
+    username:"Paula's TreeHouse",
     email: "maddog@thunderdome.net",
     password: "supersecret",
     price: 6500,
