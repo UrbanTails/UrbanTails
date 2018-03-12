@@ -208,7 +208,7 @@ class HostProfile extends React.Component {
                 className="btn btn-default btn-lg"
                 to={{
                 pathname: '/listings',
-                state: { username: this.state.username}
+                state: this.props.location.state
                 }}>
               Listings
               </Link>
