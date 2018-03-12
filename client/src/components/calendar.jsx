@@ -68,7 +68,7 @@ export default class Calendar extends React.Component {
         endDate: this.state.endDate,
 
         price: this.state.price,
-        profileUrl: this.state.profileUrl
+        profileUrl: this.state.profileUrl,
          approved: false
       },
       success: (res) => {
