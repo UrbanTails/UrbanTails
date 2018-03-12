@@ -35,7 +35,6 @@ class Navbar extends React.Component {
             <div className="nav navbar-nav" >{ this.props.place ? <Searchbar setresults={this.state.setresults} place={this.props.place}/> : null }</div>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="nav navbar-nav navbar-right">
-
                 <li className="nav-item active"><a href="#">Become a Host</a></li>
                 <li className="nav-item active"><a href="#">Help</a></li>
                 <li className="nav-item active"><a href="#">About Us</a></li>

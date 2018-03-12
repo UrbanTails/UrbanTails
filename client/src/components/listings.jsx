@@ -82,6 +82,7 @@ class Listings extends React.Component {
         <br/>
           <ListingsMapped listings={this.state.listings} userName={this.state.user.username}/>
         </div>
+        <br/>
         <Footer />
       </div>
     )

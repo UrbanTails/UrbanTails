@@ -16,7 +16,7 @@ const styles = {
     overflowX: 'auto',
   },
   titleStyle: {
-    color: 'rgb(0, 188, 212)',
+    color: 'rgb(0, 188, 212)'
   },
 };
 
@@ -32,7 +32,7 @@ const tilesData = [
     description:"A magical pet experience, your pet will become enlightened by the wonders that await."
   },
   {
-    username:"Chuckie's colorado pad",
+    username:"Chucky's colorado pad",
     email: "summersun@hamptons.com",
     password: "waterbaby",
     profileUrl:"http://www.dobkanize.com/wp-content/uploads/2017/12/la-mansion-hollywood-hills-a-modern-california-house-with-spectacular-views-hollywood-hills.jpg",
@@ -50,7 +50,7 @@ const tilesData = [
     description:"A magical pet experience, your pet will become enlightened by the wonders that await."
   },
   {
-    username:"Thee Robin Kim pet spa",
+    username:"The Robin Kim pet spa",
     email: "spookykim@bates.com",
     password: "naptime",
     profileUrl:"http://homesoftherich.net/wp-content/uploads/2013/10/Screen-shot-2013-10-18-at-10.44.09-AM.png",
@@ -68,7 +68,7 @@ const tilesData = [
     description:"A magical pet experience, your pet will become enlightened by the wonders that await."
   },
   {
-    username:"Paula by Paula",
+    username:"Paula's TreeHouse",
     email: "maddog@thunderdome.net",
     password: "supersecret",
     profileUrl:"https://images.adsttc.com/media/images/5947/7fd4/b22e/383a/5900/0178/newsletter/Malan_Vorster_Treehouse_011_Adam_Letch.jpg?1497857964",

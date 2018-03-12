@@ -10,7 +10,7 @@ import Checkout from './checkout.jsx';
 const optionsStyle = {
   maxWidth: 255,
   marginRight: 'auto',
-  marginBottom: 50
+  marginBottom: 20
 };
 
 export default class Calendar extends React.Component {
@@ -28,9 +28,9 @@ export default class Calendar extends React.Component {
       startDate: startDate,
       endDate: endDate,
       available: false,
-      buttonText: "Check Availability",
+      buttonText: "Request Dates",
       price: 64,
-      profileUrl: this.props.profileUrl
+      profileUrl: this.props.profileUrl,
     };
     this.handleChangestartDate = this.handleChangestartDate.bind(this);
     this.handleChangeendDate = this.handleChangeendDate.bind(this);
@@ -64,7 +64,8 @@ export default class Calendar extends React.Component {
         startDate: this.state.startDate,
         endDate: this.state.endDate,
         price: 64,
-        profileUrl: this.state.profileUrl
+        profileUrl: this.state.profileUrl,
+        approved: false
       },
       success: (res) => {
         console.log('Success!')
@@ -120,19 +121,24 @@ export default class Calendar extends React.Component {
               <div>
                 <div
                   style = {{color: "#008080", marginBottom: '5px', fontSize: 20}}>
-                  <span>Available</span> <span class="glyphicon glyphicon-ok"></span>
+                  <span>Requested</span> <span class="glyphicon glyphicon-ok"></span>
                 </div>
                 <div>
+                  We notifed the host. Check your profile to see your request status.
+                </div>
+                <div style={{marginTop : "10px"}}>
                   <Checkout
                     classname= "checkout"
                     name={'Your Freedom Awaits'}
                     amount={total}
                   />
                 </div>
+                <div style={{color: 'red', fontSize: '12px', marginTop: '2px'}}><i>Your card will only be charged after approval.</i></div>
+
               </div>) : (
 
               <div
-                style= {{backgroundColor: "#008080", color: "white", marginBottom: '5px'}}
+                style= {{backgroundColor: "#008080", color: "white", marginBottom: '5px', marginTop: '5px'}}
                 className="btn btn-default btn-lg"
                 onClick = {this.handleBookClick}>
                 {this.state.buttonText}
