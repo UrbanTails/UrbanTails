@@ -11,7 +11,7 @@ var ProfileHostBookings = (props) => {
   if (props.hostBookings.length === 0) {
     return(
       <div>
-        <h3 style={style}>Dates you are hosting:</h3>
+        <h3 style={style}>Bookings {props.user} is hosting:</h3>
         <div style={style}>No bookings yet.</div>
       </div>
     );

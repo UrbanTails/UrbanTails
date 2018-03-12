@@ -163,7 +163,7 @@ app.post('/update-profile', (req, res) => {
 app.get('/getlistings', (req, res) => {
     var city = req.query.city
     console.log(city)
-    //if (!city) {
+    if (!city) {
       db.getAllListings((err, result) => {
         if (err) {
           console.log('error getting all listings from db:', err);
@@ -174,7 +174,7 @@ app.get('/getlistings', (req, res) => {
           res.send(result);
         }
       });
-    /*} else {
+    } else {
       db.getCityListings(city, (err, result) => {
         if (err) {
           console.log('error getting all listings from db:', err);
@@ -185,7 +185,7 @@ app.get('/getlistings', (req, res) => {
           res.send(result);
         }
       })
-    }*/
+    }
 });
 
 // retrieves one host listing based on a string search query for either 'Los Angeles' or 'New York'.  Could be substituted with Google Search API.

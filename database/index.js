@@ -140,7 +140,7 @@ module.exports = {
   // retrieve all host listings in the database
   getAllListings: (callback) => {
     //remove host type and it works
-    User.find({})
+    User.find({type: 'host', 'location.city': 'Seattle'})
       .sort({location:1})
       .exec((err, listings) => {
         if (err) {
