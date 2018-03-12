@@ -39,18 +39,33 @@ class Listings extends React.Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      type: 'GET',
-      url: '/getlistings',
-      success: (data) => {
-        if (data.length > 3) {
-          this.setListings(data);
+    console.log('making AJAX call')
+    if(!this.props.location.state.query) {
+      $.ajax({
+        type: 'GET',
+        url: '/getlistings',
+        success: (data) => {
+          if (data.length > 3) {
+            this.setListings(data);
+          }
+        },
+        error: (data) => {
+          console.log('error get data', data);
         }
+      });
+    } else {
+      $.ajax({
+      type: 'GET',
+      url: `/getlistings?city=${this.props.location.state.query}`,
+      success: (data) => {
+          this.setListings(data);
       },
       error: (data) => {
         console.log('error get data', data);
       }
     });
+    }
+
   }
 
   setResults(searchresults) {
@@ -58,10 +73,10 @@ class Listings extends React.Component {
   }
 
   render() {
-
+    console.log('listings state', this.props.location.state.query)
     return (
       <div>
-        <Navbar link="My Account" linkurl="/host-profile" user={this.state.user} setresults={this.setResults} search={true}/>
+        <Navbar link="My Account" linkurl="/host-profile" user={this.state.user} place={'/listings'} setresults={this.setResults} search={true}/>
         <ListingsCarousel listings={this.state.listings}/>
         <div className="container">
         <br/>

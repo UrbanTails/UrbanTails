@@ -32,33 +32,38 @@ class Searchbar extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    if (this.state.query) {
-      this.toggleError('');
-      $.ajax({
-        type: 'GET',
-        url: `/getlistings?city=${this.state.query}`,
-        success: (data) => {
-          console.log('ajax posting data', data);
-          this.props.setresults(data);
-        },
-        error: (data) => {
-          console.log('error posting data', data);
-        }
-      });
-    } else {
-      this.toggleError('Please enter a city name');
-    }
+      console.log('handling Sumbit')
+      e.preventDefault();
+      if (this.state.query) {
+        this.toggleError('');
+        $.ajax({
+          type: 'GET',
+          url: `/getlistings?city=${this.state.query}`,
+          success: (data) => {
+            console.log('ajax posting data', data);
+            this.props.setresults(data);
+          },
+          error: (data) => {
+            console.log('error posting data', data);
+          }
+        });
+      } else {
+        this.toggleError('Please enter a city name');
+      }
 
-    this.setState({
-      query: ''
-    });
+      this.setState({
+        query: ''
+      });
+
+
   }
 
 
   render() {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
+    {console.log('Search Bar', this.props.place)}
     return (
+
 
       <div className="col-sm-8 searchbar">
         <form className="navbar-form navbar-left" role="search" onSubmit={this.handleSubmit.bind(this)}>
