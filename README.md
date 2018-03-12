@@ -1,6 +1,6 @@
 # UrbanTails
 
-## Team
+##  Team
 
   - __Product Owner__: Queenie Smith
   - __Scrum Master__: Michael Shin

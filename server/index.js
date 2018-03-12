@@ -235,8 +235,24 @@ app.post('/book', (req, res) => {
           res.send(200);
         }
       });
-    } 
+    }
   });
+});
+
+app.post('/approve-booking', (req, res) => {
+  db.approveUserBooking(req.body, (err, result) => {
+    if (err) {
+      res.status(500).send({error: 'Could not approve user info'});
+    } else {
+      db.approveHostBooking(req.body, (err, result) => {
+        if (err) {
+          res.status(500).send({error: 'Cound not approve host info'});
+        } else {
+          res.send(200, result);
+        }
+      })
+    }
+  })
 });
 
 

@@ -6,6 +6,7 @@ import $ from 'jquery';
 import { RaisedButton } from 'material-ui';
 import ProfileHostBookings from './profileHostBookings.jsx';
 import ProfileUserBookings from './profileUserBookings.jsx';
+import { Grid, Col, Row } from 'react-bootstrap';
 
 /*
   HostProfile Component:
@@ -38,6 +39,7 @@ class HostProfile extends React.Component {
       newZipCode: '',
       newDescription: '',
       newEmail: '',
+      newPrice: '',
       displayImageButton: true,
       displayLocationButton: true,
       displayDescriptionButton: true,
@@ -64,6 +66,8 @@ class HostProfile extends React.Component {
     this.onCityEntry = this.onCityEntry.bind(this);
     this.onStateEntry = this.onStateEntry.bind(this);
     this.onZipCodeEntry = this.onZipCodeEntry.bind(this);
+    this.onPriceEntry = this.onPriceEntry.bind(this);
+    this.approveBooking = this.approveBooking.bind(this);
   }
 
   onImageEntry(e) {
@@ -114,6 +118,12 @@ class HostProfile extends React.Component {
     });
   }
 
+  onPriceEntry(e) {
+    this.setState({
+      newPrice: e.target.value
+    });
+  }
+
   revealImageInput() {
     this.setState({
       displayImageButton: false,
@@ -155,6 +165,25 @@ class HostProfile extends React.Component {
     });
   }
 
+  approveBooking(booking) {
+    var component = this;
+    $.ajax({
+      type: 'POST',
+      url: '/approve-booking',
+      data: booking,
+      success: (data) => {
+        console.log('success!');
+        component.setState({
+          hostBookings: data
+        });
+        console.dir(component.state.hostBookings);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
   updateProfile(e) {
     var component = this;
     $.ajax({
@@ -165,7 +194,8 @@ class HostProfile extends React.Component {
         imageUrl: this.state.newImageUrl,
         location: {street: component.state.newStreet, city: component.state.newCity, state: component.state.newState, zipCode: component.state.newZipCode},
         description: this.state.newDescription,
-        email: this.state.newEmail
+        email: this.state.newEmail,
+        price: this.state.newPrice
       },
       success: (userData) => {
         if (userData.errors) {
@@ -197,8 +227,8 @@ class HostProfile extends React.Component {
               <Link
                 className="btn btn-default btn-lg"
                 to={{
-                pathname: '/listing',
-                state: { username: this.state.username}
+                pathname: '/listings',
+                state: this.props.location.state
                 }}>
               Listings
               </Link>
@@ -235,12 +265,16 @@ class HostProfile extends React.Component {
                 <div style={{ paddingLeft: '10%' }} className='col-md-4' className="host-content">
                 </div>
               </div>
-              <div>
-                <ProfileHostBookings hostBookings={this.state.hostBookings} user={this.state.username}/>
-              </div>
-              <div>
-                <ProfileUserBookings userBookings={this.state.userBookings} user={this.state.username}/>
-              </div>
+              <Grid style= {{marginBottom: '50px'}}>
+                <Row className="show-grid">
+                  <Col xs={12} md={6}>
+                    <ProfileHostBookings hostBookings={this.state.hostBookings} user={this.state.username} approveBooking={this.approveBooking}/>
+                  </Col>
+                  <Col xs={12} md={6}>
+                    <ProfileUserBookings userBookings={this.state.userBookings} user={this.state.username}/>
+                  </Col>
+                </Row>
+              </Grid>
             </div>
           )
     } else if (this.state.page === 'Update') {
@@ -267,6 +301,10 @@ class HostProfile extends React.Component {
             <div style={{ margin: '15px' }}>
               <label>Email</label>
               <input style={style} className="form-control" value={this.state.newEmail} onChange={this.onEmailEntry} type="text" placeholder="name@example.com"/>
+            </div>
+            <div style={{ margin: '15px' }}>
+              <label>Price</label>
+              <input style={style} className="form-control" value={this.state.newPrice} onChange={this.onPriceEntry} type="text" placeholder="$0.00"/>
             </div>
             <div style={{ margin: '15px' }}>
               <label style={{ margin: '5px' }}>Street</label>

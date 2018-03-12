@@ -32,40 +32,45 @@ class Searchbar extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
-    if (this.state.query) {
-      this.toggleError('');
-      $.ajax({
-        type: 'GET',
-        url: `/getlistings?city=${this.state.query}`,
-        success: (data) => {
-          console.log('ajax posting data', data);
-          this.props.setresults(data);
-        },
-        error: (data) => {
-          console.log('error posting data', data);
-        }
-      });
-    } else {
-      this.toggleError('Please enter a city name');
-    }
+      console.log('handling Sumbit')
+      e.preventDefault();
+      if (this.state.query) {
+        this.toggleError('');
+        $.ajax({
+          type: 'GET',
+          url: `/getlistings?city=${this.state.query}`,
+          success: (data) => {
+            console.log('ajax posting data', data);
+            this.props.setresults(data);
+          },
+          error: (data) => {
+            console.log('error posting data', data);
+          }
+        });
+      } else {
+        this.toggleError('Please enter a city name');
+      }
 
-    this.setState({
-      query: ''
-    });
+      this.setState({
+        query: ''
+      });
+
+
   }
 
 
   render() {
     let show = this.state.error ? { display: 'block', color: 'red' } : { display: 'none' };
+    {console.log('Search Bar', this.props.place)}
     return (
+
 
       <div className="col-sm-8 searchbar">
         <form className="navbar-form navbar-left" role="search" onSubmit={this.handleSubmit.bind(this)}>
           <div className="input-group">
-            <input style={{ width: '400px',height:'55px' }} type="text" className="form-control" placeholder="Try Greg's cat haven" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
+            <input style={{marginTop: '5px', width: '400px',height:'35px' }} type="text" className="form-control" placeholder="Try Greg's cat haven" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
             <div className="input-group-btn">
-              <button style={{ width: '59px',height:'55px' }}className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+              <button style={{marginTop: '5px', width: '59px',height:'35px' }} className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
             </div>
           </div>
         </form>

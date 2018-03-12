@@ -116,6 +116,7 @@ module.exports = {
       if (data.location) user.location = data.location;
       if (data.description) user.description = data.description;
       if (data.email) user.email = data.email;
+      if (data.price) user.price = data.price;
       user.save();
       callback(null, user);
     });
@@ -124,6 +125,7 @@ module.exports = {
 
   // retrieve host listings by a specific location
   getListings: (data, callback) => {
+
     User.find({type: 'host'})
       .where('location').equals(data.query)
       .exec((err, listings) => {
@@ -133,11 +135,12 @@ module.exports = {
         } else {
           callback(null, listings);
         }
-      });
+    });
   },
   // retrieve all host listings in the database
   getAllListings: (callback) => {
-    User.find({type: 'host'})
+    //remove host type and it works
+    User.find({type: 'host', 'location.city': 'Seattle'})
       .sort({location:1})
       .exec((err, listings) => {
         if (err) {
@@ -173,7 +176,8 @@ module.exports = {
       location: data.location,
       startDate: data.startDate,
       enddate: data.endDate,
-      profileUrl: data.profileUrl
+      profileUrl: data.profileUrl,
+      approved: data.approved
     };
     User.findOneAndUpdate({username: data.userName}, {$push: {userBookings: userBooking}}).exec((err, user) => {
       if (err) {
@@ -192,7 +196,8 @@ module.exports = {
       location: data.location,
       startDate: data.startDate,
       enddate: data.endDate,
-      profileUrl: data.profileUrl
+      profileUrl: data.profileUrl,
+      approved: data.approved
     };
     User.findOneAndUpdate({username: data.hostName}, {$push: {hostBookings: hostBooking}}).exec((err, user) => {
       if (err) {
@@ -203,7 +208,37 @@ module.exports = {
     });
   },
 
+  //update hostbooking approval status to true
+  approveHostBooking: (data, callback) => {
+    //find user, find hostbooking with matching name
+    console.log('DATA', data);
+    User.update({'hostBookings.userName': data.userName, 'hostBookings.hostName': data.hostName}, 
+      {'$set': {'hostBookings.$.approved': true}}, 
+      function(err, result) {
+        if (err) {
+          callback(err);
+        } else {
+            User.findOne({ username: data.hostName}, function(err, user) {
+            callback(null, user.hostBookings);
+          })
+        }
+    });
+  },
 
+  //update userbooking approval status to true
+  approveUserBooking: (data, callback) => {
+    console.log('hostname', data.hostName);
+    console.log('username', data.userName);
+    User.update({'userBookings.hostName': data.hostName, 'userBookings.userName': data.userName}, 
+      {'$set': {'userBookings.$.approved': true}}, 
+      function(err, result) {
+        if (err) {
+          callback(err);
+        } else {
+          callback(null);
+        }
+    });
+  },
 
   // exports mongoose connection for server to reference
   connection: mongoose.connection

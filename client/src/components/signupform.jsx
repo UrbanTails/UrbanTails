@@ -42,7 +42,7 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let clearedState = {}
+    let clearedState = {};
     $.ajax({
       type: 'POST',
       url: '/signup',
@@ -92,7 +92,7 @@ class SignupForm extends React.Component {
       if (this.state.type === 'host') {
         return(<Redirect to={{ pathname: '/host-profile', state: this.state }}/>)
       } else {
-        return (<Redirect to={{ pathname: '/listings', state: this.state }}/>)
+        return (<Redirect to={{ pathname: '/login'}}/>)
       }
     }
 

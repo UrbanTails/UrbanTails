@@ -5,6 +5,9 @@ import Searchbar from './searchbar.jsx';
 import Footer from './footer.jsx';
 
 
+import { Link, Redirect } from 'react-router-dom';
+
+
 import Checkout from './checkout.jsx';
 import Calendar from './calendar.jsx';
 import Container from './container.jsx'
@@ -16,7 +19,6 @@ import Container from './container.jsx'
   Displays currently logged in user information.
 */
 
-
 class SingleListView extends React.Component {
   constructor(props){
     super(props);
@@ -27,16 +29,25 @@ class SingleListView extends React.Component {
       userName: this.props.location.state.userName,
       profileUrl: this.props.location.state.profileUrl,
       email: this.props.location.state.email,
+      price: this.props.location.state.price,
       style: {backgroundColor: 'white'}
-    }
+    };
   }
 
-   render() {
-    {console.log(this.props)}
+  render() {
     return (
       <div>
         <Navbar user={this.state.user} search={true}/>
-
+        <div>
+          <Link
+            className="btn btn-default btn-lg"
+            to={{
+            pathname: '/listings',
+            state: { username: this.state.username}
+            }}>
+          Return to Listings
+          </Link>
+        </div>
         <Col md={5} className="host-content" >
           <h2>Your Pet's adventure awaits.</h2>
 
@@ -50,7 +61,7 @@ class SingleListView extends React.Component {
                 <h2>{this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state + ', ' + this.props.location.state.location.zipCode}</h2>
                 <h4>{this.state.description}</h4>
                 <div>
-                        
+
                   <div>
                       <i className="material-icons md-24 ratings">pets</i>
                       <i className="material-icons md-24 ratings">pets</i>
@@ -74,18 +85,22 @@ class SingleListView extends React.Component {
                 description= {this.state.description}
                 userName= {this.state.userName}
                 profileUrl= {this.state.profileUrl}
+                price={this.state.price}
+
                 />
 
               </div>
             </div>
           </div>
 
+
         </Col>
+
         <br/>
 
         <Footer/>
       </div>
-      
+
     )
   }
 }
