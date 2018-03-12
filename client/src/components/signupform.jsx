@@ -99,9 +99,9 @@ class SignupForm extends React.Component {
     return (
       <div>
         <Navbar link="Login" linkurl="/login"/>
-        <Card className="container signupform">
-          <form action="/" onSubmit={this.handleSubmit.bind(this)} >
-            <h2>Create Your Profile</h2>
+        <Card style={{marginBottom: "50px"}} className="container signupform">
+          <form style={{marginBottom: "10px"}} action="/" onSubmit={this.handleSubmit.bind(this)} >
+            <h2 style={{color: "grey"}}>Create Your Profile</h2>
             <div className="field-line">
               <TextField floatingLabelText="Username" name="username" onChange={this.handleChange} value={this.state.username} errorText={ this.state.errors.username}/>
             </div>
@@ -111,9 +111,8 @@ class SignupForm extends React.Component {
             <div className="field-line">
               <TextField floatingLabelText="Email" name="email" onChange={this.handleChange} value={this.state.email} errorText={ this.state.errors.email }/>
             </div>
-            <div className="field-line">
-              <TextField floatingLabelText="Asking Price:" name="price" onChange={this.handleChange} value={this.state.price} errorText={ this.state.errors.email }/>
-            </div>
+            <br/>
+            <h2 style={{color: "grey"}}>List Your Home</h2>
             <div className="field-line">
               <TextField floatingLabelText="Street" name="street" onChange={this.handleChange} value={this.state.street} errorText={ this.state.errors.location}/>
             </div>
@@ -184,9 +183,12 @@ class SignupForm extends React.Component {
               <TextField floatingLabelText="ImageUrl" name="profileUrl" onChange={this.handleChange} value={this.state.profileUrl} errorText={ this.state.errors.profileUrl }/>
             </div>
             <div className="field-line">
-              <TextField name="description" hintText="Describe yourself or your home to others" multiLine={true} rows={1} rowsMax={4} fullWidth={true} onChange={this.handleChange} value={this.state.description} errorText={ this.state.errors.description }/>
+              <TextField name="description" floatingLabelText="Describe your home" multiLine={true} rows={1} rowsMax={4} fullWidth={true} onChange={this.handleChange} value={this.state.description} errorText={ this.state.errors.description }/>
             </div>
-            <RaisedButton type="submit" label="Submit" primary={true} fullWidth={true} />
+            <div className="field-line">
+              <TextField floatingLabelText="Price per Night" name="price" onChange={this.handleChange} value={this.state.price} errorText={ this.state.errors.email }/>
+            </div>
+            <RaisedButton style={{marginTop: "10px"}} type="submit" label="Create Profile" primary={true} fullWidth={true} />
           </form>
         </Card>
       </div>

@@ -204,8 +204,6 @@ module.exports = {
     });
   },
 
-
-
   // exports mongoose connection for server to reference
   connection: mongoose.connection
 };

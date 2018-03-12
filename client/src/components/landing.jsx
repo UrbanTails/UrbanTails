@@ -53,11 +53,13 @@ class Landing extends React.Component {
                     <div className="col-sm-6 col-sm-offset-3">
                         <div id="imaginary_container">
                             <div className="input-group large stylish-input-group">
+
                                 <input style={{width: "500px",height: "75px"}}type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" value={this.state.query} onChange={this.handleChange.bind(this)}/>
                                 <span className="input-group-addon">
                                     <button style={{width: "50px",height: "62px"}} type="submit" onClick={() => this.handleSubmit()}>
                                         <span className="glyphicon glyphicon-search"></span>
                                     </button>
+
                                 </span>
                             </div>
                         </div>
@@ -66,22 +68,22 @@ class Landing extends React.Component {
             </div>
           </div>
         </Jumbotron>
-          <div className="row">
-            <LandingGridList />
+          <div style={{marginTop: "10px"}} className="row">
+            <LandingGridList/>
           </div>
 
-        <div className="container">
+        <div style= {{marginTop: "25px", marginBottom: "100px"}} className="container">
           <Row className="landing-content">
 
             <Col md={3}>
               <i className="material-icons md-36">face</i>
               <h3>Start</h3>
-              <p>Create a free profile as either a pet owner or a host for pets</p>
+              <p>Create a free profile as either a pet owner or a host for pets.</p>
             </Col>
             <Col md={3}>
               <i className="material-icons md-36">autorenew</i>
               <h3>Connect</h3>
-              <p>Searching for places to stay or open your home to host pets and their owners.</p>
+              <p>Search listings or open your home to other pets.</p>
             </Col>
             <Col md={3}>
               <i className="material-icons md-36">today</i>
@@ -95,9 +97,8 @@ class Landing extends React.Component {
               <p>Share your experience and help build a community of animal lovers.</p>
             </Col>
           </Row>
-          <hr/>
         </div>
-        <Footer />
+        <Footer/>
       </div>
     )
   }

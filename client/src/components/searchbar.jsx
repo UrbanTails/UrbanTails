@@ -68,9 +68,9 @@ class Searchbar extends React.Component {
       <div className="col-sm-8 searchbar">
         <form className="navbar-form navbar-left" role="search" onSubmit={this.handleSubmit.bind(this)}>
           <div className="input-group">
-            <input style={{ width: '400px',height:'55px' }} type="text" className="form-control" placeholder="Try Greg's cat haven" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
+            <input style={{marginTop: '5px', width: '400px',height:'35px' }} type="text" className="form-control" placeholder="Try Greg's cat haven" name="srch-term" id="srch-term" value={this.state.query} onChange={this.handleChange.bind(this)}/>
             <div className="input-group-btn">
-              <button style={{ width: '59px',height:'55px' }}className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+              <button style={{marginTop: '5px', width: '59px',height:'35px' }} className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
             </div>
           </div>
         </form>
