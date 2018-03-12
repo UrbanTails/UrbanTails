@@ -26,12 +26,11 @@ const ListingsMapped = (props) => (
   <div style={styles.root}>
     <GridList
      cellHeight={400}
-     cellWidgth={9700}
      padding={15}
       style={styles.gridList}
     >
       {props.listings.map((tile) => (
-        <Link to ={{ pathname: '/singlelistview', state: {hostName: tile.username, location: tile.location, description: tile.description, profileUrl: tile.profileUrl, email: tile.email
+        <Link to ={{ pathname: '/singlelistview', state: {hostName: tile.username, location: tile.location, description: tile.description, profileUrl: tile.profileUrl, email: tile.email, price: tile.price
           , userName: props.userName}}}>
         <GridTile
           key={tile.email}
