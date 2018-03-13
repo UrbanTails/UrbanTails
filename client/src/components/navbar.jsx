@@ -26,26 +26,26 @@ class Navbar extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-light">
-          <div className="container-fluid top-nav">
+          <div className="container-fluid">
             <div className="navbar-header">
-              <Link className="navbar-brand" to={{ pathname: '/', state: this.state.user }}>
-                <i className="material-icons">pets</i>Urban Tails
+              <Link className="navbar-brand" to={{ pathname: '/', state: this.state.user }} >
+                <i className="material-icons">pets</i> Urban Tails
               </Link>
             </div>
             <div className="nav navbar-nav" >{ this.props.place ? <Searchbar setresults={this.state.setresults} place={this.props.place}/> : null }</div>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
               <ul className="nav navbar-nav navbar-right">
 
-                <li className="nav-item active">
+                <li className="active">
                 <Link to ='/signup'>Become a Host</Link></li>
-                <li className="nav-item active">
+                <li className="active">
                 <Link to={{
                 pathname: '/listings',state: { username: this.state.username}}}>Listings</Link></li>
 
-                <li className="nav-item active"><a href="#">About Us</a></li>
-                <li className="nav-item active"><Link to={{ pathname: this.state.linkurl, state: this.state.user }}>{this.state.link}</Link></li>
+                <li className="active"><a href="#">About Us</a></li>
+                <li className="active"><Link to={{ pathname: this.state.linkurl, state: this.state.user }}>{this.state.link}</Link></li>
               </ul>
-            </div>
+
           </div>
         </nav>
       </div>
