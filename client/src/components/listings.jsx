@@ -88,7 +88,7 @@ class Listings extends React.Component {
     console.log('listings state', this.props.location.state.query)
     const shuffledListings = shuffleArray(this.state.listings)
     return (
-      <div>
+      <div className="container">
         <Navbar link="My Account" linkurl="/host-profile" user={this.state.user} place={'/listings'} setresults={this.setResults} search={true}/>
         <ListingsCarousel />
         <div className="container">

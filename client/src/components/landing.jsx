@@ -42,34 +42,23 @@ class Landing extends React.Component {
   render() {
 
     return (
-      <div>
-        <Navbar link="Login" linkurl="/login"/>
+      <div className="container">
+        <div>
+          <Navbar link="Login" linkurl="/login"/>
+        </div>
         <Jumbotron>
           <div className="content">
             <h1>Urban Tails</h1>
             <h3>Pet boarding wherever your adventure takes you</h3>
-            <div className="container">
-              <div className="row">
-                    <div className="col-sm-6 col-sm-offset-3">
-                        <div id="imaginary_container">
-                            <div className="input-group large stylish-input-group">
-
-                                <input style={{width: "500px",height: "65px"}}type="text" className="form-control"  placeholder="Try Blaine's Bodacious muskrat den in Denver" value={this.state.query} onChange={this.handleChange.bind(this)}/>
-                                <div className="input-group-btn">
-                                    <button onClick={() => this.handleSubmit()} style={{width: '65px',height:'65px' }} className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-              </div>
+            <div className="col-md-4 center-block">
+              <input style={{width: "30vw",height: "65px"}}type="text" placeholder="Try Blaine's Bodacious muskrat den in Denver" value={this.state.query} onChange={this.handleChange.bind(this)}/>
+                <button onClick={() => this.handleSubmit()} style={{width: '65px',height:'65px' }} className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
             </div>
           </div>
         </Jumbotron>
           <div style={{marginTop: "10px"}} className="row">
             <LandingGridList/>
           </div>
-
         <div style= {{marginTop: "25px", marginBottom: "100px"}} className="container">
           <Row className="landing-content">
 

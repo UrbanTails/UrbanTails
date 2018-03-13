@@ -36,7 +36,7 @@ class SingleListView extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <Navbar user={this.state.user} search={true}/>
         <div>
           <Link
@@ -51,13 +51,13 @@ class SingleListView extends React.Component {
         <Col md={5} className="host-content" >
           <h2>Your Pet's adventure awaits.</h2>
 
-          <img style={{ width: '1000px', height: '400px'}} className="card-img-top" src={this.state.profileUrl} alt="Card image cap" />
+          <img style={{ width: '80vw', height: '45vh'}} className="card-img-top" src={this.state.profileUrl} alt="Card image cap" />
 
-          <div class = "container">
+          <div className = "container">
 
-            <div class = "row">
+            <div className = "row">
 
-              <div class="col-xs-6" >
+              <div className="col-xs-6" >
                 <h2>{this.props.location.state.location.street + ', ' + this.props.location.state.location.city + ', ' + this.props.location.state.location.state + ', ' + this.props.location.state.location.zipCode}</h2>
                 <h4>{this.state.description}</h4>
                 <div>
