@@ -11,7 +11,7 @@ import $ from 'jquery';
   Page includes the jumbletron and the hostlisting components
 */
 
-class Listings extends React.Component {
+export default class Listings extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -71,4 +71,3 @@ class Listings extends React.Component {
   }
 }
 
-module.exports = Listings;

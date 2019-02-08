@@ -10,7 +10,7 @@ import Searchbar from './searchbar.jsx';
   Clicking brand links to landing page.
 */
 
-class Navbar extends React.Component {
+export default class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,4 +42,4 @@ class Navbar extends React.Component {
   }
 }
 
-module.exports = Navbar;
+

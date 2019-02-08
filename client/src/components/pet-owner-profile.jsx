@@ -8,7 +8,7 @@ import Navbar from './navbar.jsx';
   Displays currently logged in user information.
 */
 
-class PetProfile extends React.Component {
+export default class PetProfile extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -50,4 +50,3 @@ class PetProfile extends React.Component {
   }
 }
 
-module.exports = PetProfile;

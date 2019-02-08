@@ -9,7 +9,7 @@ import Navbar from './navbar.jsx';
   such as ratings and messaging, and can be shown by clicking on an individual listing on the listings page.
 */
 
-class HostProfile extends React.Component {
+export default class HostProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,5 +57,3 @@ class HostProfile extends React.Component {
     )
   }
 }
-
-module.exports = HostProfile;
