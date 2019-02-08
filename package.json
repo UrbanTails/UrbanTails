@@ -4,7 +4,7 @@
   "description": "  UrbanTails gives pet owners the opportunity to travel with their pets, stress-free, knowing there is a welcoming host for pets wherever they wish to travel.",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
+    "heroku-postbuild": "webpack --mode development",
     "start": "node server/index.js",
     "start:watch": "nodemon server/index.js",
     "test": "test",
