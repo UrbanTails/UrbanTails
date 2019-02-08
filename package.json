@@ -4,7 +4,7 @@
   "description": "  UrbanTails gives pet owners the opportunity to travel with their pets, stress-free, knowing there is a welcoming host for pets wherever they wish to travel.",
   "main": "index.js",
   "scripts": {
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
+    "heroku-postbuild": "webpack --mode development",
     "start": "node server/index.js",
     "start:watch": "nodemon server/index.js",
     "test": "test",
@@ -58,13 +58,13 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "uglifyjs-webpack-plugin": "^2.1.1",
-    "validator": "^9.4.1"
+    "validator": "^9.4.1",
+    "webpack": "^4.29.3"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "babel-loader": "^8.0.5",
-    "webpack": "^4.29.3",
     "webpack-cli": "^3.2.1"
   }
 }
