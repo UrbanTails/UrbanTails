@@ -7,7 +7,7 @@ import { Carousel, Item, Caption } from 'react-bootstrap';
   Shows top 3 listings, or less, given an array of listings from the listings page state
 */
 
-class ListingCarousel extends React.Component {
+export default class ListingCarousel extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -35,4 +35,3 @@ class ListingCarousel extends React.Component {
   }
 }
 
-module.exports = ListingCarousel;

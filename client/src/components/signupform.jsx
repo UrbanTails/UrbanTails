@@ -12,7 +12,7 @@ import { Card, TextField, RadioButton, RadioButtonGroup, RaisedButton } from 'ma
   Redirects to appropriate user profile and passes all user data to profile.
 */
 
-class SignupForm extends React.Component {
+export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -121,5 +121,3 @@ class SignupForm extends React.Component {
     )
   }
 }
-
-module.exports = SignupForm;

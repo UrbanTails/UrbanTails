@@ -4,9 +4,9 @@ const passportLocalMongoose = require('passport-local-mongoose'); //simplifies b
 const bcrypt = require('bcrypt'); // handles password hashing in the database
 const saltRounds = 5;
 let Schema = mongoose.Schema;
-let uristring = process.env.MONGODB_URI || 'mongodb://localhost:27017/users';
+let uristring = process.env.MONGODB_URI || 'mongodb://heroku_z8s1npk3:5rmplkvrrtsinjm5rf3rdflbhl@ds147118.mlab.com:47118/heroku_z8s1npk3';
 //establish connection
-mongoose.connect(uristring, (err) => {
+mongoose.connect(uristring, { useNewUrlParser: true }, (err) => {
   if (err) { console.log('mongodb not connected', err); }
   else {
     console.log('connected to database');
@@ -16,7 +16,7 @@ mongoose.connect(uristring, (err) => {
 //set schema
 let UserSchema = new Schema({
   username: { type: String, unique: true },
-  email: { type: String, unique: true},
+  email: { type: String, unique: true },
   password: String,
   profileUrl: String,
   type: String,
@@ -29,7 +29,7 @@ let User = mongoose.model('User', UserSchema);
 
 
 module.exports = {
-//database search function to ID whether uniq user exist in the db returns boolean
+  //database search function to ID whether uniq user exist in the db returns boolean
   checkUser: (data, callback) => {
     User.find({})
       .where('username').equals(data.username)
@@ -45,7 +45,7 @@ module.exports = {
         }
       });
   },
-//database search function to get user information
+  //database search function to get user information
   getUser: (data, callback) => {
     let attemptedPassword = data.password;
 
@@ -59,7 +59,7 @@ module.exports = {
           callback(err, null);
         }
         else if (user[0]) {
-          let message = { errors: { password: 'Incorrect submission, try again'} };
+          let message = { errors: { password: 'Incorrect submission, try again' } };
 
           bcrypt.compare(attemptedPassword, user[0].password, (err, isMatch) => {
             if (err) { callback(err, null); }
@@ -70,7 +70,7 @@ module.exports = {
             }
           });
         }
-    });
+      });
   },
   //get user by id to feed deserialize user.
   getUserById: (id, callback) => {
@@ -82,14 +82,14 @@ module.exports = {
     let plainTextPassword = data.password;
     //bcrypt password before saving it to database
     bcrypt.hash(plainTextPassword, saltRounds, (err, hash) => {
-      let user = new User ({
-      username: data.username,
-      email: data.email,
-      password: hash,
-      profileUrl: data.profileUrl,
-      type: data.type,
-      location: data.location,
-      description: data.description
+      let user = new User({
+        username: data.username,
+        email: data.email,
+        password: hash,
+        profileUrl: data.profileUrl,
+        type: data.type,
+        location: data.location,
+        description: data.description
       });
 
       user.save((err, user) => {
@@ -104,7 +104,7 @@ module.exports = {
   },
   // retrieve host listings by a specific location
   getListings: (data, callback) => {
-    User.find({type: 'host'})
+    User.find({ type: 'host' })
       .where('location').equals(data.query)
       .exec((err, listings) => {
         if (err) {
@@ -117,8 +117,8 @@ module.exports = {
   },
   // retrieve all host listings in the database
   getAllListings: (callback) => {
-    User.find({type: 'host'})
-      .sort({location:1})
+    User.find({ type: 'host' })
+      .sort({ location: 1 })
       .exec((err, listings) => {
         if (err) {
           console.log('Error getting all listings');

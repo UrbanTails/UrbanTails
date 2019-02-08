@@ -44,7 +44,7 @@ passport.use(new LocalStrategy((username, password, done) => {
   db.getUser(username, (err, user) => {
     if (err) { console.log('error in passport local strategy get user', err); }
     else if (!user) {
-      return done(null, false, {message: 'Unknown user'});
+      return done(null, false, { message: 'Unknown user' });
     } else {
       return done(null, user);
     }
@@ -74,13 +74,13 @@ app.post('/login', (req, res) => {
   });
 });
 // destroys session and logs user out
-app.get('/logout', function (req, res){
+app.get('/logout', function (req, res) {
   req.logOut();
-  res.clearCookie('connect.sid', {path: '/'}).send('cleared');
+  res.clearCookie('connect.sid', { path: '/' }).send('cleared');
 });
 // checks if user is in database (utilized on first Sign Up page)
 app.post('/checkuser', (req, res) => {
-  db.checkUser(req.body, function(err, result) {
+  db.checkUser(req.body, function (err, result) {
     if (err) {
       res.status(500).send({ error: 'Error checking username' });
     } else {
@@ -123,7 +123,7 @@ app.post('/signup', (req, res) => {
 });
 // authenticates pet owner user upon login and retrieves profile
 app.get('/pet-profile', (req, res, next) => {
-  passport.authenticate('local', function(err, user, info) {
+  passport.authenticate('local', function (err, user, info) {
     if (err || !user) { return res.redirect('/login'); }
     else {
       return res.send(req.user);
@@ -132,7 +132,7 @@ app.get('/pet-profile', (req, res, next) => {
 });
 // authenticates host user upon login and retrieves profile
 app.get('/host-profile', (req, res, next) => {
-  passport.authenticate('local', function(err, user, info) {
+  passport.authenticate('local', function (err, user, info) {
     if (err || !user) { return res.redirect('/login'); }
     else {
       return res.send(req.user);
@@ -141,29 +141,29 @@ app.get('/host-profile', (req, res, next) => {
 });
 // retrieves all host listings from the database
 app.get('/getlistings', (req, res) => {
-    db.getAllListings((err, result) => {
-      if (err) {
-        console.log('error getting all listings from db:', err);
-        res.status(500).send({ error: 'Could not retrieve all listings' });
-      }
-      else {
-        console.log('retrieved all listings');
-        res.send(result)
-      }
-    });
+  db.getAllListings((err, result) => {
+    if (err) {
+      console.log('error getting all listings from db:', err);
+      res.status(500).send({ error: 'Could not retrieve all listings' });
+    }
+    else {
+      console.log('retrieved all listings');
+      res.send(result)
+    }
+  });
 });
 // retrieves one host listing based on a string search query for either 'Los Angeles' or 'New York'.  Could be substituted with Google Search API.
 app.post('/getlistings', (req, res) => {
-    db.getListings(req.body, (err, result) => {
-      if (err) {
-        console.log('error getting listings from db:', err);
-        res.status(500).send({ error: 'Could not retrieve listings' });
-      }
-      else {
-        console.log('retrieved listings from', result[0].location);
-        res.send(result);
-      }
-    });
+  db.getListings(req.body, (err, result) => {
+    if (err) {
+      console.log('error getting listings from db:', err);
+      res.status(500).send({ error: 'Could not retrieve listings' });
+    }
+    else {
+      console.log('retrieved listings from', result[0].location);
+      res.send(result);
+    }
+  });
 });
 // creates passport session for user by serialized ID
 passport.serializeUser((user_id, done) => {
@@ -181,6 +181,6 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`listening on port ${PORT}`);
 });

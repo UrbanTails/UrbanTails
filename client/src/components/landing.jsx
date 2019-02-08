@@ -13,7 +13,7 @@ import Footer from './footer.jsx';
   Clicking Get Started routes to signup page, and clicking Login leads to login page
 */
 
-class Landing extends React.Component {
+export default class Landing extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -60,7 +60,7 @@ class Landing extends React.Component {
           </Row>
           <hr/>
           <h2 className="heading-landing">About Us</h2>
-          <Row className="landing-content padded">
+          <div className="landing-content padded">
             <Col md={3} className="landing-box">
               <Avatar src="https://avatars3.githubusercontent.com/u/22921336?s=460&v=4" size={100}/>
               <h4>Annah Patterson</h4>
@@ -81,12 +81,10 @@ class Landing extends React.Component {
               <h4>Yufan Wang</h4>
               <p>Lead Engineer</p>
             </Col>
-          </Row>
+          </div>
         </div>
         <Footer />
       </div>
     )
   }
 }
-
-module.exports = Landing;

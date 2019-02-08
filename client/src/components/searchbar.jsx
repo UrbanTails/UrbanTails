@@ -9,7 +9,7 @@ import $ from 'jquery';
   Results are rendered to page
 */
 
-class Searchbar extends React.Component {
+export default class Searchbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,4 +77,3 @@ class Searchbar extends React.Component {
   }
 }
 
-module.exports = Searchbar;

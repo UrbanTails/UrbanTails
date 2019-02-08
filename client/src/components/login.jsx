@@ -13,7 +13,7 @@ import Footer from './footer.jsx';
   Displays errors if form is not properly validated
 */
 
-class Login extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -120,5 +120,3 @@ class Login extends React.Component {
     )
   }
 }
-
-module.exports = Login;

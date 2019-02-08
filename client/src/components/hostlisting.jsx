@@ -10,7 +10,7 @@ import { RaisedButton } from 'material-ui';
   When contact button is clicked, the contact email is displayed
 */
 
-class HostListing extends React.Component {
+export default class HostListing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,5 +64,3 @@ class HostListing extends React.Component {
     )
   }
 }
-
-module.exports = HostListing;

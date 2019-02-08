@@ -16,7 +16,7 @@ import Footer from './footer.jsx';
   Redirects to SignupForm passing along selected username and password.
 */
 
-class Signup extends React.Component {
+export default class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -115,5 +115,3 @@ class Signup extends React.Component {
     )
   }
 }
-
-module.exports = Signup;
